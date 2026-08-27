@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import ThemeToggle from './ThemeToggle'
+import AyeLogo from './AyeLogo'
 import { Menu, X, Globe, ArrowUpRight } from 'lucide-react'
 
 type Dict = {
@@ -62,16 +63,8 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
           href={`/${lang}`}
           className="flex items-center gap-3 text-base font-bold tracking-tight text-[var(--foreground)] group"
         >
-          <div className="w-7 h-7 rounded-xs border border-[var(--border-strong)] p-1 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] transition-colors flex items-center justify-center">
-            <svg viewBox="0 0 1024 1024" className="w-full h-full text-[var(--foreground)]">
-              <path
-                d="M512 100 L900 850 L124 850 Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="110"
-              />
-              <circle cx="512" cy="512" r="160" fill="var(--accent-amber)" />
-            </svg>
+          <div className="w-8 h-8 rounded-xs border border-[var(--border-strong)] p-1 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] transition-colors flex items-center justify-center">
+            <AyeLogo className="w-full h-full text-[var(--foreground)]" />
           </div>
           <span className="font-bold tracking-tight">
             Aye<span className="font-light text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors">Apps</span>
