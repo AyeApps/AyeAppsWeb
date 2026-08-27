@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // Configured for optimal edge performance & Cloudflare Pages deployment
+  output: 'export',
   images: {
     unoptimized: true,
   },
