@@ -94,6 +94,9 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
           {/* Language Switcher */}
           <Link
             href={otherPath}
+            onClick={() => {
+              try { localStorage.setItem('preferred_lang', otherLang) } catch {}
+            }}
             className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] hover:border-[var(--accent-amber-border)] text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             aria-label={lang === 'es' ? 'Switch interface to English' : 'Cambiar interfaz a Español'}
           >
@@ -153,7 +156,10 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
           <div className="flex items-center justify-between pt-4 border-t border-[var(--border)]">
             <Link
               href={otherPath}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false)
+                try { localStorage.setItem('preferred_lang', otherLang) } catch {}
+              }}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]"
             >
               <Globe className="w-3.5 h-3.5 text-[var(--accent-amber)]" />

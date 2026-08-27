@@ -72,6 +72,13 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t==null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})()`,
           }}
         />
+        <Script
+          id="lang-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var p=window.location.pathname;if(p==='/'||p===''){var s=localStorage.getItem('preferred_lang');if(s==='en'||s==='es'){window.location.replace('/'+s);return}var l=(navigator.language||navigator.userLanguage||'es').toLowerCase();if(l.startsWith('es')){window.location.replace('/es')}else{window.location.replace('/en')}}}catch(e){}})()`,
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${cormorant.variable} ${montserrat.variable} antialiased selection:bg-[var(--accent-amber)] selection:text-black`}>
         {children}
