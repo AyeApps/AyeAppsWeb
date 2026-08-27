@@ -80,8 +80,8 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
     },
     liveUrl: 'https://fatimaresendiz.com',
     heroTaglineBusiness: {
-      es: 'Un sistema digital completo que eliminó las tareas manuales y automatizó el contacto de clientes, permitiendo a Fátima enfocarse al 100% en su fotografía.',
-      en: 'A complete digital ecosystem eliminating repetitive manual tasks and automating client intake, allowing Fátima to focus 100% on her photography.'
+      es: 'Un sistema digital completo que agilizó su operación y optimizó sus tiempos de gestión, permitiendo a Fátima destinar más tiempo a lo que realmente importa: su fotografía y la atención a sus clientes.',
+      en: 'A complete digital platform that streamlined operations and optimized management time, allowing Fátima to dedicate more time to what truly matters: her photography and client experience.'
     },
     heroTaglineTech: {
       es: 'Monorepo en la nube con Next.js 15 (ISR / Server Components) y FastAPI asíncrono para gestión de contenidos sin código y reserva en tiempo real.',
@@ -127,7 +127,7 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
         value: '100%',
         labelBusiness: { es: 'Gestión Autónoma', en: 'Zero-Code Freedom' },
         labelTech: { es: 'Headless Canvas CMS', en: 'Headless Canvas CMS' },
-        detailBusiness: { es: 'Fátima actualiza fotos, videos y bodas sin programador.', en: 'Update photos, videos & stories with zero code.' },
+        detailBusiness: { es: 'Fátima actualiza fotos, videos y bodas sin programar.', en: 'Update photos, videos & stories with zero code.' },
         detailTech: { es: 'Esquemas Pydantic v2 con validación estricta.', en: 'Pydantic v2 schemas + strict API validation.' }
       },
       {
