@@ -61,14 +61,12 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
         {/* Brand Logo */}
         <Link
           href={`/${lang}`}
-          className="flex items-center gap-3 text-base font-bold tracking-tight text-[var(--foreground)] group"
+          aria-label="AyeApps Home"
+          className="btn-press group flex items-center justify-center rounded-xs transition-transform"
         >
-          <div className="w-8 h-8 rounded-xs border border-[var(--border-strong)] p-1 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] transition-colors flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xs border border-[var(--border-strong)] p-1.5 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] group-hover:shadow-[0_0_14px_var(--accent-amber-subtle)] transition-all flex items-center justify-center">
             <AyeLogo className="w-full h-full text-[var(--foreground)]" />
           </div>
-          <span className="font-bold tracking-tight">
-            Aye<span className="font-light text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors">Apps</span>
-          </span>
         </Link>
 
         {/* Desktop Navigation */}
