@@ -1,4 +1,5 @@
 import ScrollReveal from './ScrollReveal'
+import { ArrowUpRight } from 'lucide-react'
 
 type ServiceItem = {
   index: string
@@ -47,35 +48,39 @@ export default function Services({ dict }: { dict: Dict }) {
           </div>
         </ScrollReveal>
 
-        {/* Services Editorial Rows */}
+        {/* Services Editorial Rows with Purposeful Motion */}
         <div className="divide-y divide-[var(--border)] border-y border-[var(--border)]">
           {s.items.map((item, idx) => (
             <ScrollReveal key={item.index} delay={idx * 70}>
-              <div className="bracket-corners py-10 sm:py-12 group transition-colors hover:bg-[var(--surface-alt)] px-4 sm:px-6">
+              <div className="bracket-corners py-10 sm:py-12 group transition-all duration-300 hover:bg-[var(--surface-alt)] px-4 sm:px-6 rounded-xs cursor-default">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                  {/* Number Index */}
-                  <div className="md:col-span-2">
-                    <span className="font-mono text-2xl sm:text-3xl font-bold text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors">
+                  {/* Number Index with Kinetic Slide */}
+                  <div className="md:col-span-2 flex items-center justify-between md:block">
+                    <span className="font-mono text-2xl sm:text-3xl font-bold text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors inline-block group-hover:translate-x-1 duration-200">
                       {item.index}
                     </span>
+                    <ArrowUpRight className="w-5 h-5 text-[var(--muted)] opacity-0 group-hover:opacity-100 group-hover:text-[var(--accent-amber)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-200 md:hidden" />
                   </div>
 
                   {/* Title & Description */}
                   <div className="md:col-span-6 space-y-3">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--accent-amber)] transition-colors">
-                      {item.title}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--accent-amber)] transition-colors">
+                        {item.title}
+                      </h3>
+                      <ArrowUpRight className="hidden md:inline-block w-4 h-4 text-[var(--muted)] opacity-0 group-hover:opacity-100 group-hover:text-[var(--accent-amber)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" />
+                    </div>
                     <p className="text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-[500px]">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Tags */}
+                  {/* Tags with Micro-Elevations */}
                   <div className="md:col-span-4 flex flex-wrap gap-2 md:justify-end">
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface)] group-hover:border-[var(--accent-amber-border)] text-[var(--muted)] group-hover:text-[var(--foreground)] transition-colors"
+                        className="px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface)] group-hover:border-[var(--accent-amber-border)] text-[var(--muted)] group-hover:text-[var(--foreground)] transition-all duration-200 group-hover:shadow-2xs"
                       >
                         {tag}
                       </span>

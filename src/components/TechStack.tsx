@@ -1,5 +1,5 @@
 import ScrollReveal from './ScrollReveal'
-import { Smartphone, Layout, Server, Cpu, ShieldCheck } from 'lucide-react'
+import { Smartphone, Layout, Server, ShieldCheck } from 'lucide-react'
 
 type Dict = {
   stack: {
@@ -67,15 +67,15 @@ export default function TechStack({ dict }: { dict: Dict }) {
           </div>
         </ScrollReveal>
 
-        {/* Stack Categories Grid */}
+        {/* Stack Categories Grid with Purposeful Motion */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {STACK_CATEGORIES.map((cat, idx) => {
             const Icon = cat.icon
             return (
               <ScrollReveal key={cat.title} delay={idx * 60}>
-                <div className="bracket-corners card-lift p-6 sm:p-8 rounded-xs border border-[var(--border)] bg-[var(--surface)] h-full flex flex-col justify-between group">
+                <div className="bracket-corners card-lift p-6 sm:p-8 rounded-xs border border-[var(--border)] bg-[var(--surface)] h-full flex flex-col justify-between group transition-all duration-300">
                   <div>
-                    <div className="w-10 h-10 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-[0_0_12px_var(--accent-amber-subtle)] transition-all duration-200">
                       <Icon className="w-5 h-5 text-[var(--accent-amber)]" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent-amber)] transition-colors">
@@ -90,7 +90,7 @@ export default function TechStack({ dict }: { dict: Dict }) {
                     {cat.techs.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] text-[var(--foreground)] group-hover:border-[var(--accent-amber-border)] transition-colors"
+                        className="px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] text-[var(--foreground)] group-hover:border-[var(--accent-amber-border)] group-hover:-translate-y-0.5 transition-all duration-200"
                       >
                         {tech}
                       </span>
