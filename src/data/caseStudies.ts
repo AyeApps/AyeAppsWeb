@@ -29,6 +29,7 @@ export interface CaseStudyData {
   githubUrl?: string
   heroTaglineBusiness: { es: string; en: string }
   heroTaglineTech: { es: string; en: string }
+  techBadge?: { es: string; en: string }
   overviewBusiness: { es: string; en: string }
   overviewTech: { es: string; en: string }
   challengeBusiness: { es: string; en: string }
@@ -85,6 +86,10 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
     heroTaglineTech: {
       es: 'Monorepo en la nube con Next.js 15 (ISR / Server Components) y FastAPI asíncrono para gestión de contenidos sin código y reserva en tiempo real.',
       en: 'Cloud monorepo powered by Next.js 15 (ISR / Server Components) and async FastAPI for zero-code CMS and real-time slot scheduling.'
+    },
+    techBadge: {
+      es: 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% EN LA NUBE',
+      en: 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% CLOUD-HOSTED'
     },
     overviewBusiness: {
       es: 'Fatima Resendiz Web fue creada para transformar una operación que antes dependía de mensajes dispersos en una experiencia fluida y de alto nivel. Ahora, sus clientes exploran su portafolio, comprueban fechas disponibles al instante y disfrutan de una experiencia premium desde cualquier dispositivo.',

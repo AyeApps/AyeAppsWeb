@@ -120,9 +120,9 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 <div className="inline-flex items-center gap-2 font-mono text-xs text-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] px-2.5 py-1 rounded-xs border border-[var(--accent-amber-border)] w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="tracking-wide">
-                    {isEs
+                    {study.techBadge?.[lang] || (isEs
                       ? 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% EN LA NUBE'
-                      : 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% CLOUD-HOSTED'}
+                      : 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% CLOUD-HOSTED')}
                   </span>
                 </div>
                 <h1
