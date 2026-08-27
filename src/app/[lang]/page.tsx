@@ -115,11 +115,13 @@ export default async function HomePage({ params }: PageProps) {
                     <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between">
                       <span className="text-[11px] font-mono text-[var(--muted)]">{project.role[lang]}</span>
                       <Link
-                        href={`/${lang}/portfolio`}
-                        className="inline-flex items-center gap-1 text-xs font-medium text-[var(--foreground)] hover:text-[var(--accent-amber)] transition-colors"
+                        href={['fatima-resendiz', 'aye-video-downloader'].includes(project.slug) ? `/${lang}/portfolio/${project.slug}` : `/${lang}/portfolio`}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--foreground)] hover:text-[var(--accent-amber)] transition-colors"
                       >
-                        {isEs ? 'Ver ficha técnica' : 'View details'}
-                        <ArrowUpRight className="w-3.5 h-3.5" />
+                        {['fatima-resendiz', 'aye-video-downloader'].includes(project.slug)
+                          ? (isEs ? 'Ver caso de estudio' : 'View case study')
+                          : (isEs ? 'Ver ficha técnica' : 'View details')}
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
                       </Link>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { PROJECTS } from '@/data/projects'
 import ScrollReveal from './ScrollReveal'
@@ -15,7 +16,8 @@ import {
   Camera,
   Download,
   Server,
-  Laptop
+  Laptop,
+  Sparkles
 } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
@@ -154,9 +156,21 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent-amber)] transition-colors">
-                    {project.title}
-                  </h3>
+                  {['fatima-resendiz', 'aye-video-downloader'].includes(project.slug) ? (
+                    <Link
+                      href={`/${lang}/portfolio/${project.slug}`}
+                      className="inline-block group/title mb-2"
+                    >
+                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] group-hover/title:text-[var(--accent-amber)] transition-colors flex items-center gap-2">
+                        <span>{project.title}</span>
+                        <Sparkles className="w-4 h-4 text-[var(--accent-amber)] opacity-70" />
+                      </h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--accent-amber)] transition-colors">
+                      {project.title}
+                    </h3>
+                  )}
 
                   <p className="text-xs sm:text-sm text-[var(--muted)] mb-5 leading-relaxed">
                     {project.tagline[lang]}
@@ -399,7 +413,16 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   </div>
 
                   {/* Actions Links */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
+                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--border)]">
+                    {['fatima-resendiz', 'aye-video-downloader'].includes(project.slug) && (
+                      <Link
+                        href={`/${lang}/portfolio/${project.slug}`}
+                        className="btn-press inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xs bg-[var(--surface-raised)] border border-[var(--accent-amber-border)] text-[var(--foreground)] hover:bg-[var(--accent-amber)] hover:text-black transition-colors"
+                      >
+                        <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+                        <span>{p.view_case}</span>
+                      </Link>
+                    )}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
