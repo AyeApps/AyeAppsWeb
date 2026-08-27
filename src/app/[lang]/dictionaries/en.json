@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Ecosystem & Projects",
+    "stack": "Stack",
+    "contact": "Contact",
+    "cta": "Let's Talk"
+  },
+  "hero": {
+    "badge": "Software Atelier · Querétaro, Mexico",
+    "headline1": "Software Engineering.",
+    "headline2": "Precision & Character.",
+    "sub": "We architect and build bespoke web platforms, native iOS applications, and scalable cloud solutions. No generic templates. Pure boutique craft and impeccable code.",
+    "cta_primary": "Explore Ecosystem",
+    "cta_secondary": "View Services",
+    "stats": [
+      { "value": "100%", "label": "Custom Code" },
+      { "value": "< 1.2s", "label": "Load Time" },
+      { "value": "25+", "label": "Hierarchy Levels" },
+      { "value": "O(n)", "label": "Optimized Scale" }
+    ]
+  },
+  "portfolio": {
+    "badge": "01 / Projects & Ecosystem",
+    "title": "Production platforms and engineered software products.",
+    "sub": "We combine custom client systems with demanding proprietary software products.",
+    "filter_all": "All",
+    "filter_client": "Clients & Platforms",
+    "filter_product": "AyeApps Products",
+    "filter_mobile": "iOS / Mobile",
+    "filter_macos": "macOS & DSP",
+    "view_case": "View case study",
+    "view_github": "View repository",
+    "view_live": "Visit platform"
+  },
+  "services": {
+    "badge": "02 / Capabilities",
+    "title": "A specialized technical atelier for high-standard software.",
+    "sub": "We stay involved from concept to production: interface design, system architecture, database modeling, and edge deployment.",
+    "items": [
+      {
+        "index": "01",
+        "title": "Custom Web Platforms & Apps",
+        "description": "High-converting corporate sites, tailored client portals, and interactive dashboards engineered with Next.js and Tailwind CSS. Extreme speed, flawless technical SEO, and distinct aesthetics.",
+        "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO"]
+      },
+      {
+        "index": "02",
+        "title": "Native iOS & Mobile Applications",
+        "description": "Native Swift/SwiftUI engineering utilizing Apple hardware capabilities (cameras, sensors, DSP acceleration, haptics), alongside cross-platform Expo solutions.",
+        "tags": ["Swift", "SwiftUI", "iOS", "React Native", "Expo"]
+      },
+      {
+        "index": "03",
+        "title": "Backend Architecture, APIs & Cloud",
+        "description": "High-throughput asynchronous microservices with Python/FastAPI, scalable MongoDB & PostgreSQL data models, containerized with Docker and deployed globally.",
+        "tags": ["Python", "FastAPI", "MongoDB", "PostgreSQL", "Docker", "AWS"]
+      },
+      {
+        "index": "04",
+        "title": "Automation, CRM & Email Marketing",
+        "description": "Payment gateway integrations (Stripe), real-time customer pipelines, transactional messaging (Brevo/SendGrid), and robust JWT authentication with token rotation.",
+        "tags": ["Stripe", "Brevo", "JWT Auth", "Cloudflare Turnstile"]
+      }
+    ]
+  },
+  "stack": {
+    "badge": "03 / Tech & Methodology",
+    "title": "Modern tools, time-tested foundations.",
+    "sub": "We deliberately hand-pick each layer of the technical stack for longevity, performance, and maintainability."
+  },
+  "testimonials": {
+    "badge": "04 / Testimonials",
+    "quote": "Alberto completely elevated the digital experience of my business. The custom platform he engineered is not only visually stunning, but seamlessly automated my entire client pipeline and gallery delivery without friction.",
+    "author": "Fátima Reséndiz",
+    "role": "Professional Photographer",
+    "company": "fatimaresendiz.com"
+  },
+  "contact": {
+    "badge": "05 / Contact & Connect",
+    "title": "Have a project or ambitious vision?",
+    "sub": "We are polishing the interactive estimator module. In the meantime, connect with us directly to start mapping out your software architecture.",
+    "under_construction_title": "Estimator Module Under Construction",
+    "under_construction_badge": "Architecture in Progress",
+    "under_construction_text": "We are preparing our automated messaging infrastructure. You can reach out directly through any of our channels:",
+    "channels": {
+      "email_label": "Direct Email",
+      "email_val": "contact@alberto24dev.me",
+      "whatsapp_label": "Direct WhatsApp",
+      "whatsapp_val": "+52 (442) 352-2387",
+      "whatsapp_btn": "Send Message",
+      "location_label": "Location",
+      "location_val": "Querétaro, Qro. Mexico"
+    }
+  },
+  "footer": {
+    "tagline": "Boutique software engineering & custom mobile/web apps.",
+    "rights": "All rights reserved.",
+    "built_with": "Built with Next.js, Geist & Cloudflare Edge."
+  }
+}

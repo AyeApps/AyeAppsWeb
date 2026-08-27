@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+:root {
+  --surface:          #fafafa;
+  --surface-raised:   #ffffff;
+  --surface-alt:      #f4f4f4;
+  --surface-inv:      #090909;
+  --foreground:       #111111;
+  --foreground-inv:   #fafafa;
+  --muted:            #666666;
+  --muted-inv:        #999999;
+  --border:           rgba(0, 0, 0, 0.08);
+  --border-strong:    rgba(0, 0, 0, 0.16);
+  --hover-overlay:    rgba(0, 0, 0, 0.03);
+
+  /* AyeTasks Cyber-Amber Accent DNA */
+  --accent-amber:        #E68A00;
+  --accent-amber-hover:  #D47D00;
+  --accent-amber-subtle: rgba(230, 138, 0, 0.10);
+  --accent-amber-border: rgba(230, 138, 0, 0.40);
+  --accent-amber-glow:   rgba(230, 138, 0, 0.25);
+
+  --dot-color:        rgba(0, 0, 0, 0.06);
+
+  --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dark {
+  --surface:          #050505;
+  --surface-raised:   #0d0d0d;
+  --surface-alt:      #121212;
+  --surface-inv:      #fafafa;
+  --foreground:       #f5f5f5;
+  --foreground-inv:   #050505;
+  --muted:            #8a8a8a;
+  --muted-inv:        #555555;
+  --border:           rgba(255, 255, 255, 0.09);
+  --border-strong:    rgba(255, 255, 255, 0.18);
+  --hover-overlay:    rgba(255, 255, 255, 0.04);
+
+  /* AyeTasks Cyber-Amber Accent DNA in Dark Mode */
+  --accent-amber:        #FE9D01;
+  --accent-amber-hover:  #FFAF20;
+  --accent-amber-subtle: rgba(254, 157, 1, 0.12);
+  --accent-amber-border: rgba(254, 157, 1, 0.50);
+  --accent-amber-glow:   rgba(254, 157, 1, 0.35);
+
+  --dot-color:        rgba(255, 255, 255, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--surface);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--surface);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 250ms var(--ease-quart), color 250ms var(--ease-quart);
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Focus states ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Keyframe Animations ────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes line-grow {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes nav-slide-in {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes orbit-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.97); }
+}
+
+/* ─── Navigation ─────────────────────────────────────── */
+.nav-enter {
+  animation: nav-slide-in 600ms var(--ease-expo) forwards;
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--accent-amber);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms var(--ease-expo);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Hero Animation Classes ─────────────────────────── */
+.hero-enter {
+  opacity: 0;
+  animation: fade-up 0.85s var(--ease-expo) forwards;
+}
+
+.hero-line-draw {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: line-grow 1.4s var(--ease-expo) forwards;
+  animation-delay: 800ms;
+}
+
+.circles-orbit {
+  animation: orbit-slow 100s linear infinite;
+}
+
+/* ─── Dot Matrix Background ──────────────────────────── */
+.dot-pattern {
+  background-image: radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+/* ─── Scroll Reveal ──────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.reveal.is-visible {
+  animation: fade-up 0.65s var(--ease-expo) forwards;
+}
+
+/* ─── Geo Badge ──────────────────────────────────────── */
+.geo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.geo-badge::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1.5px;
+  background: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+/* ─── Bracket Corners (AyeApps Signature) ────────────── */
+.bracket-corners {
+  position: relative;
+}
+.bracket-corners::before,
+.bracket-corners::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 10;
+}
+.bracket-corners::before {
+  top: -1px; left: -1px;
+  border-top: 1.5px solid var(--accent-amber);
+  border-left: 1.5px solid var(--accent-amber);
+  transform-origin: top left;
+  transition: transform 300ms var(--ease-expo), border-color 200ms ease;
+}
+.bracket-corners::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 1.5px solid var(--accent-amber);
+  border-right: 1.5px solid var(--accent-amber);
+  transform-origin: bottom right;
+  transition: transform 300ms var(--ease-expo), border-color 200ms ease;
+}
+.bracket-corners:hover::before,
+.bracket-corners:hover::after {
+  transform: scale(1.2);
+}
+
+/* ─── Cyber Neo-Brutalist Card Lift ─────────────────── */
+.card-lift {
+  transition: transform 220ms var(--ease-quart),
+              border-color 220ms ease,
+              box-shadow 220ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-amber-border);
+  box-shadow: 0 12px 30px -10px var(--accent-amber-subtle);
+}
+
+/* ─── Button Press ───────────────────────────────────── */
+.btn-press {
+  transition: transform 120ms var(--ease-quart),
+              background-color 160ms ease,
+              border-color 160ms ease,
+              box-shadow 160ms ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ─── Theme Transition ───────────────────────────────── */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition:
+    background-color 250ms var(--ease-quart),
+    border-color     250ms var(--ease-quart),
+    color            250ms var(--ease-quart) !important;
+}
+
+/* ─── Reduced Motion Support ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter, .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .nav-enter { animation: none !important; }
+  .nav-link::after { transition: none; }
+  .card-lift:hover { transform: none; }
+  .bracket-corners::before,
+  .bracket-corners::after { transition: none; }
+  .circles-orbit { animation: none !important; }
+  .hero-line-draw { animation: none !important; transform: scaleX(1) !important; }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

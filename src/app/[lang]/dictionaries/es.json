@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Ecosistema & Proyectos",
+    "stack": "Stack",
+    "contact": "Contacto",
+    "cta": "Hablemos"
+  },
+  "hero": {
+    "badge": "Atelier de Software · Querétaro, México",
+    "headline1": "Ingeniería de Software.",
+    "headline2": "Precisión y Carácter.",
+    "sub": "Diseñamos y construimos plataformas web, aplicaciones nativas iOS y arquitecturas cloud a medida. Sin plantillas genéricas. Con enfoque boutique y código impecable.",
+    "cta_primary": "Explorar Ecosistema",
+    "cta_secondary": "Conocer Servicios",
+    "stats": [
+      { "value": "100%", "label": "Código a Medida" },
+      { "value": "< 1.2s", "label": "Tiempo de Carga" },
+      { "value": "25+", "label": "Niveles de Jerarquía" },
+      { "value": "O(n)", "label": "Rendimiento Optimizado" }
+    ]
+  },
+  "portfolio": {
+    "badge": "01 / Proyectos & Ecosistema",
+    "title": "Ingeniería de producto y plataformas en producción.",
+    "sub": "Combinamos desarrollos a medida para negocios con productos de software propios de alta exigencia técnica.",
+    "filter_all": "Todos",
+    "filter_client": "Clientes & Plataformas",
+    "filter_product": "Productos AyeApps",
+    "filter_mobile": "iOS / Móvil",
+    "filter_macos": "macOS & DSP",
+    "view_case": "Ver caso de estudio",
+    "view_github": "Ver repositorio",
+    "view_live": "Visitar plataforma"
+  },
+  "services": {
+    "badge": "02 / Especialidades",
+    "title": "Un atelier técnico para proyectos de alto nivel.",
+    "sub": "Nos involucramos de principio a fin: desde el diseño de interfaz y la arquitectura de datos hasta el despliegue en producción.",
+    "items": [
+      {
+        "index": "01",
+        "title": "Páginas Web & Plataformas a Medida",
+        "description": "Sitios web corporativos, landing pages de alta conversión y dashboards interactivos construidos con Next.js y Tailwind CSS. Velocidad extrema, SEO técnico impecable y diseño único.",
+        "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO"]
+      },
+      {
+        "index": "02",
+        "title": "Aplicaciones Nativas iOS & Móviles",
+        "description": "Desarrollo de apps nativas en Swift/SwiftUI con aprovechamiento total del hardware de Apple (cámaras, sensores, aceleración DSP, hápticos), y soluciones multiplataforma con Expo.",
+        "tags": ["Swift", "SwiftUI", "iOS", "React Native", "Expo"]
+      },
+      {
+        "index": "03",
+        "title": "Arquitectura Backend, APIs & Cloud",
+        "description": "Microservicios y APIs asíncronas de alto rendimiento con FastAPI (Python), bases de datos escalables en MongoDB y PostgreSQL, contenerizadas con Docker y desplegadas en la nube.",
+        "tags": ["Python", "FastAPI", "MongoDB", "PostgreSQL", "Docker", "AWS"]
+      },
+      {
+        "index": "04",
+        "title": "Automatizaciones, CRM & Email Marketing",
+        "description": "Integración de pasarelas de pago (Stripe), pipelines de captación de clientes, APIs de mensajería (Brevo/SendGrid) y autenticación segura con rotación de credenciales.",
+        "tags": ["Stripe", "Brevo", "JWT Auth", "Cloudflare Turnstile"]
+      }
+    ]
+  },
+  "stack": {
+    "badge": "03 / Tecnología & Métodos",
+    "title": "Herramientas modernas, fundamentos sólidos.",
+    "sub": "Seleccionamos minuciosamente cada capa de la tecnología para garantizar longevidad, seguridad y velocidad."
+  },
+  "testimonials": {
+    "badge": "04 / Testimonios",
+    "quote": "Alberto transformó por completo la presencia digital de mi negocio. El sistema que desarrolló no solo es visualmente impresionante, sino que automatizó todo el flujo de clientes y entregas de galerías sin fallas.",
+    "author": "Fátima Reséndiz",
+    "role": "Fotógrafa Profesional",
+    "company": "fatimaresendiz.com"
+  },
+  "contact": {
+    "badge": "05 / Contacto & Conexión",
+    "title": "¿Tienes una idea o proyecto en mente?",
+    "sub": "Estamos afinando los últimos detalles de nuestro cotizador en línea. Mientras tanto, puedes ponerte en contacto directo con nosotros para comenzar a estructurar tu proyecto.",
+    "under_construction_title": "Módulo de Cotización en Construcción",
+    "under_construction_badge": "Arquitectura en Proceso",
+    "under_construction_text": "Estamos configurando la infraestructura de mensajería para brindarte una experiencia interactiva. Puedes comunicarte directamente a través de cualquiera de los siguientes canales:",
+    "channels": {
+      "email_label": "Correo Electrónico",
+      "email_val": "contact@alberto24dev.me",
+      "whatsapp_label": "WhatsApp Directo",
+      "whatsapp_val": "+52 (442) 352-2387",
+      "whatsapp_btn": "Enviar Mensaje",
+      "location_label": "Ubicación",
+      "location_val": "Querétaro, Qro. México"
+    }
+  },
+  "footer": {
+    "tagline": "Boutique de desarrollo de software y aplicaciones a medida.",
+    "rights": "Todos los derechos reservados.",
+    "built_with": "Construido con Next.js, Geist y Cloudflare Edge."
+  }
+}
