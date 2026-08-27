@@ -55,7 +55,7 @@ export default async function ContactPage({ params }: PageProps) {
         </section>
 
         {/* ─── Contact Interactive Card Section ──────── */}
-        <ContactSection dict={dict} />
+        <ContactSection dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </>

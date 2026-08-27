@@ -220,15 +220,15 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                         <div className="grid grid-cols-3 gap-1.5 pt-1 text-center font-mono text-[8.5px]">
                           <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">Pic-Time</span>
-                            <span className="text-[var(--muted)] text-[8px]">Private Galleries</span>
+                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Galerías Privadas' : 'Private Galleries'}</span>
                           </div>
                           <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">FastAPI</span>
-                            <span className="text-[var(--muted)] text-[8px]">Async Engine</span>
+                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Motor Asíncrono' : 'Async Engine'}</span>
                           </div>
                           <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">Brevo</span>
-                            <span className="text-[var(--muted)] text-[8px]">Auto Email</span>
+                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Emails Automáticos' : 'Auto Email'}</span>
                           </div>
                         </div>
                       </div>
@@ -240,7 +240,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                             <CheckSquare className="w-3 h-3 text-[var(--accent-amber)]" />
                             AyeTasks Tree Engine
                           </span>
-                          <span className="text-[var(--accent-amber)] text-[9px]">25 Levels · O(n)</span>
+                          <span className="text-[var(--accent-amber)] text-[9px]">{lang === 'es' ? '25 Niveles · O(n)' : '25 Levels · O(n)'}</span>
                         </div>
 
                         {/* Node Level 01 */}
@@ -251,10 +251,10 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                           >
                             <div className="flex items-center gap-1.5 text-[9.5px]">
                               {ayeTasksExpanded['node-1'] ? <ChevronDown className="w-3 h-3 text-[var(--accent-amber)]" /> : <ChevronRight className="w-3 h-3" />}
-                              <span className="font-semibold text-[var(--foreground)]">01 / Master Launch Plan</span>
+                              <span className="font-semibold text-[var(--foreground)]">{lang === 'es' ? '01 / Plan Maestro de Lanzamiento' : '01 / Master Launch Plan'}</span>
                             </div>
                             <span className="text-[var(--accent-amber)] text-[8.5px] bg-[var(--accent-amber-subtle)] px-1.5 py-0.5 rounded-xs">
-                              Exact 09:00
+                              {lang === 'es' ? 'Exacto 09:00' : 'Exact 09:00'}
                             </span>
                           </button>
 
@@ -267,16 +267,16 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                               >
                                 <div className="flex items-center gap-1">
                                   {ayeTasksExpanded['node-2'] ? <ChevronDown className="w-2.5 h-2.5 text-[var(--accent-amber)]" /> : <ChevronRight className="w-2.5 h-2.5" />}
-                                  <span>↳ Swift MVVM Architecture</span>
+                                  <span>↳ {lang === 'es' ? 'Arquitectura Swift MVVM' : 'Swift MVVM Architecture'}</span>
                                 </div>
-                                <span className="text-emerald-500 text-[8px]">Scoped ISO</span>
+                                <span className="text-emerald-500 text-[8px]">{lang === 'es' ? 'Rango ISO' : 'Scoped ISO'}</span>
                               </button>
 
                               {/* Node Level 03 (Nested Deep) */}
                               {ayeTasksExpanded['node-2'] && (
                                 <div className="pl-3 py-1 text-[8.5px] text-[var(--muted)] flex items-center justify-between bg-[var(--surface-alt)]/60 px-2 rounded-xs">
-                                  <span>↳ Recursive Children Promotion</span>
-                                  <span className="text-[var(--accent-amber)] text-[8px]">Level 03/25</span>
+                                  <span>↳ {lang === 'es' ? 'Promoción Recursiva de Hijos' : 'Recursive Children Promotion'}</span>
+                                  <span className="text-[var(--accent-amber)] text-[8px]">{lang === 'es' ? 'Nivel 03/25' : 'Level 03/25'}</span>
                                 </div>
                               )}
                             </div>
@@ -339,7 +339,9 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                           </div>
                           <div className="text-[8.5px] text-emerald-500 font-semibold flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                            {downloaderMode === 'local' ? '28.4 MB/s · FFmpeg Direct' : 'Async Queue · 100% Cloud'}
+                            {downloaderMode === 'local'
+                              ? (lang === 'es' ? '28.4 MB/s · FFmpeg Local' : '28.4 MB/s · FFmpeg Direct')
+                              : (lang === 'es' ? 'Cola Asíncrona · 100% Nube' : 'Async Queue · 100% Cloud')}
                           </div>
                         </div>
                       </div>
@@ -349,18 +351,18 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
                             <Camera className="w-3 h-3 text-[var(--accent-amber)]" />
-                            Presigned S3 Pipeline
+                            {lang === 'es' ? 'Pipeline Prefirmado S3' : 'Presigned S3 Pipeline'}
                           </span>
-                          <span className="text-emerald-500 text-[9px]">10-min Secure PUT</span>
+                          <span className="text-emerald-500 text-[9px]">{lang === 'es' ? 'PUT Seguro (10 min)' : '10-min Secure PUT'}</span>
                         </div>
                         <div className="grid grid-cols-2 gap-1.5 text-[8.5px]">
                           <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">Tier-1 NSCache</span>
-                            <span className="text-[var(--muted)]">Zero RAM Leak</span>
+                            <span className="text-[var(--muted)]">{lang === 'es' ? 'Sin Fugas de Memoria' : 'Zero RAM Leak'}</span>
                           </div>
                           <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">FastAPI Async</span>
-                            <span className="text-[var(--muted)]">4 Max Concurrent</span>
+                            <span className="text-[var(--muted)]">{lang === 'es' ? '4 Concurrencias Máx' : '4 Max Concurrent'}</span>
                           </div>
                         </div>
                       </div>
@@ -377,7 +379,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                             </span>
                           </div>
                           <span className="text-[9px] text-[var(--accent-amber)] font-bold">
-                            PRODUCTION READY
+                            {lang === 'es' ? 'LISTO EN PRODUCCIÓN' : 'PRODUCTION READY'}
                           </span>
                         </div>
                         <div className="py-1 px-1 text-[11px] text-[var(--foreground)] opacity-90 flex items-center justify-between">

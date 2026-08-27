@@ -25,7 +25,7 @@ type Dict = {
   }
 }
 
-export default function ContactSection({ dict }: { dict: Dict }) {
+export default function ContactSection({ dict, lang = 'es' }: { dict: Dict; lang?: string }) {
   const [copied, setCopied] = useState(false)
   const c = dict.contact
 
@@ -81,7 +81,7 @@ export default function ContactSection({ dict }: { dict: Dict }) {
               </div>
 
               <span className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] text-[var(--muted)]">
-                Architecture v2.0
+                {lang === 'en' ? 'Architecture v2.0' : 'Arquitectura v2.0'}
               </span>
             </div>
 
