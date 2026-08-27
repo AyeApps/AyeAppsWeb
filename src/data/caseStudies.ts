@@ -54,7 +54,7 @@ export interface CaseStudyData {
 export const CASE_STUDIES: Record<string, CaseStudyData> = {
   'fatima-resendiz': {
     slug: 'fatima-resendiz',
-    title: 'Fatima Resendiz Platform',
+    title: 'Fatima Resendiz Web',
     clientName: 'Fátima Reséndiz',
     projectTypeBusiness: {
       es: 'Plataforma Web de Prestigio, Gestión de Clientes & App Móvil',

@@ -105,7 +105,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               <span className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase ${
                 isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
               } ${techMode ? 'font-mono' : ''}`}>
-                {techMode ? '$ sys.case_study' : (isEs ? 'Caso de Estudio' : 'Case Study')}
+                {techMode ? 'CLOUD ARCHITECTURE SPEC' : (isEs ? 'Caso de Estudio' : 'Case Study')}
               </span>
               <span className={`text-xs px-2.5 py-0.5 rounded-xs border bg-[var(--surface-raised)] text-[var(--foreground)] ${
                 isGoldAccented ? 'border-[#c9a96e]/40' : 'border-[var(--border-strong)]'
@@ -116,10 +116,15 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
 
             {/* Title & Tagline with Authentic Brand Homage */}
             {techMode ? (
-              <div className="space-y-2 mb-8">
-                <span className="text-xs text-[var(--accent-amber)] font-mono block">
-                  ~/projects/{study.slug} $ cat OVERVIEW.md
-                </span>
+              <div className="space-y-3 mb-8">
+                <div className="inline-flex items-center gap-2 font-mono text-xs text-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] px-2.5 py-1 rounded-xs border border-[var(--accent-amber-border)] w-fit">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="tracking-wide">
+                    {isEs
+                      ? 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% EN LA NUBE'
+                      : 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% CLOUD-HOSTED'}
+                  </span>
+                </div>
                 <h1
                   className="text-3xl sm:text-5xl md:text-6xl font-bold font-tech text-[var(--foreground)] tracking-tight"
                   style={{ textWrap: 'balance' } as React.CSSProperties}
@@ -236,7 +241,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               <p className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase justify-center mb-3 ${
                 isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
               }`}>
-                {techMode ? '$ sys.metrics' : (isEs ? 'Resultados Clave' : 'Key Metrics')}
+                {techMode ? 'CLOUD PERFORMANCE METRICS' : (isEs ? 'Resultados Clave' : 'Key Metrics')}
               </p>
               <h2 className={`text-2xl sm:text-4xl text-[var(--foreground)] ${getHeadingFontClass()}`}>
                 {techMode
@@ -418,7 +423,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               <ScrollReveal>
                 <div className="mb-12">
                   <p className="geo-badge text-xs font-medium tracking-[0.18em] uppercase text-[var(--muted)] mb-3">
-                    {isEs ? '$ sys.blueprint' : '$ sys.blueprint'}
+                    CLOUD INFRASTRUCTURE BLUEPRINT
                   </p>
                   <h2 className="text-2xl sm:text-3xl font-bold font-mono text-[var(--foreground)]">
                     {isEs ? 'Capas de la Infraestructura' : 'Infrastructure Blueprint'}
