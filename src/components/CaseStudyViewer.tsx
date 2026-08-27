@@ -157,7 +157,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             {/* Meta Attributes Grid (4 Squared, Centered, Bracketed Cards) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
               {/* Client */}
-              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+              <div className={`${bracketClass} card-lift min-h-[135px] sm:min-h-[150px] p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center shadow-2xs group ${
                 isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
               }`}>
                 <span className={`text-[10px] uppercase font-mono tracking-widest block ${
@@ -165,15 +165,18 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 }`}>
                   {isEs ? 'Cliente / Origen' : 'Client / Origin'}
                 </span>
-                <span className={`text-sm sm:text-base font-bold text-[var(--foreground)] transition-colors ${
-                  isGoldAccented ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
-                }`}>
-                  {study.clientName}
-                </span>
+                <div className="flex-1 flex items-center justify-center my-1">
+                  <span className={`text-sm sm:text-base font-bold text-[var(--foreground)] transition-colors ${
+                    isGoldAccented ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
+                  }`}>
+                    {study.clientName}
+                  </span>
+                </div>
+                <div className="w-4 h-0.5 bg-transparent" />
               </div>
 
               {/* Timeline */}
-              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+              <div className={`${bracketClass} card-lift min-h-[135px] sm:min-h-[150px] p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center shadow-2xs group ${
                 isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
               }`}>
                 <span className={`text-[10px] uppercase font-mono tracking-widest block ${
@@ -181,15 +184,18 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 }`}>
                   {isEs ? 'Línea de Tiempo' : 'Timeline'}
                 </span>
-                <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors ${
-                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
-                }`}>
-                  {study.timeline[lang]}
-                </span>
+                <div className="flex-1 flex items-center justify-center my-1">
+                  <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors max-w-[220px] ${
+                    isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                  }`}>
+                    {study.timeline[lang]}
+                  </span>
+                </div>
+                <div className="w-4 h-0.5 bg-transparent" />
               </div>
 
               {/* Release Year */}
-              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+              <div className={`${bracketClass} card-lift min-h-[135px] sm:min-h-[150px] p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center shadow-2xs group ${
                 isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
               }`}>
                 <span className={`text-[10px] uppercase font-mono tracking-widest block ${
@@ -197,15 +203,18 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 }`}>
                   {isEs ? 'Año de Lanzamiento' : 'Release Year'}
                 </span>
-                <span className={`text-sm sm:text-base font-bold font-mono text-[var(--foreground)] transition-colors ${
-                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
-                }`}>
-                  {study.year}
-                </span>
+                <div className="flex-1 flex items-center justify-center my-1">
+                  <span className={`text-base sm:text-lg font-bold font-mono text-[var(--foreground)] transition-colors ${
+                    isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                  }`}>
+                    {study.year}
+                  </span>
+                </div>
+                <div className="w-4 h-0.5 bg-transparent" />
               </div>
 
               {/* Role */}
-              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+              <div className={`${bracketClass} card-lift min-h-[135px] sm:min-h-[150px] p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center shadow-2xs group ${
                 isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
               }`}>
                 <span className={`text-[10px] uppercase font-mono tracking-widest block ${
@@ -213,11 +222,14 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 }`}>
                   {isEs ? 'Rol AyeApps' : 'AyeApps Role'}
                 </span>
-                <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors ${
-                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
-                }`}>
-                  {techMode ? study.roleTech[lang] : study.roleBusiness[lang]}
-                </span>
+                <div className="flex-1 flex items-center justify-center my-1">
+                  <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors max-w-[220px] ${
+                    isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                  }`}>
+                    {techMode ? study.roleTech[lang] : study.roleBusiness[lang]}
+                  </span>
+                </div>
+                <div className="w-4 h-0.5 bg-transparent" />
               </div>
             </div>
 
@@ -279,12 +291,12 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 return (
                   <div
                     key={idx}
-                    className={`${bracketClass} card-lift p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-between text-center space-y-4 h-full shadow-2xs group ${
+                    className={`${bracketClass} card-lift min-h-[220px] sm:min-h-[240px] p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-between text-center shadow-2xs group ${
                       isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/70' : 'border-[var(--border)]'
                     }`}
                   >
-                    <div className="flex flex-col items-center space-y-3">
-                      {/* Metric Icon */}
+                    {/* Metric Icon & Value Group */}
+                    <div className="flex flex-col items-center space-y-2.5">
                       <div className={`w-9 h-9 rounded-xs flex items-center justify-center border transition-colors ${
                         isGoldAccented
                           ? 'bg-[#c9a96e]/10 border-[#c9a96e]/30 text-[#c9a96e]'
@@ -293,14 +305,15 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                         <IconComponent className="w-4 h-4" />
                       </div>
 
-                      {/* Stat Value */}
                       <span className={`text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors ${
                         isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
                       }`}>
                         {m.value}
                       </span>
+                    </div>
 
-                      {/* Title Header */}
+                    {/* Title Header & Subtitle Detail in Vertically Centered Flex Area */}
+                    <div className="flex-1 flex flex-col items-center justify-center my-2 space-y-1.5">
                       <h3 className={`text-sm sm:text-base font-bold text-[var(--foreground)] ${
                         techMode
                           ? 'font-mono'
@@ -308,12 +321,13 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                       }`}>
                         {techMode ? m.labelTech[lang] : m.labelBusiness[lang]}
                       </h3>
+
+                      <p className={`text-xs text-[var(--muted)] leading-relaxed max-w-[210px] ${techMode ? 'font-mono text-[11px]' : ''}`}>
+                        {techMode ? m.detailTech[lang] : m.detailBusiness[lang]}
+                      </p>
                     </div>
 
-                    {/* Subtitle Detail */}
-                    <p className={`text-xs text-[var(--muted)] leading-relaxed ${techMode ? 'font-mono text-[11px]' : ''}`}>
-                      {techMode ? m.detailTech[lang] : m.detailBusiness[lang]}
-                    </p>
+                    <div className="w-4 h-0.5 bg-transparent" />
                   </div>
                 )
               })}
