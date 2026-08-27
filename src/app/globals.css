@@ -218,6 +218,7 @@ html {
 /* ─── Bracket Corners (AyeApps Signature) ────────────── */
 .bracket-corners {
   position: relative;
+  --bracket-color: var(--accent-amber);
 }
 .bracket-corners::before,
 .bracket-corners::after {
@@ -230,21 +231,29 @@ html {
 }
 .bracket-corners::before {
   top: -1px; left: -1px;
-  border-top: 1.5px solid var(--accent-amber);
-  border-left: 1.5px solid var(--accent-amber);
+  border-top: 1.5px solid var(--bracket-color);
+  border-left: 1.5px solid var(--bracket-color);
   transform-origin: top left;
   transition: transform 300ms var(--ease-expo), border-color 200ms ease;
 }
 .bracket-corners::after {
   bottom: -1px; right: -1px;
-  border-bottom: 1.5px solid var(--accent-amber);
-  border-right: 1.5px solid var(--accent-amber);
+  border-bottom: 1.5px solid var(--bracket-color);
+  border-right: 1.5px solid var(--bracket-color);
   transform-origin: bottom right;
   transition: transform 300ms var(--ease-expo), border-color 200ms ease;
 }
 .bracket-corners:hover::before,
 .bracket-corners:hover::after {
   transform: scale(1.2);
+}
+
+.bracket-gold {
+  --bracket-color: #c9a96e !important;
+}
+
+.geo-badge-gold::before {
+  background: #c9a96e !important;
 }
 
 /* ─── Cyber Neo-Brutalist Card Lift ─────────────────── */

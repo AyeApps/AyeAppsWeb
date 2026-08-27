@@ -30,8 +30,12 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
   const [techMode, setTechMode] = useState<boolean>(false)
   const isEs = lang === 'es'
   const isFatima = study.slug === 'fatima-resendiz'
+  const isGoldAccented = isFatima && !techMode
 
-  // Font family selector based on case study and mode
+  // Dynamic classes for luxury brand harmony
+  const bracketClass = isGoldAccented ? 'bracket-corners bracket-gold' : 'bracket-corners'
+  const geoBadgeClass = isGoldAccented ? 'geo-badge geo-badge-gold' : 'geo-badge'
+
   const getContainerFontClass = () => {
     if (techMode) return 'font-tech'
     if (isFatima) return 'font-montserrat'
@@ -48,11 +52,11 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
     <div className={`relative transition-all duration-300 ${getContainerFontClass()}`}>
       {/* ─── Hero Section ───────────────────────────── */}
       <section className="pt-36 pb-20 px-4 sm:px-6 bg-[var(--surface)] dot-pattern border-b border-[var(--border)] relative overflow-hidden">
-        {/* Subtle Ambient Radial (Gold for Fatima in Executive mode, Cyber-Amber otherwise) */}
+        {/* Subtle Ambient Radial (Warm Champagne Gold for Fatima in Executive mode, Cyber-Amber otherwise) */}
         <div
           aria-hidden="true"
           className={`absolute top-1/4 right-[-10%] w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none opacity-50 ${
-            isFatima && !techMode ? 'bg-[#c9a96e]/15' : 'bg-[var(--accent-amber-subtle)]'
+            isGoldAccented ? 'bg-[#c9a96e]/15' : 'bg-[var(--accent-amber-subtle)]'
           }`}
         />
 
@@ -62,7 +66,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
               <Link
                 href={`/${lang}/portfolio`}
-                className="inline-flex items-center gap-2 text-xs font-mono text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors group w-fit"
+                className="inline-flex items-center gap-2 text-xs font-mono text-[var(--muted)] hover:text-[#c9a96e] transition-colors group w-fit"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span>{isEs ? 'Volver al Ecosistema' : 'Back to Ecosystem'}</span>
@@ -74,11 +78,11 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   onClick={() => setTechMode(false)}
                   className={`btn-press flex items-center gap-1.5 px-3.5 py-1.5 text-xs rounded-xs transition-all cursor-pointer ${
                     !techMode
-                      ? (isFatima ? 'bg-[#c9a96e] text-black font-bold shadow-xs' : 'bg-[var(--foreground)] text-[var(--foreground-inv)] font-bold shadow-xs')
+                      ? (isGoldAccented ? 'bg-[#c9a96e] text-black font-bold shadow-xs' : 'bg-[var(--foreground)] text-[var(--foreground-inv)] font-bold shadow-xs')
                       : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                   }`}
                 >
-                  <Sparkles className={`w-3.5 h-3.5 ${isFatima && !techMode ? 'text-black' : 'text-[var(--accent-amber)]'}`} />
+                  <Sparkles className={`w-3.5 h-3.5 ${isGoldAccented ? 'text-black' : 'text-[var(--accent-amber)]'}`} />
                   <span>{isEs ? 'Vista Ejecutiva' : 'Executive View'}</span>
                 </button>
 
@@ -98,13 +102,13 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
 
             {/* Geo-Badge & Category */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className={`geo-badge text-xs font-medium tracking-[0.18em] uppercase ${
-                isFatima && !techMode ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+              <span className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase ${
+                isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
               } ${techMode ? 'font-mono' : ''}`}>
                 {techMode ? '$ sys.case_study' : (isEs ? 'Caso de Estudio' : 'Case Study')}
               </span>
               <span className={`text-xs px-2.5 py-0.5 rounded-xs border bg-[var(--surface-raised)] text-[var(--foreground)] ${
-                isFatima && !techMode ? 'border-[#c9a96e]/40' : 'border-[var(--border-strong)]'
+                isGoldAccented ? 'border-[#c9a96e]/40' : 'border-[var(--border-strong)]'
               } ${techMode ? 'font-mono' : 'font-medium'}`}>
                 {techMode ? study.projectTypeTech[lang] : study.projectTypeBusiness[lang]}
               </span>
@@ -152,13 +156,13 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
 
             {/* Meta Grid & Action Link */}
             <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] mb-10 shadow-2xs ${
-              isFatima && !techMode ? 'border-[#c9a96e]/30' : 'border-[var(--border-strong)]'
+              isGoldAccented ? 'border-[#c9a96e]/30' : 'border-[var(--border-strong)]'
             }`}>
               <div className="text-center sm:text-left">
                 <span className="text-[10px] uppercase tracking-wider text-[var(--muted)] block mb-1 font-mono">
                   {isEs ? 'Cliente / Origen' : 'Client / Origin'}
                 </span>
-                <span className={`text-sm font-semibold text-[var(--foreground)] ${isFatima && !techMode ? 'font-montserrat' : ''}`}>
+                <span className={`text-sm font-semibold text-[var(--foreground)] ${isGoldAccented ? 'font-montserrat' : ''}`}>
                   {study.clientName}
                 </span>
               </div>
@@ -199,8 +203,8 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`btn-press inline-flex items-center gap-2 px-6 py-3.5 rounded-xs font-semibold text-xs uppercase tracking-[0.14em] ${
-                    isFatima && !techMode
-                      ? 'bg-[#c9a96e] hover:bg-[#a8844a] text-black'
+                    isGoldAccented
+                      ? 'bg-[#c9a96e] hover:bg-[#a8844a] text-black shadow-sm'
                       : 'bg-[var(--foreground)] hover:bg-[var(--accent-amber)] text-[var(--foreground-inv)] hover:text-black'
                   } ${techMode ? 'font-mono' : ''}`}
                 >
@@ -215,7 +219,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   rel="noopener noreferrer"
                   className={`btn-press inline-flex items-center gap-2 px-6 py-3.5 rounded-xs border border-[var(--border-strong)] bg-[var(--surface-raised)] hover:bg-[var(--surface-alt)] text-[var(--foreground)] font-semibold text-xs uppercase tracking-[0.14em] ${techMode ? 'font-mono' : ''}`}
                 >
-                  <GithubIcon className="w-4 h-4 text-[var(--accent-amber)]" />
+                  <GithubIcon className="w-4 h-4 text-[#c9a96e]" />
                   <span>{isEs ? 'Ver Repositorio en GitHub' : 'View GitHub Repository'}</span>
                 </a>
               )}
@@ -229,8 +233,8 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center max-w-xl mx-auto mb-12">
-              <p className={`geo-badge text-xs font-medium tracking-[0.18em] uppercase justify-center mb-3 ${
-                isFatima && !techMode ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+              <p className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase justify-center mb-3 ${
+                isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
               }`}>
                 {techMode ? '$ sys.metrics' : (isEs ? 'Resultados Clave' : 'Key Metrics')}
               </p>
@@ -249,14 +253,14 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 return (
                   <div
                     key={idx}
-                    className={`bracket-corners card-lift p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-between text-center space-y-4 h-full shadow-2xs group ${
-                      isFatima && !techMode ? 'hover:border-[#c9a96e]/60 border-[var(--border)]' : 'border-[var(--border)]'
+                    className={`${bracketClass} card-lift p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-between text-center space-y-4 h-full shadow-2xs group ${
+                      isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/70' : 'border-[var(--border)]'
                     }`}
                   >
                     <div className="flex flex-col items-center space-y-3">
                       {/* Metric Icon */}
                       <div className={`w-9 h-9 rounded-xs flex items-center justify-center border transition-colors ${
-                        isFatima && !techMode
+                        isGoldAccented
                           ? 'bg-[#c9a96e]/10 border-[#c9a96e]/30 text-[#c9a96e]'
                           : 'bg-[var(--accent-amber-subtle)] border-[var(--accent-amber-border)] text-[var(--accent-amber)]'
                       }`}>
@@ -265,7 +269,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
 
                       {/* Stat Value */}
                       <span className={`text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors ${
-                        isFatima && !techMode ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                        isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
                       }`}>
                         {m.value}
                       </span>
@@ -292,16 +296,16 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
         </div>
       </section>
 
-      {/* ─── Challenge & Solution (Adaptive to Brand Typography) ─── */}
+      {/* ─── Challenge & Solution (Adaptive to Brand Typography & Colors) ──── */}
       <section className="py-24 px-4 sm:px-6 bg-[var(--surface)]">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-24">
               {/* Challenge Card */}
-              <div className="bracket-corners p-8 sm:p-10 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] flex flex-col justify-between">
+              <div className={`${bracketClass} p-8 sm:p-10 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] flex flex-col justify-between`}>
                 <div>
                   <span className={`text-[11px] font-mono uppercase tracking-[0.18em] block mb-3 ${
-                    isFatima && !techMode ? 'text-[#c9a96e]' : 'text-[var(--accent-amber)]'
+                    isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--accent-amber)]'
                   }`}>
                     01 / {isEs ? 'El Desafío' : 'The Challenge'}
                   </span>
@@ -315,11 +319,13 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               </div>
 
               {/* Solution Card */}
-              <div className={`bracket-corners p-8 sm:p-10 rounded-xs border bg-[var(--surface-raised)] flex flex-col justify-between ${
-                isFatima && !techMode ? 'border-[#c9a96e]/50 shadow-[0_0_20px_rgba(201,169,110,0.08)]' : 'border-[var(--accent-amber-border)]'
+              <div className={`${bracketClass} p-8 sm:p-10 rounded-xs border bg-[var(--surface-raised)] flex flex-col justify-between ${
+                isGoldAccented ? 'border-[#c9a96e]/50 shadow-[0_0_20px_rgba(201,169,110,0.08)]' : 'border-[var(--accent-amber-border)]'
               }`}>
                 <div>
-                  <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-emerald-500 block mb-3">
+                  <span className={`text-[11px] font-mono uppercase tracking-[0.18em] block mb-3 ${
+                    isGoldAccented ? 'text-[#c9a96e]' : 'text-emerald-500'
+                  }`}>
                     02 / {isEs ? 'La Solución' : 'The Solution'}
                   </span>
                   <h2 className={`text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-4 ${getHeadingFontClass()}`}>
@@ -338,8 +344,8 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             <ScrollReveal>
               <div className="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div>
-                  <p className={`geo-badge text-xs font-medium tracking-[0.18em] uppercase mb-3 ${
-                    isFatima && !techMode ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+                  <p className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase mb-3 ${
+                    isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
                   }`}>
                     {isEs ? 'Módulos del Sistema' : 'System Modules'}
                   </p>
@@ -357,17 +363,17 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {study.modules.map((mod, i) => (
                 <ScrollReveal key={mod.index} delay={i * 50}>
-                  <div className={`bracket-corners card-lift p-6 sm:p-8 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] h-full flex flex-col justify-between group ${
-                    isFatima && !techMode ? 'hover:border-[#c9a96e]/60' : ''
+                  <div className={`${bracketClass} card-lift p-6 sm:p-8 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] h-full flex flex-col justify-between group ${
+                    isGoldAccented ? 'hover:border-[#c9a96e]/60' : ''
                   }`}>
                     <div>
                       <span className={`font-mono text-2xl font-bold text-[var(--muted)] transition-colors block mb-4 ${
-                        isFatima && !techMode ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                        isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
                       }`}>
                         {mod.index}
                       </span>
                       <h3 className={`text-lg font-bold text-[var(--foreground)] mb-3 transition-colors ${
-                        isFatima && !techMode ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
+                        isGoldAccented ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
                       } ${techMode ? 'font-mono text-base' : ''}`}>
                         {mod.title[lang]}
                       </h3>
@@ -381,9 +387,9 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                       {!techMode ? (
                         <div className="pt-4 border-t border-[var(--border)]">
                           <span className={`text-[12px] font-semibold flex items-center gap-1.5 ${
-                            isFatima ? 'text-[#c9a96e] font-montserrat' : 'text-emerald-500 font-business'
+                            isGoldAccented ? 'text-[#c9a96e] font-montserrat' : 'text-emerald-500 font-business'
                           }`}>
-                            <CheckCircle2 className={`w-4 h-4 shrink-0 ${isFatima ? 'text-[#c9a96e]' : 'text-emerald-500'}`} />
+                            <CheckCircle2 className={`w-4 h-4 shrink-0 ${isGoldAccented ? 'text-[#c9a96e]' : 'text-emerald-500'}`} />
                             {mod.businessBenefit[lang]}
                           </span>
                         </div>
@@ -460,27 +466,27 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
           {study.testimonial && (
             <ScrollReveal>
               <div className={`mb-24 p-8 sm:p-14 rounded-xs border relative overflow-hidden ${
-                isFatima && !techMode
+                isGoldAccented
                   ? 'border-[#c9a96e]/40 bg-[#2a2a2a] text-[#faf8f5]'
                   : 'border-[var(--border-strong)] bg-[var(--surface-inv)] text-[var(--foreground-inv)]'
               }`}>
                 <div className="max-w-3xl">
                   <span className={`inline-flex items-center gap-2 px-3 py-1 text-[10px] uppercase tracking-wider rounded-xs mb-8 ${
-                    isFatima && !techMode
+                    isGoldAccented
                       ? 'bg-[#c9a96e]/20 text-[#c9a96e] font-montserrat'
                       : 'bg-[var(--surface)] text-[var(--foreground)] font-mono'
                   }`}>
-                    <span className={`w-1.5 h-1.5 rounded-full ${isFatima && !techMode ? 'bg-[#c9a96e]' : 'bg-emerald-500'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${isGoldAccented ? 'bg-[#c9a96e]' : 'bg-emerald-500'}`} />
                     {isEs ? 'Cliente Verificado en Producción' : 'Verified Client Production'}
                   </span>
                   <blockquote className={`text-2xl sm:text-3xl md:text-4xl leading-snug mb-8 ${
-                    isFatima && !techMode ? 'font-cormorant italic font-normal text-[#faf8f5]' : (techMode ? 'font-mono text-lg sm:text-xl' : 'font-business')
+                    isGoldAccented ? 'font-cormorant italic font-normal text-[#faf8f5]' : (techMode ? 'font-mono text-lg sm:text-xl' : 'font-business')
                   }`}>
                     "{study.testimonial.quote[lang]}"
                   </blockquote>
-                  <div className={isFatima && !techMode ? 'font-montserrat' : ''}>
+                  <div className={isGoldAccented ? 'font-montserrat' : ''}>
                     <p className="font-bold text-base">{study.testimonial.author}</p>
-                    <p className={`text-xs ${isFatima && !techMode ? 'text-[#c9a96e]' : 'opacity-75'}`}>{study.testimonial.role[lang]}</p>
+                    <p className={`text-xs ${isGoldAccented ? 'text-[#c9a96e]' : 'opacity-75'}`}>{study.testimonial.role[lang]}</p>
                   </div>
                 </div>
               </div>
@@ -490,7 +496,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
           {/* ─── Bottom CTA Banner ──────────────────────── */}
           <ScrollReveal>
             <div className={`p-8 sm:p-14 rounded-xs border bg-[var(--surface-raised)] text-center ${
-              isFatima && !techMode ? 'border-[#c9a96e]/40' : 'border-[var(--accent-amber-border)]'
+              isGoldAccented ? 'border-[#c9a96e]/40' : 'border-[var(--accent-amber-border)]'
             }`}>
               <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4 ${getHeadingFontClass()}`}>
                 {isEs
@@ -505,8 +511,8 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               <Link
                 href={`/${lang}/contact`}
                 className={`btn-press inline-flex items-center gap-2 px-8 py-4 rounded-xs font-bold text-xs uppercase tracking-[0.14em] ${
-                  isFatima && !techMode
-                    ? 'bg-[#c9a96e] hover:bg-[#a8844a] text-black'
+                  isGoldAccented
+                    ? 'bg-[#c9a96e] hover:bg-[#a8844a] text-black shadow-sm'
                     : 'bg-[var(--foreground)] hover:bg-[var(--accent-amber)] text-[var(--foreground-inv)] hover:text-black'
                 }`}
               >
