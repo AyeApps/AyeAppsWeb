@@ -54,7 +54,7 @@ export default async function HomePage({ params }: PageProps) {
       <Navbar dict={dict} lang={lang} />
       <main id="main">
         {/* ─── Hero Section ───────────────────────────── */}
-        <Hero dict={dict} />
+        <Hero dict={dict} lang={lang} />
 
         {/* ─── Featured Work Preview ──────────────────── */}
         <section className="py-24 px-4 sm:px-6 bg-[var(--surface-raised)] border-y border-[var(--border)]">

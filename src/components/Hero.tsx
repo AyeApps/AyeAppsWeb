@@ -1,4 +1,5 @@
-import { ArrowRight, Code2, Sparkles, Terminal } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Terminal } from 'lucide-react'
 
 type StatItem = { value: string; label: string }
 type Dict = {
@@ -13,7 +14,7 @@ type Dict = {
   }
 }
 
-export default function Hero({ dict }: { dict: Dict }) {
+export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string }) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -45,7 +46,7 @@ export default function Hero({ dict }: { dict: Dict }) {
           className="hero-enter geo-badge mb-8 w-fit"
           style={{ animationDelay: '0ms' }}
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] rounded border border-[var(--border-strong)] bg-[var(--surface-raised)] text-[var(--foreground)]">
+          <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] rounded-xs border border-[var(--border-strong)] bg-[var(--surface-raised)] text-[var(--foreground)]">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)] animate-ping" />
             {dict.hero.badge}
           </span>
@@ -82,33 +83,33 @@ export default function Hero({ dict }: { dict: Dict }) {
           {dict.hero.sub}
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons with Multi-Page Routing */}
         <div
           className="hero-enter flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16"
           style={{ animationDelay: '460ms' }}
         >
-          <a
-            href="#portfolio"
+          <Link
+            href={`/${lang}/portfolio`}
             className="btn-press inline-flex items-center justify-center gap-3
               bg-[var(--foreground)] hover:bg-[var(--accent-amber)]
               text-[var(--foreground-inv)] hover:text-black font-semibold
-              px-8 py-4 text-xs uppercase tracking-[0.14em] shadow-sm"
+              px-8 py-4 text-xs uppercase tracking-[0.14em] shadow-sm rounded-xs"
           >
             {dict.hero.cta_primary}
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
 
-          <a
-            href="#services"
+          <Link
+            href={`/${lang}/services`}
             className="btn-press inline-flex items-center justify-center gap-2
               border border-[var(--border-strong)] hover:border-[var(--accent-amber-border)]
               bg-[var(--surface-raised)] hover:bg-[var(--surface-alt)]
               text-[var(--foreground)] font-medium
-              px-7 py-4 text-xs uppercase tracking-[0.14em]"
+              px-7 py-4 text-xs uppercase tracking-[0.14em] rounded-xs"
           >
             <Terminal className="w-4 h-4 text-[var(--accent-amber)]" />
             {dict.hero.cta_secondary}
-          </a>
+          </Link>
         </div>
 
         {/* Stats Grid Bar */}

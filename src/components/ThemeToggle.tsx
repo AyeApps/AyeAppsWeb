@@ -32,19 +32,19 @@ export default function ThemeToggle() {
   }
 
   if (!mounted) {
-    return <div className="w-8 h-8" />
+    return <div className="w-9 h-9" />
   }
 
   return (
     <button
       onClick={toggle}
       aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-      className="btn-press flex items-center justify-center w-8 h-8 rounded border border-[var(--border)] bg-[var(--surface-alt)] hover:border-[var(--accent-amber-border)] text-[var(--foreground)] transition-colors"
+      className="btn-press min-w-[40px] min-h-[40px] sm:min-w-[34px] sm:min-h-[34px] flex items-center justify-center rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] hover:border-[var(--accent-amber-border)] text-[var(--foreground)] transition-colors p-2"
     >
       {isDark ? (
-        <Sun className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+        <Sun className="w-4 h-4 text-[var(--accent-amber)]" />
       ) : (
-        <Moon className="w-3.5 h-3.5 text-[var(--foreground)]" />
+        <Moon className="w-4 h-4 text-[var(--foreground)]" />
       )}
     </button>
   )

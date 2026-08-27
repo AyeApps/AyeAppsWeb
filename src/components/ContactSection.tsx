@@ -84,10 +84,10 @@ export default function ContactSection({ dict }: { dict: Dict }) {
                 href="https://wa.me/524423522387"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-press p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group"
+                className="btn-press p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group min-h-[72px]"
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xs bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xs bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0">
                     <MessageSquare className="w-4 h-4 text-emerald-500" />
                   </div>
                   <div>
@@ -104,11 +104,11 @@ export default function ContactSection({ dict }: { dict: Dict }) {
 
               {/* Email Direct */}
               <a
-                href={`mailto:${c.channels.email_val}`}
-                className="btn-press p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group"
+                href={`mailto:${c.channels.email_val}?subject=Consulta%20de%20Proyecto%20-%20AyeApps`}
+                className="btn-press p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group min-h-[72px]"
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-[var(--accent-amber)]" />
                   </div>
                   <div>
@@ -131,13 +131,13 @@ export default function ContactSection({ dict }: { dict: Dict }) {
                 <span>{c.channels.location_val}</span>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <a
                   href="https://github.com/alberto24dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
+                  className="btn-press min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xs text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors p-2"
                 >
                   <GithubIcon className="w-4 h-4" />
                 </a>
@@ -146,7 +146,7 @@ export default function ContactSection({ dict }: { dict: Dict }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
+                  className="btn-press min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xs text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors p-2"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                 </a>
@@ -155,7 +155,7 @@ export default function ContactSection({ dict }: { dict: Dict }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
+                  className="btn-press min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xs text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors p-2"
                 >
                   <InstagramIcon className="w-4 h-4" />
                 </a>

@@ -18,9 +18,9 @@
     "view_all_projects": "View all projects & products",
     "stats": [
       { "value": "100%", "label": "Custom Code" },
-      { "value": "< 1.2s", "label": "Load Time" },
-      { "value": "25+", "label": "Hierarchy Levels" },
-      { "value": "O(n)", "label": "Optimized Scale" }
+      { "value": "< 1.2s", "label": "Edge Load Time" },
+      { "value": "0", "label": "Generic Templates" },
+      { "value": "1-on-1", "label": "Direct Engineering" }
     ]
   },
   "portfolio_page": {

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { PROJECTS, Project } from '@/data/projects'
 import ScrollReveal from './ScrollReveal'
-import { ExternalLink, Layers, Smartphone, Monitor, Cpu } from 'lucide-react'
+import { ExternalLink, Layers, Smartphone, Monitor, Cpu, Activity, Camera, CheckSquare, Sparkles } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
 type Dict = {
@@ -49,7 +49,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
     <section
       id="portfolio"
       aria-labelledby="portfolio-heading"
-      className="py-28 px-4 sm:px-6 bg-[var(--surface-raised)] border-y border-[var(--border)]"
+      className="py-24 px-4 sm:px-6 bg-[var(--surface-raised)] border-y border-[var(--border)]"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
@@ -88,7 +88,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   onClick={() => setFilter(tab.id as any)}
                   className={`btn-press px-4 py-2 text-xs font-mono tracking-wide rounded-xs border transition-all ${
                     active
-                      ? 'border-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] text-[var(--foreground)] font-bold'
+                      ? 'border-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] text-[var(--foreground)] font-bold shadow-xs'
                       : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--foreground)] hover:border-[var(--border-strong)]'
                   }`}
                 >
@@ -126,41 +126,98 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   </p>
 
                   {/* Interactive Visual Representation Mockup */}
-                  <div className="mb-6 p-3.5 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)]">
-                    {project.mockupType === 'browser' ? (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-1.5 pb-2 border-b border-[var(--border)]">
-                          <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
-                          <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
-                          <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
-                          <span className="ml-2 text-[10px] font-mono text-[var(--muted)]">
-                            {project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.ayeapps.com`}
-                          </span>
+                  <div className="mb-6 p-4 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] overflow-hidden">
+                    {project.id === 'fatima-resendiz' ? (
+                      /* Flagship Client Platform Mockup */
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between pb-2 border-b border-[var(--border)] text-[10px] font-mono text-[var(--muted)]">
+                          <div className="flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                            <span className="text-[var(--foreground)] font-semibold">fatimaresendiz.com</span>
+                          </div>
+                          <span className="text-[var(--accent-amber)] uppercase font-bold tracking-wider">BILINGUAL PLATFORM</span>
                         </div>
-                        <div className="py-2 px-1 text-[11px] font-mono text-[var(--foreground)] opacity-90 flex items-center justify-between">
-                          <span>{project.role[lang]}</span>
-                          <span className="text-[var(--accent-amber)] text-[10px] font-bold">LIVE PRODUCTION</span>
+                        <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-[9px]">
+                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-bold">Pic-Time API</span>
+                            <span className="text-[var(--muted)]">Client Galleries</span>
+                          </div>
+                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-bold">FastAPI</span>
+                            <span className="text-[var(--muted)]">Lead Pipeline</span>
+                          </div>
+                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-bold">Brevo</span>
+                            <span className="text-[var(--muted)]">Automations</span>
+                          </div>
                         </div>
                       </div>
-                    ) : project.mockupType === 'mobile' ? (
-                      <div className="flex items-center justify-between py-1 px-1">
-                        <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center">
-                            <Smartphone className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                          </div>
-                          <span className="text-xs font-mono font-medium text-[var(--foreground)]">iOS / Swift Client</span>
+                    ) : project.id === 'ayetasks' ? (
+                      /* AyeTasks Infinite Tree Mockup */
+                      <div className="space-y-2 font-mono text-[10px]">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
+                          <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
+                            <CheckSquare className="w-3 h-3 text-[var(--accent-amber)]" />
+                            AyeTasks Neo-Tree
+                          </span>
+                          <span className="text-[var(--accent-amber)]">25 Levels · O(n)</span>
                         </div>
-                        <span className="text-[10px] font-mono text-[var(--muted)]">Native Architecture</span>
+                        <div className="space-y-1.5 pl-1">
+                          <div className="flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface-alt)] border border-[var(--border)]">
+                            <span>01 / Product Launch Architecture</span>
+                            <span className="text-[var(--accent-amber)] text-[9px]">Polymorphic</span>
+                          </div>
+                          <div className="flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface)] border border-[var(--accent-amber-border)] ml-3">
+                            <span className="text-[var(--foreground)] font-semibold">↳ Swift Native Engine</span>
+                            <span className="text-emerald-500 text-[9px]">Active</span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : project.id === 'ayemusicvisualizer' ? (
+                      /* macOS Audio DSP Visualizer Mockup */
+                      <div className="space-y-2.5">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)] text-[10px] font-mono">
+                          <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
+                            <Activity className="w-3 h-3 text-[var(--accent-amber)]" />
+                            Accelerate vDSP FFT
+                          </span>
+                          <span className="text-[var(--accent-amber)]">60+ FPS Real-Time</span>
+                        </div>
+                        {/* Audio Waveform Equalizer simulation */}
+                        <div className="flex items-end justify-between h-8 gap-1 pt-1 px-2">
+                          {[35, 65, 90, 45, 80, 100, 70, 40, 85, 55, 95, 30].map((height, i) => (
+                            <div
+                              key={i}
+                              style={{ height: `${height}%` }}
+                              className={`w-full rounded-xs transition-all ${
+                                i % 2 === 0
+                                  ? 'bg-[var(--accent-amber)] opacity-90'
+                                  : 'bg-[var(--foreground)] opacity-70'
+                              }`}
+                            />
+                          ))}
+                        </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-between py-1 px-1">
-                        <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-xs bg-[var(--surface-alt)] border border-[var(--border)] flex items-center justify-center">
-                            <Cpu className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+                      /* Standard Clean Browser / App Architecture View */
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+                          <div className="flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
+                            <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
+                            <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
+                            <span className="ml-2 text-[10px] font-mono text-[var(--muted)]">
+                              {project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.ayeapps.com`}
+                            </span>
                           </div>
-                          <span className="text-xs font-mono font-medium text-[var(--foreground)]">vDSP / Engine</span>
+                          <span className="text-[10px] font-mono text-[var(--accent-amber)] font-bold">
+                            PRODUCTION READY
+                          </span>
                         </div>
-                        <span className="text-[10px] font-mono text-[var(--muted)]">60+ FPS Real-Time</span>
+                        <div className="py-1 px-1 text-[11px] font-mono text-[var(--foreground)] opacity-90 flex items-center justify-between">
+                          <span>{project.role[lang]}</span>
+                          <span className="text-[var(--muted)] text-[10px]">{project.year}</span>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -190,7 +247,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   </div>
 
                   {/* Actions Links */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
+                  <div className="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}

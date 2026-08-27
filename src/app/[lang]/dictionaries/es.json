@@ -19,8 +19,8 @@
     "stats": [
       { "value": "100%", "label": "Código a Medida" },
       { "value": "< 1.2s", "label": "Tiempo de Carga" },
-      { "value": "25+", "label": "Niveles de Jerarquía" },
-      { "value": "O(n)", "label": "Rendimiento Optimizado" }
+      { "value": "0", "label": "Plantillas Genéricas" },
+      { "value": "1-on-1", "label": "Atención Directa" }
     ]
   },
   "portfolio_page": {
