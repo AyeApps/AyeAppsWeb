@@ -288,7 +288,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                       <div className="space-y-2.5 font-mono text-[10px]">
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
-                            <Download className="w-3.5 h-3.5 text-[var(--accent-amber)] animate-bounce" />
+                            <Download className="w-3.5 h-3.5 text-[var(--accent-amber)] animate-pulse" />
                             AyeVideoDownloader Engine
                           </span>
                           <span className="text-[var(--accent-amber)] text-[9px]">yt-dlp + FFmpeg</span>

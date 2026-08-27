@@ -95,7 +95,7 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
           <Link
             href={otherPath}
             className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] hover:border-[var(--accent-amber-border)] text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-            aria-label="Cambiar idioma"
+            aria-label={lang === 'es' ? 'Switch interface to English' : 'Cambiar interfaz a Español'}
           >
             <Globe className="w-3 h-3 text-[var(--accent-amber)]" />
             <span className="uppercase font-semibold">{otherLang}</span>
@@ -119,7 +119,8 @@ export default function Navbar({ dict, lang }: { dict: Dict; lang: string }) {
           <ThemeToggle />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Abrir menú"
+            aria-label={menuOpen ? (lang === 'es' ? 'Cerrar menú de navegación' : 'Close navigation menu') : (lang === 'es' ? 'Abrir menú de navegación' : 'Open navigation menu')}
+            aria-expanded={menuOpen}
             className="p-2 text-[var(--foreground)] border border-[var(--border)] rounded-xs bg-[var(--surface-alt)]"
           >
             {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
