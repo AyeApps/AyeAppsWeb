@@ -2,7 +2,7 @@ export interface Project {
   id: string
   slug: string
   title: string
-  category: 'client' | 'product' | 'mobile' | 'macos' | 'ai'
+  category: 'client' | 'product' | 'mobile' | 'macos'
   categoryLabel: { es: string; en: string }
   tagline: { es: string; en: string }
   description: { es: string; en: string }
@@ -88,6 +88,41 @@ export const PROJECTS: Project[] = [
     mockupType: 'mobile',
   },
   {
+    id: 'aye-video-downloader',
+    slug: 'aye-video-downloader',
+    title: 'Aye Video Downloader',
+    category: 'product',
+    categoryLabel: { es: 'App Nativa macOS & Cloud Engine', en: 'Native macOS & Cloud Engine' },
+    tagline: {
+      es: 'Extracción y transcodificación multimedia de alto rendimiento con procesamiento dual local y en la nube.',
+      en: 'High-throughput media extraction and transcoding with dual on-device and cloud processing pipelines.',
+    },
+    description: {
+      es: 'Aplicación nativa para macOS (SwiftUI) y cliente web que permite descargar y transcodificar video/audio en calidades de hasta 4K. Integra un motor de procesamiento dual: ejecución local eficiente o pipeline asíncrono en la nube con backend en Python/FastAPI, colas de descarga paralelas y transcodificación con FFmpeg.',
+      en: 'Native macOS (SwiftUI) and web application for high-throughput video and audio stream extraction up to 4K. Features a dual-processing engine: lightweight on-device execution or an asynchronous cloud worker pipeline powered by Python/FastAPI, parallel download queues, and FFmpeg transcoding.',
+    },
+    highlights: {
+      es: [
+        'Modo dual de procesamiento: Motor local en macOS o Cloud Worker',
+        'Extracción en múltiples calidades (4K, 1080p, audio MP3 320kbps)',
+        'Backend asíncrono con FastAPI, yt-dlp y transcodificación FFmpeg',
+        'Cliente nativo SwiftUI con telemetría de tasa de transferencia en vivo',
+      ],
+      en: [
+        'Dual processing architecture: On-device macOS engine or Cloud Worker',
+        'Multi-quality extraction (4K, 1080p, high-fidelity 320kbps MP3)',
+        'Asynchronous backend powered by FastAPI, yt-dlp, and FFmpeg',
+        'Native SwiftUI client with real-time transfer telemetry',
+      ],
+    },
+    technologies: ['Swift', 'SwiftUI', 'macOS', 'Python', 'FastAPI', 'FFmpeg', 'yt-dlp', 'Docker'],
+    year: '2026',
+    role: { es: 'Arquitectura & Desarrollo de Producto', en: 'Product Architecture & Engineering' },
+    featured: true,
+    githubUrl: 'https://github.com/alberto24dev/AyeVideoDownloader',
+    mockupType: 'terminal',
+  },
+  {
     id: 'ayerecipes',
     slug: 'ayerecipes',
     title: 'AyeRecipes',
@@ -121,66 +156,35 @@ export const PROJECTS: Project[] = [
     mockupType: 'mobile',
   },
   {
-    id: 'ayestock',
-    slug: 'ayestock',
-    title: 'AyeStock',
+    id: 'ayegirlfriend',
+    slug: 'ayegirlfriend',
+    title: 'AyeGirlfriend',
     category: 'product',
-    categoryLabel: { es: 'Dashboard Web & Inventario', en: 'Web Dashboard & Inventory' },
+    categoryLabel: { es: 'App Nativa iOS & Microservicio', en: 'Native iOS & Microservice' },
     tagline: {
-      es: 'Dashboard bilingüe de control de inventario con modo oscuro, búsqueda regex asíncrona y REST API.',
-      en: 'Bilingual inventory management dashboard with dark mode, async regex search, and REST API.',
+      es: 'Gestor de atención y seguimiento de momentos significativos con backend asíncrono en FastAPI y Motor.',
+      en: 'Relationship care management app with async Python FastAPI and non-blocking MongoDB Atlas backend.',
     },
     description: {
-      es: 'Plataforma web ágil para control de stock, precios de compra/venta y alertas de existencias. Frontend responsivo en Next.js con modo oscuro y backend asíncrono en FastAPI + Motor con búsquedas indexadas en MongoDB.',
-      en: 'Agile inventory control platform tracking stock, buy/sell margins, and inventory status. Responsive Next.js interface with dark mode and async Python FastAPI backend backed by MongoDB indexing.',
+      es: 'Aplicación nativa para iOS diseñada para registrar ideas, planear acciones y organizar momentos importantes. Backend asíncrono construido con FastAPI y Motor (MongoDB Atlas) con suite de pruebas automatizadas en pytest.',
+      en: 'Native iOS application designed to organize thoughtful ideas, plan partner activities, and log relationship milestones. Async FastAPI backend connected to MongoDB Atlas via Motor with automated pytest test suites.',
     },
     highlights: {
       es: [
-        'Dashboard bilingüe (ES/EN) con filtrado y búsqueda instantánea',
-        'API RESTful asíncrona con validaciones Pydantic',
-        'Badges dinámicos de estado de stock y márgenes',
+        'Arquitectura async-first con FastAPI y MongoDB Motor',
+        'Suite de pruebas automatizadas con pytest y mongomock',
+        'Interfaz moderna SwiftUI con foco en usabilidad',
       ],
       en: [
-        'Bilingual dashboard (ES/EN) with instant search and filters',
-        'Async RESTful API with strict Pydantic validation',
-        'Dynamic stock status badges and profit margins',
+        'Async-first architecture with FastAPI and MongoDB Motor',
+        'Automated test suite with pytest and mongomock',
+        'Modern SwiftUI interface designed for frictionless usage',
       ],
     },
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'MongoDB'],
+    technologies: ['Swift', 'SwiftUI', 'Python', 'FastAPI', 'MongoDB', 'pytest'],
     year: '2026',
-    role: { es: 'Desarrollador Full Stack', en: 'Full Stack Developer' },
-    mockupType: 'browser',
-  },
-  {
-    id: 'ayemusicvisualizer',
-    slug: 'ayemusicvisualizer',
-    title: 'AyeMusicVisualizer',
-    category: 'macos',
-    categoryLabel: { es: 'App Nativa macOS & Audio DSP', en: 'Native macOS & Audio DSP' },
-    tagline: {
-      es: 'Visualizador de audio en tiempo real para macOS con barras de frecuencia arrastrables y FFT vDSP.',
-      en: 'Real-time macOS audio visualizer with draggable frequency bars and Accelerate vDSP FFT.',
-    },
-    description: {
-      es: 'Aplicación nativa de macOS construida en SwiftUI y AVAudioEngine. Procesa audio en vivo mediante transformada de Fourier rápida (FFT de 2048 muestras con ventana Hann y Accelerate framework) para animar barras de frecuencia interactivas con suavizado exponencial y renderizado a 60+ FPS.',
-      en: 'Native macOS app built with SwiftUI and AVAudioEngine. Analyzes live audio using 2048-sample FFT via Apple Accelerate vDSP and Hann windowing to drive draggable frequency bars with exponential smoothing at 60+ FPS.',
-    },
-    highlights: {
-      es: [
-        'Procesamiento DSP en tiempo real con Apple Accelerate vDSP',
-        'Barras interactivas arrastrables con interpolación de color',
-        '9 presets de frecuencias y control inmersivo en pantalla completa',
-      ],
-      en: [
-        'Real-time DSP processing with Apple Accelerate vDSP',
-        'Interactive draggable bars with smooth color interpolation',
-        '9 musical frequency presets & immersive full-screen mode',
-      ],
-    },
-    technologies: ['Swift', 'SwiftUI', 'AVFoundation', 'Accelerate vDSP', 'macOS AppKit'],
-    year: '2025',
-    role: { es: 'Ingeniería de Software & DSP', en: 'Software & DSP Engineer' },
-    mockupType: 'terminal',
+    role: { es: 'Desarrollador Solo', en: 'Solo Developer' },
+    mockupType: 'mobile',
   },
   {
     id: 'blindy',
@@ -211,38 +215,6 @@ export const PROJECTS: Project[] = [
     technologies: ['Ionic', 'Angular', 'Capacitor', 'C#', '.NET Web API', 'SQL Server', 'Stripe', 'SignalR'],
     year: '2025',
     role: { es: 'Desarrollador Móvil', en: 'Mobile App Developer' },
-    mockupType: 'mobile',
-  },
-  {
-    id: 'mediscann',
-    slug: 'mediscann',
-    title: 'MediScann',
-    category: 'ai',
-    categoryLabel: { es: 'IA & Visión Computacional', en: 'AI & Computer Vision' },
-    tagline: {
-      es: 'Clasificador dermatológico en tiempo real mediante red neuronal MobileNetV2 y cliente móvil.',
-      en: 'Real-time dermatological condition classifier powered by a custom MobileNetV2 neural network.',
-    },
-    description: {
-      es: 'Sistema de salud digital con app móvil en React Native (Expo) y backend de inferencia en Python/TensorFlow. Utiliza una red neuronal convolucional MobileNetV2 optimizada para clasificar afecciones dérmicas a partir de imágenes capturadas por el usuario.',
-      en: 'Digital health solution featuring a React Native (Expo) mobile app and Python/TensorFlow inference backend. Powered by a fine-tuned MobileNetV2 convolutional neural network classifying skin conditions from camera captures.',
-    },
-    highlights: {
-      es: [
-        'Modelo MobileNetV2 customizado para inferencia rápida en backend',
-        'App móvil en React Native / Expo con interfaz intuitiva',
-        'Infraestructura contenerizada con Docker Compose',
-      ],
-      en: [
-        'Custom MobileNetV2 CNN tuned for low-latency backend inference',
-        'Intuitive React Native / Expo mobile interface',
-        'Containerized architecture orchestrated with Docker Compose',
-      ],
-    },
-    technologies: ['React Native', 'Expo', 'Python', 'TensorFlow', 'Flask', 'Docker'],
-    year: '2025',
-    role: { es: 'Desarrollo de IA & Móvil', en: 'AI & Mobile Developer' },
-    githubUrl: 'https://github.com/Sadiec7/MediScann',
     mockupType: 'mobile',
   },
 ]

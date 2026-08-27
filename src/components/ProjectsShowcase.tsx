@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { PROJECTS, Project } from '@/data/projects'
+import { useState } from 'react'
+import { PROJECTS } from '@/data/projects'
 import ScrollReveal from './ScrollReveal'
 import {
   ExternalLink,
@@ -9,17 +9,13 @@ import {
   Smartphone,
   Monitor,
   Cpu,
-  Activity,
   CheckSquare,
   ChevronRight,
   ChevronDown,
-  Volume2,
-  Sparkles,
-  Check,
-  Calendar,
-  Clock,
-  Repeat,
-  Camera
+  Camera,
+  Download,
+  Server,
+  Laptop
 } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
@@ -51,9 +47,9 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
   // Interactive state for Fatima Resendiz CRM demo
   const [crmStep, setCrmStep] = useState<number>(2) // 0: Lead, 1: Contacted, 2: Booked, 3: Delivered
 
-  // Interactive state for AyeMusicVisualizer
-  const [activeFrequency, setActiveFrequency] = useState<string>('440 Hz')
-  const [audioGain, setAudioGain] = useState<number>(85)
+  // Interactive state for AyeVideoDownloader demo
+  const [downloaderMode, setDownloaderMode] = useState<'local' | 'cloud'>('local')
+  const [downloaderQuality, setDownloaderQuality] = useState<'4K' | '1080p' | 'MP3'>('4K')
 
   const p = dict.portfolio
 
@@ -62,7 +58,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
     if (filter === 'client') return item.category === 'client'
     if (filter === 'product') return item.category === 'product'
     if (filter === 'mobile') return item.category === 'mobile' || item.technologies.some(t => ['Swift', 'SwiftUI', 'iOS', 'React Native', 'Ionic'].includes(t))
-    if (filter === 'macos') return item.category === 'macos' || item.category === 'ai'
+    if (filter === 'macos') return item.category === 'macos' || item.technologies.includes('macOS')
     return true
   })
 
@@ -78,19 +74,6 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
   const toggleTaskNode = (id: string) => {
     setAyeTasksExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
   }
-
-  const FREQ_BARS = [
-    { hz: '60 Hz', label: 'Sub-bass', defaultH: 45 },
-    { hz: '120 Hz', label: 'Bass', defaultH: 70 },
-    { hz: '250 Hz', label: 'Warmth', defaultH: 85 },
-    { hz: '440 Hz', label: 'Pitch A4', defaultH: 95 },
-    { hz: '1 kHz', label: 'Presence', defaultH: 60 },
-    { hz: '2.5 kHz', label: 'Clarity', defaultH: 78 },
-    { hz: '5 kHz', label: 'Definition', defaultH: 90 },
-    { hz: '8 kHz', label: 'Brilliance', defaultH: 65 },
-    { hz: '12 kHz', label: 'Air', defaultH: 80 },
-    { hz: '16 kHz', label: 'Harmonics', defaultH: 50 },
-  ]
 
   const CRM_STAGES = [
     { name: lang === 'es' ? 'Prospecto' : 'Lead', color: 'text-[var(--muted)]' },
@@ -179,7 +162,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                     {project.tagline[lang]}
                   </p>
 
-                  {/* Interactive Visual Representation Mockups (Delight Tier) */}
+                  {/* Interactive Visual Representation Mockups */}
                   <div className="mb-6 p-4 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] overflow-hidden shadow-xs">
                     {project.id === 'fatima-resendiz' ? (
                       /* Interactive Fatima Resendiz CRM Platform Mockup */
@@ -286,45 +269,64 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                           )}
                         </div>
                       </div>
-                    ) : project.id === 'ayemusicvisualizer' ? (
-                      /* Interactive macOS Audio DSP Equalizer Mockup */
-                      <div className="space-y-2.5">
-                        <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)] text-[10px] font-mono">
+                    ) : project.id === 'aye-video-downloader' ? (
+                      /* Interactive AyeVideoDownloader Dual Engine Mockup */
+                      <div className="space-y-2.5 font-mono text-[10px]">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
-                            <Activity className="w-3 h-3 text-[var(--accent-amber)] animate-pulse" />
-                            Accelerate vDSP FFT
+                            <Download className="w-3.5 h-3.5 text-[var(--accent-amber)] animate-bounce" />
+                            AyeVideoDownloader Engine
                           </span>
-                          <div className="flex items-center gap-2 text-[9px]">
-                            <span className="text-[var(--accent-amber)] font-bold">{activeFrequency}</span>
-                            <span className="text-[var(--muted)]">60+ FPS</span>
-                          </div>
+                          <span className="text-[var(--accent-amber)] text-[9px]">yt-dlp + FFmpeg</span>
                         </div>
 
-                        {/* Interactive Equalizer Bars */}
-                        <div className="flex items-end justify-between h-9 gap-1 pt-1 px-1 bg-[var(--surface-alt)]/50 rounded-xs">
-                          {FREQ_BARS.map((bar, i) => {
-                            const isActive = activeFrequency === bar.hz
-                            const dynamicH = isActive ? 100 : bar.defaultH
-                            return (
-                              <button
-                                key={bar.hz}
-                                onMouseEnter={() => setActiveFrequency(bar.hz)}
-                                onClick={() => setActiveFrequency(bar.hz)}
-                                aria-label={`Frecuencia ${bar.hz}`}
-                                style={{ height: `${dynamicH}%` }}
-                                className={`w-full rounded-xs transition-all duration-150 cursor-pointer ${
-                                  isActive
-                                    ? 'bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)] scale-y-105'
-                                    : 'bg-[var(--foreground)] opacity-60 hover:opacity-100 hover:bg-[var(--accent-amber)]'
-                                }`}
-                              />
-                            )
-                          })}
+                        {/* Dual Mode Switcher */}
+                        <div className="grid grid-cols-2 gap-1.5 p-1 rounded-xs bg-[var(--surface-alt)] border border-[var(--border)]">
+                          <button
+                            onClick={() => setDownloaderMode('local')}
+                            className={`flex items-center justify-center gap-1.5 py-1 text-[9px] rounded-xs transition-all cursor-pointer ${
+                              downloaderMode === 'local'
+                                ? 'bg-[var(--surface)] text-[var(--foreground)] font-bold border border-[var(--accent-amber-border)] shadow-xs'
+                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
+                            }`}
+                          >
+                            <Laptop className="w-3 h-3 text-emerald-500" />
+                            {lang === 'es' ? 'Modo Local (macOS)' : 'Local Engine (macOS)'}
+                          </button>
+                          <button
+                            onClick={() => setDownloaderMode('cloud')}
+                            className={`flex items-center justify-center gap-1.5 py-1 text-[9px] rounded-xs transition-all cursor-pointer ${
+                              downloaderMode === 'cloud'
+                                ? 'bg-[var(--surface)] text-[var(--foreground)] font-bold border border-[var(--accent-amber-border)] shadow-xs'
+                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
+                            }`}
+                          >
+                            <Server className="w-3 h-3 text-[var(--accent-amber)]" />
+                            {lang === 'es' ? 'Cloud Worker (FastAPI)' : 'Cloud Worker (FastAPI)'}
+                          </button>
                         </div>
-                        <div className="flex items-center justify-between text-[8px] font-mono text-[var(--muted)] px-1">
-                          <span>20 Hz (Sub)</span>
-                          <span>1 kHz (Mid)</span>
-                          <span>20 kHz (Air)</span>
+
+                        {/* Quality Selector & Telemetry */}
+                        <div className="flex items-center justify-between pt-1">
+                          <div className="flex items-center gap-1">
+                            {(['4K', '1080p', 'MP3'] as const).map((q) => (
+                              <button
+                                key={q}
+                                onClick={() => setDownloaderQuality(q)}
+                                className={`px-2 py-0.5 text-[8.5px] rounded-xs border transition-all cursor-pointer ${
+                                  downloaderQuality === q
+                                    ? 'border-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] text-[var(--foreground)] font-bold'
+                                    : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)]'
+                                }`}
+                              >
+                                {q}
+                              </button>
+                            ))}
+                          </div>
+                          <div className="text-[8.5px] text-emerald-500 font-semibold flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                            {downloaderMode === 'local' ? '28.4 MB/s · FFmpeg Direct' : 'Async Queue · 100% Cloud'}
+                          </div>
                         </div>
                       </div>
                     ) : project.id === 'ayerecipes' ? (
