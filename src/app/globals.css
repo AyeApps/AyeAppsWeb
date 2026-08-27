@@ -153,10 +153,22 @@ html {
   animation: orbit-slow 100s linear infinite;
 }
 
-/* ─── Dot Matrix Background ──────────────────────────── */
-.dot-pattern {
-  background-image: radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px);
+@keyframes dot-drift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 56px 56px;
+  }
+}
+
+/* ─── Dot Matrix Background (Animated) ───────────────── */
+.dot-pattern,
+.dot-pattern-animated {
+  background-image: radial-gradient(circle, var(--dot-color) 1.3px, transparent 1.3px);
   background-size: 28px 28px;
+  animation: dot-drift 24s linear infinite;
+  will-change: background-position;
 }
 
 /* ─── Scroll Reveal ──────────────────────────────────── */
@@ -261,6 +273,7 @@ html {
   .bracket-corners::before,
   .bracket-corners::after { transition: none; }
   .circles-orbit { animation: none !important; }
+  .dot-pattern, .dot-pattern-animated { animation: none !important; }
   .hero-line-draw { animation: none !important; transform: scaleX(1) !important; }
   * {
     transition-duration: 0.01ms !important;
