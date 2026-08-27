@@ -62,7 +62,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   }`}
                 >
                   <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                  <span>{isEs ? 'Modo Negocio (Amigable)' : 'Business View (Friendly)'}</span>
+                  <span>{isEs ? 'Vista Ejecutiva' : 'Executive View'}</span>
                 </button>
 
                 <button
@@ -74,7 +74,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   }`}
                 >
                   <Terminal className="w-3.5 h-3.5" />
-                  <span>{isEs ? 'Modo Tech (Monaco)' : 'Tech View (Monaco)'}</span>
+                  <span>{isEs ? 'Vista Técnica' : 'Technical View'}</span>
                 </button>
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 </div>
 
                 <span className="text-xs font-mono text-[var(--muted)]">
-                  {techMode ? (isEs ? '⚡️ Modo Monaco activo' : '⚡️ Monaco mode active') : (isEs ? '🌟 Modo Amigable activo' : '🌟 Friendly mode active')}
+                  {techMode ? (isEs ? '⚡️ Vista técnica activa' : '⚡️ Technical view active') : (isEs ? '🌟 Vista ejecutiva activa' : '🌟 Executive view active')}
                 </span>
               </div>
             </ScrollReveal>
