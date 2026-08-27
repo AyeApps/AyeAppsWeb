@@ -29,7 +29,7 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
               href={`/${lang}`}
               className="flex items-center gap-3 text-base font-bold tracking-tight text-[var(--foreground)] group"
             >
-              <div className="w-7 h-7 rounded border border-[var(--border-strong)] p-1 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] transition-colors flex items-center justify-center">
+              <div className="w-7 h-7 rounded-xs border border-[var(--border-strong)] p-1 bg-[var(--surface-raised)] group-hover:border-[var(--accent-amber)] transition-colors flex items-center justify-center">
                 <svg viewBox="0 0 1024 1024" className="w-full h-full text-[var(--foreground)]">
                   <path
                     d="M512 100 L900 850 L124 850 Z"
@@ -52,25 +52,31 @@ export default function Footer({ dict, lang }: { dict: Dict; lang: string }) {
           {/* Nav links */}
           <div className="flex flex-wrap items-center gap-6">
             <Link
-              href={`/${lang}#portfolio`}
+              href={`/${lang}`}
+              className="text-xs uppercase tracking-[0.14em] font-medium text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
+            >
+              {n.home}
+            </Link>
+            <Link
+              href={`/${lang}/portfolio`}
               className="text-xs uppercase tracking-[0.14em] font-medium text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
             >
               {n.portfolio}
             </Link>
             <Link
-              href={`/${lang}#services`}
+              href={`/${lang}/services`}
               className="text-xs uppercase tracking-[0.14em] font-medium text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
             >
               {n.services}
             </Link>
             <Link
-              href={`/${lang}#stack`}
+              href={`/${lang}/stack`}
               className="text-xs uppercase tracking-[0.14em] font-medium text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
             >
               {n.stack}
             </Link>
             <Link
-              href={`/${lang}#contact`}
+              href={`/${lang}/contact`}
               className="text-xs uppercase tracking-[0.14em] font-medium text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors"
             >
               {n.contact}

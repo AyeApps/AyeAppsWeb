@@ -14,12 +14,19 @@
     "sub": "We architect and build bespoke web platforms, native iOS applications, and scalable cloud solutions. No generic templates. Pure boutique craft and impeccable code.",
     "cta_primary": "Explore Ecosystem",
     "cta_secondary": "View Services",
+    "featured_title": "Featured Work",
+    "view_all_projects": "View all projects & products",
     "stats": [
       { "value": "100%", "label": "Custom Code" },
       { "value": "< 1.2s", "label": "Load Time" },
       { "value": "25+", "label": "Hierarchy Levels" },
       { "value": "O(n)", "label": "Optimized Scale" }
     ]
+  },
+  "portfolio_page": {
+    "badge": "Engineering Showcase",
+    "title": "Ecosystem of Products & Projects",
+    "sub": "Real production platforms for businesses and demanding proprietary software products demonstrating end-to-end technical mastery."
   },
   "portfolio": {
     "badge": "01 / Projects & Ecosystem",
@@ -33,6 +40,35 @@
     "view_case": "View case study",
     "view_github": "View repository",
     "view_live": "Visit platform"
+  },
+  "services_page": {
+    "badge": "Technical Capabilities",
+    "title": "Engineering & Atelier Services",
+    "sub": "Full-lifecycle guidance from architectural blueprints and UI/UX design to robust implementation, testing, and global edge deployment.",
+    "process_badge": "Methodology",
+    "process_title": "Our Process: From concept to production",
+    "process_steps": [
+      {
+        "step": "01",
+        "title": "Discovery & Scoping",
+        "desc": "We analyze core requirements, model domain entities, and select the optimal stack without premature over-engineering."
+      },
+      {
+        "step": "02",
+        "title": "Architecture & UI/UX",
+        "desc": "We prototype high-fidelity interfaces and design database schemas, API contracts, and security models before writing code."
+      },
+      {
+        "step": "03",
+        "title": "Engineering & Testing",
+        "desc": "Transparent sprint-based execution with strict TypeScript, unit tests, and continuous performance benchmarks."
+      },
+      {
+        "step": "04",
+        "title": "Edge Deploy & Handover",
+        "desc": "Global cloud deployment (Cloudflare, AWS, Docker) with automated SSL, observability, and direct developer support."
+      }
+    ]
   },
   "services": {
     "badge": "02 / Capabilities",
@@ -62,6 +98,27 @@
         "title": "Automation, CRM & Email Marketing",
         "description": "Payment gateway integrations (Stripe), real-time customer pipelines, transactional messaging (Brevo/SendGrid), and robust JWT authentication with token rotation.",
         "tags": ["Stripe", "Brevo", "JWT Auth", "Cloudflare Turnstile"]
+      }
+    ]
+  },
+  "stack_page": {
+    "badge": "Technical Foundations",
+    "title": "Technology, Architecture & Tooling",
+    "sub": "A transparent look at the technologies and engineering doctrines we use to build reliable, high-performance, and maintainable software.",
+    "principles_badge": "Engineering Doctrine",
+    "principles_title": "Core principles governing our code",
+    "principles": [
+      {
+        "title": "End-to-End Strict Typing",
+        "desc": "TypeScript on the frontend and Pydantic/Python on the backend to catch contract regressions before deployment."
+      },
+      {
+        "title": "Performance & Zero Latency",
+        "desc": "Static Site Generation (SSG), global Edge CDN caching, and database queries indexed for O(1) and O(n) execution."
+      },
+      {
+        "title": "Zero Bloated Templates",
+        "desc": "Every pixel, component, and animation is built with purpose, distinct personality, and lean dependencies."
       }
     ]
   },

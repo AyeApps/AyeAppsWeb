@@ -14,12 +14,19 @@
     "sub": "Diseñamos y construimos plataformas web, aplicaciones nativas iOS y arquitecturas cloud a medida. Sin plantillas genéricas. Con enfoque boutique y código impecable.",
     "cta_primary": "Explorar Ecosistema",
     "cta_secondary": "Conocer Servicios",
+    "featured_title": "Trabajo Destacado",
+    "view_all_projects": "Ver todos los proyectos y productos",
     "stats": [
       { "value": "100%", "label": "Código a Medida" },
       { "value": "< 1.2s", "label": "Tiempo de Carga" },
       { "value": "25+", "label": "Niveles de Jerarquía" },
       { "value": "O(n)", "label": "Rendimiento Optimizado" }
     ]
+  },
+  "portfolio_page": {
+    "badge": "Catálogo de Ingeniería",
+    "title": "Ecosistema de Productos & Proyectos",
+    "sub": "Plataformas reales en producción para clientes y proyectos propios de software que demuestran nuestra capacidad técnica de punta a punta."
   },
   "portfolio": {
     "badge": "01 / Proyectos & Ecosistema",
@@ -33,6 +40,35 @@
     "view_case": "Ver caso de estudio",
     "view_github": "Ver repositorio",
     "view_live": "Visitar plataforma"
+  },
+  "services_page": {
+    "badge": "Especialidades Técnicas",
+    "title": "Servicios de Ingeniería & Atelier",
+    "sub": "Acompañamiento integral desde la concepción de la arquitectura y el diseño UI/UX hasta la implementación, pruebas rigurosas y despliegue global.",
+    "process_badge": "Metodología",
+    "process_title": "Cómo trabajamos: De la idea a producción",
+    "process_steps": [
+      {
+        "step": "01",
+        "title": "Descubrimiento & Alcance",
+        "desc": "Definimos los requerimientos exactos, modelamos entidades y seleccionamos la tecnología ideal sin sobre-ingeniería innecesaria."
+      },
+      {
+        "step": "02",
+        "title": "Arquitectura & UI/UX",
+        "desc": "Diseñamos interfaces de alta fidelidad y la estructura de bases de datos, APIs y modelos de seguridad antes de escribir código."
+      },
+      {
+        "step": "03",
+        "title": "Ingeniería & Pruebas",
+        "desc": "Desarrollamos en sprints transparentes con TypeScript estricto, pruebas unitarias y revisiones continuas de rendimiento."
+      },
+      {
+        "step": "04",
+        "title": "Despliegue & Soporte",
+        "desc": "Lanzamiento en infraestructura cloud global (Cloudflare, AWS, Docker) con monitoreo, SSL automático y soporte cercano."
+      }
+    ]
   },
   "services": {
     "badge": "02 / Especialidades",
@@ -62,6 +98,27 @@
         "title": "Automatizaciones, CRM & Email Marketing",
         "description": "Integración de pasarelas de pago (Stripe), pipelines de captación de clientes, APIs de mensajería (Brevo/SendGrid) y autenticación segura con rotación de credenciales.",
         "tags": ["Stripe", "Brevo", "JWT Auth", "Cloudflare Turnstile"]
+      }
+    ]
+  },
+  "stack_page": {
+    "badge": "Fundamentos Técnicos",
+    "title": "Tecnología, Arquitectura & Herramientas",
+    "sub": "Un vistazo transparente a las tecnologías y doctrinas de ingeniería que utilizamos para crear software robusto, escalable y mantenible.",
+    "principles_badge": "Doctrina de Ingeniería",
+    "principles_title": "Principios que rigen nuestro código",
+    "principles": [
+      {
+        "title": "Tipado Estricto de Punta a Punta",
+        "desc": "TypeScript en el frontend y Pydantic/Python con tipado estricto en el backend para eliminar errores antes de producción."
+      },
+      {
+        "title": "Rendimiento y Latencia Cero",
+        "desc": "Compilación estática (SSG), distribución en el borde (Edge CDN) y consultas de bases de datos optimizadas con índices O(1) y O(n)."
+      },
+      {
+        "title": "Cero Plantillas Genéricas",
+        "desc": "Cada píxel, componente y animación se construye con propósito, identidad propia y sin dependencias infladas."
       }
     ]
   },
