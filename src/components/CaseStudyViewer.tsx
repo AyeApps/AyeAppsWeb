@@ -118,12 +118,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             {techMode ? (
               <div className="space-y-3 mb-8">
                 <div className="inline-flex items-center gap-2 font-mono text-xs text-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] px-2.5 py-1 rounded-xs border border-[var(--accent-amber-border)] w-fit">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="tracking-wide">
-                    {study.techBadge?.[lang] || (isEs
-                      ? 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% EN LA NUBE'
-                      : 'CLOUD-NATIVE DISTRIBUTED ARCHITECTURE // 100% CLOUD-HOSTED')}
-                  </span>
+                  <span className="tracking-wide">{study.techBadge?.[lang]}</span>
                 </div>
                 <h1
                   className="text-3xl sm:text-5xl md:text-6xl font-bold font-tech text-[var(--foreground)] tracking-tight"
@@ -159,42 +154,68 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               {techMode ? study.heroTaglineTech[lang] : study.heroTaglineBusiness[lang]}
             </p>
 
-            {/* Meta Grid & Action Link */}
-            <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] mb-10 shadow-2xs ${
-              isGoldAccented ? 'border-[#c9a96e]/30' : 'border-[var(--border-strong)]'
-            }`}>
-              <div className="text-center sm:text-left">
-                <span className="text-[10px] uppercase tracking-wider text-[var(--muted)] block mb-1 font-mono">
+            {/* Meta Attributes Grid (4 Squared, Centered, Bracketed Cards) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+              {/* Client */}
+              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+                isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
+              }`}>
+                <span className={`text-[10px] uppercase font-mono tracking-widest block ${
+                  isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+                }`}>
                   {isEs ? 'Cliente / Origen' : 'Client / Origin'}
                 </span>
-                <span className={`text-sm font-semibold text-[var(--foreground)] ${isGoldAccented ? 'font-montserrat' : ''}`}>
+                <span className={`text-sm sm:text-base font-bold text-[var(--foreground)] transition-colors ${
+                  isGoldAccented ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
+                }`}>
                   {study.clientName}
                 </span>
               </div>
 
-              <div className="text-center sm:text-left">
-                <span className="text-[10px] uppercase tracking-wider text-[var(--muted)] block mb-1 font-mono">
+              {/* Timeline */}
+              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+                isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
+              }`}>
+                <span className={`text-[10px] uppercase font-mono tracking-widest block ${
+                  isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+                }`}>
                   {isEs ? 'Línea de Tiempo' : 'Timeline'}
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-[var(--foreground)]">
+                <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors ${
+                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                }`}>
                   {study.timeline[lang]}
                 </span>
               </div>
 
-              <div className="text-center sm:text-left">
-                <span className="text-[10px] uppercase tracking-wider text-[var(--muted)] block mb-1 font-mono">
+              {/* Release Year */}
+              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+                isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
+              }`}>
+                <span className={`text-[10px] uppercase font-mono tracking-widest block ${
+                  isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+                }`}>
                   {isEs ? 'Año de Lanzamiento' : 'Release Year'}
                 </span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">
+                <span className={`text-sm sm:text-base font-bold font-mono text-[var(--foreground)] transition-colors ${
+                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                }`}>
                   {study.year}
                 </span>
               </div>
 
-              <div className="text-center sm:text-left">
-                <span className="text-[10px] uppercase tracking-wider text-[var(--muted)] block mb-1 font-mono">
+              {/* Role */}
+              <div className={`${bracketClass} card-lift p-5 sm:p-6 rounded-xs border bg-[var(--surface-raised)] flex flex-col items-center justify-between text-center space-y-3 h-full shadow-2xs group ${
+                isGoldAccented ? 'border-[var(--border)] hover:border-[#c9a96e]/60' : 'border-[var(--border)]'
+              }`}>
+                <span className={`text-[10px] uppercase font-mono tracking-widest block ${
+                  isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+                }`}>
                   {isEs ? 'Rol AyeApps' : 'AyeApps Role'}
                 </span>
-                <span className="text-xs font-semibold text-[var(--foreground)]">
+                <span className={`text-xs sm:text-sm font-semibold text-[var(--foreground)] leading-snug transition-colors ${
+                  isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                }`}>
                   {techMode ? study.roleTech[lang] : study.roleBusiness[lang]}
                 </span>
               </div>
