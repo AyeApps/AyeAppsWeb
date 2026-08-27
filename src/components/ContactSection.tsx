@@ -1,5 +1,8 @@
+'use client'
+
+import { useState } from 'react'
 import ScrollReveal from './ScrollReveal'
-import { Mail, MessageSquare, MapPin, Construction, ArrowUpRight } from 'lucide-react'
+import { Mail, MessageSquare, MapPin, Construction, ArrowUpRight, Copy, Check } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons'
 
 type Dict = {
@@ -23,7 +26,16 @@ type Dict = {
 }
 
 export default function ContactSection({ dict }: { dict: Dict }) {
+  const [copied, setCopied] = useState(false)
   const c = dict.contact
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText(c.channels.email_val)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2200)
+  }
 
   return (
     <section
@@ -102,26 +114,39 @@ export default function ContactSection({ dict }: { dict: Dict }) {
                 <ArrowUpRight className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors" />
               </a>
 
-              {/* Email Direct */}
-              <a
-                href={`mailto:${c.channels.email_val}?subject=Consulta%20de%20Proyecto%20-%20AyeApps`}
-                className="btn-press p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group min-h-[72px]"
-              >
-                <div className="flex items-center gap-3.5">
+              {/* Email Direct with Quick Copy Button */}
+              <div className="p-5 rounded-xs border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent-amber-border)] flex items-center justify-between group min-h-[72px] transition-colors">
+                <a
+                  href={`mailto:${c.channels.email_val}?subject=Consulta%20de%20Proyecto%20-%20AyeApps`}
+                  className="flex items-center gap-3.5 flex-1 min-w-0"
+                >
                   <div className="w-10 h-10 rounded-xs bg-[var(--accent-amber-subtle)] border border-[var(--accent-amber-border)] flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-[var(--accent-amber)]" />
                   </div>
-                  <div>
+                  <div className="truncate">
                     <span className="text-[11px] uppercase tracking-wider font-mono text-[var(--muted)] block">
                       {c.channels.email_label}
                     </span>
-                    <span className="text-sm font-semibold text-[var(--foreground)] group-hover:text-[var(--accent-amber)] transition-colors">
+                    <span className="text-sm font-semibold text-[var(--foreground)] group-hover:text-[var(--accent-amber)] transition-colors truncate block">
                       {c.channels.email_val}
                     </span>
                   </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-[var(--muted)] group-hover:text-[var(--accent-amber)] transition-colors" />
-              </a>
+                </a>
+
+                {/* 1-Click Copy Delight Interaction */}
+                <button
+                  onClick={handleCopyEmail}
+                  title="Copiar email"
+                  aria-label="Copiar correo electrónico al portapapeles"
+                  className="btn-press ml-2 p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)] hover:border-[var(--accent-amber)] text-[var(--muted)] hover:text-[var(--foreground)] transition-colors shrink-0"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-emerald-500" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-[var(--accent-amber)]" />
+                  )}
+                </button>
+              </div>
             </div>
 
             {/* Location & Social Icons */}

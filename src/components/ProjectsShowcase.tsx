@@ -1,9 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { PROJECTS, Project } from '@/data/projects'
 import ScrollReveal from './ScrollReveal'
-import { ExternalLink, Layers, Smartphone, Monitor, Cpu, Activity, Camera, CheckSquare, Sparkles } from 'lucide-react'
+import {
+  ExternalLink,
+  Layers,
+  Smartphone,
+  Monitor,
+  Cpu,
+  Activity,
+  CheckSquare,
+  ChevronRight,
+  ChevronDown,
+  Volume2,
+  Sparkles,
+  Check,
+  Calendar,
+  Clock,
+  Repeat,
+  Camera
+} from 'lucide-react'
 import { GithubIcon } from './Icons'
 
 type Dict = {
@@ -25,6 +42,19 @@ type Dict = {
 export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es' | 'en' }) {
   const [filter, setFilter] = useState<'all' | 'client' | 'product' | 'mobile' | 'macos'>('all')
 
+  // Interactive state for AyeTasks demo
+  const [ayeTasksExpanded, setAyeTasksExpanded] = useState<Record<string, boolean>>({
+    'node-1': true,
+    'node-2': true,
+  })
+
+  // Interactive state for Fatima Resendiz CRM demo
+  const [crmStep, setCrmStep] = useState<number>(2) // 0: Lead, 1: Contacted, 2: Booked, 3: Delivered
+
+  // Interactive state for AyeMusicVisualizer
+  const [activeFrequency, setActiveFrequency] = useState<string>('440 Hz')
+  const [audioGain, setAudioGain] = useState<number>(85)
+
   const p = dict.portfolio
 
   const filteredProjects = PROJECTS.filter((item) => {
@@ -44,6 +74,30 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
       default: return <Cpu className="w-3.5 h-3.5" />
     }
   }
+
+  const toggleTaskNode = (id: string) => {
+    setAyeTasksExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
+  }
+
+  const FREQ_BARS = [
+    { hz: '60 Hz', label: 'Sub-bass', defaultH: 45 },
+    { hz: '120 Hz', label: 'Bass', defaultH: 70 },
+    { hz: '250 Hz', label: 'Warmth', defaultH: 85 },
+    { hz: '440 Hz', label: 'Pitch A4', defaultH: 95 },
+    { hz: '1 kHz', label: 'Presence', defaultH: 60 },
+    { hz: '2.5 kHz', label: 'Clarity', defaultH: 78 },
+    { hz: '5 kHz', label: 'Definition', defaultH: 90 },
+    { hz: '8 kHz', label: 'Brilliance', defaultH: 65 },
+    { hz: '12 kHz', label: 'Air', defaultH: 80 },
+    { hz: '16 kHz', label: 'Harmonics', defaultH: 50 },
+  ]
+
+  const CRM_STAGES = [
+    { name: lang === 'es' ? 'Prospecto' : 'Lead', color: 'text-[var(--muted)]' },
+    { name: lang === 'es' ? 'Contactado' : 'Contacted', color: 'text-amber-500' },
+    { name: lang === 'es' ? 'Apartado' : 'Booked', color: 'text-emerald-500' },
+    { name: lang === 'es' ? 'Entregado (Pic-Time)' : 'Delivered (Pic-Time)', color: 'text-[var(--accent-amber)]' },
+  ]
 
   return (
     <section
@@ -125,96 +179,192 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                     {project.tagline[lang]}
                   </p>
 
-                  {/* Interactive Visual Representation Mockup */}
-                  <div className="mb-6 p-4 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] overflow-hidden">
+                  {/* Interactive Visual Representation Mockups (Delight Tier) */}
+                  <div className="mb-6 p-4 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] overflow-hidden shadow-xs">
                     {project.id === 'fatima-resendiz' ? (
-                      /* Flagship Client Platform Mockup */
+                      /* Interactive Fatima Resendiz CRM Platform Mockup */
                       <div className="space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-[var(--border)] text-[10px] font-mono text-[var(--muted)]">
+                        <div className="flex items-center justify-between pb-2 border-b border-[var(--border)] text-[10px] font-mono">
                           <div className="flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                             <span className="text-[var(--foreground)] font-semibold">fatimaresendiz.com</span>
                           </div>
-                          <span className="text-[var(--accent-amber)] uppercase font-bold tracking-wider">BILINGUAL PLATFORM</span>
+                          <span className="text-[var(--accent-amber)] uppercase font-bold tracking-wider text-[9px]">
+                            {lang === 'es' ? 'CRM INTERACTIVO' : 'LIVE CRM PIPELINE'}
+                          </span>
                         </div>
-                        <div className="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-[9px]">
-                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-bold">Pic-Time API</span>
-                            <span className="text-[var(--muted)]">Client Galleries</span>
+
+                        {/* Interactive Pipeline Stage Stepper */}
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-between text-[9px] font-mono text-[var(--muted)] pb-1">
+                            <span>{lang === 'es' ? 'Flujo de Lead:' : 'Lead Lifecycle:'}</span>
+                            <span className="text-[var(--accent-amber)] font-bold">{CRM_STAGES[crmStep].name}</span>
                           </div>
-                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-bold">FastAPI</span>
-                            <span className="text-[var(--muted)]">Lead Pipeline</span>
+                          <div className="grid grid-cols-4 gap-1">
+                            {CRM_STAGES.map((stg, sIdx) => (
+                              <button
+                                key={stg.name}
+                                onClick={() => setCrmStep(sIdx)}
+                                className={`py-1 text-[8.5px] font-mono rounded-xs border transition-all text-center ${
+                                  sIdx === crmStep
+                                    ? 'bg-[var(--accent-amber)] text-black font-bold border-[var(--accent-amber)]'
+                                    : sIdx < crmStep
+                                    ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-500'
+                                    : 'bg-[var(--surface-alt)] border-[var(--border)] text-[var(--muted)]'
+                                }`}
+                              >
+                                {sIdx + 1}. {stg.name.split(' ')[0]}
+                              </button>
+                            ))}
                           </div>
-                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-bold">Brevo</span>
-                            <span className="text-[var(--muted)]">Automations</span>
+                        </div>
+
+                        {/* Connected services chips */}
+                        <div className="grid grid-cols-3 gap-1.5 pt-1 text-center font-mono text-[8.5px]">
+                          <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-semibold">Pic-Time</span>
+                            <span className="text-[var(--muted)] text-[8px]">Private Galleries</span>
+                          </div>
+                          <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-semibold">FastAPI</span>
+                            <span className="text-[var(--muted)] text-[8px]">Async Engine</span>
+                          </div>
+                          <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-semibold">Brevo</span>
+                            <span className="text-[var(--muted)] text-[8px]">Auto Email</span>
                           </div>
                         </div>
                       </div>
                     ) : project.id === 'ayetasks' ? (
-                      /* AyeTasks Infinite Tree Mockup */
+                      /* Interactive AyeTasks Recursive Tree Mockup */
                       <div className="space-y-2 font-mono text-[10px]">
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
                             <CheckSquare className="w-3 h-3 text-[var(--accent-amber)]" />
-                            AyeTasks Neo-Tree
+                            AyeTasks Tree Engine
                           </span>
-                          <span className="text-[var(--accent-amber)]">25 Levels · O(n)</span>
+                          <span className="text-[var(--accent-amber)] text-[9px]">25 Levels · O(n)</span>
                         </div>
-                        <div className="space-y-1.5 pl-1">
-                          <div className="flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface-alt)] border border-[var(--border)]">
-                            <span>01 / Product Launch Architecture</span>
-                            <span className="text-[var(--accent-amber)] text-[9px]">Polymorphic</span>
-                          </div>
-                          <div className="flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface)] border border-[var(--accent-amber-border)] ml-3">
-                            <span className="text-[var(--foreground)] font-semibold">↳ Swift Native Engine</span>
-                            <span className="text-emerald-500 text-[9px]">Active</span>
-                          </div>
+
+                        {/* Node Level 01 */}
+                        <div className="space-y-1.5">
+                          <button
+                            onClick={() => toggleTaskNode('node-1')}
+                            className="w-full flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface-alt)] hover:bg-[var(--surface)] border border-[var(--border)] text-left transition-colors cursor-pointer"
+                          >
+                            <div className="flex items-center gap-1.5 text-[9.5px]">
+                              {ayeTasksExpanded['node-1'] ? <ChevronDown className="w-3 h-3 text-[var(--accent-amber)]" /> : <ChevronRight className="w-3 h-3" />}
+                              <span className="font-semibold text-[var(--foreground)]">01 / Master Launch Plan</span>
+                            </div>
+                            <span className="text-[var(--accent-amber)] text-[8.5px] bg-[var(--accent-amber-subtle)] px-1.5 py-0.5 rounded-xs">
+                              Exact 09:00
+                            </span>
+                          </button>
+
+                          {/* Node Level 02 (Nested) */}
+                          {ayeTasksExpanded['node-1'] && (
+                            <div className="pl-4 space-y-1 border-l-2 border-[var(--accent-amber-border)] ml-2">
+                              <button
+                                onClick={() => toggleTaskNode('node-2')}
+                                className="w-full flex items-center justify-between py-1 px-2 rounded-xs bg-[var(--surface)] border border-[var(--border)] text-left text-[9px] transition-colors cursor-pointer"
+                              >
+                                <div className="flex items-center gap-1">
+                                  {ayeTasksExpanded['node-2'] ? <ChevronDown className="w-2.5 h-2.5 text-[var(--accent-amber)]" /> : <ChevronRight className="w-2.5 h-2.5" />}
+                                  <span>↳ Swift MVVM Architecture</span>
+                                </div>
+                                <span className="text-emerald-500 text-[8px]">Scoped ISO</span>
+                              </button>
+
+                              {/* Node Level 03 (Nested Deep) */}
+                              {ayeTasksExpanded['node-2'] && (
+                                <div className="pl-3 py-1 text-[8.5px] text-[var(--muted)] flex items-center justify-between bg-[var(--surface-alt)]/60 px-2 rounded-xs">
+                                  <span>↳ Recursive Children Promotion</span>
+                                  <span className="text-[var(--accent-amber)] text-[8px]">Level 03/25</span>
+                                </div>
+                              )}
+                            </div>
+                          )}
                         </div>
                       </div>
                     ) : project.id === 'ayemusicvisualizer' ? (
-                      /* macOS Audio DSP Visualizer Mockup */
+                      /* Interactive macOS Audio DSP Equalizer Mockup */
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)] text-[10px] font-mono">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
-                            <Activity className="w-3 h-3 text-[var(--accent-amber)]" />
+                            <Activity className="w-3 h-3 text-[var(--accent-amber)] animate-pulse" />
                             Accelerate vDSP FFT
                           </span>
-                          <span className="text-[var(--accent-amber)]">60+ FPS Real-Time</span>
+                          <div className="flex items-center gap-2 text-[9px]">
+                            <span className="text-[var(--accent-amber)] font-bold">{activeFrequency}</span>
+                            <span className="text-[var(--muted)]">60+ FPS</span>
+                          </div>
                         </div>
-                        {/* Audio Waveform Equalizer simulation */}
-                        <div className="flex items-end justify-between h-8 gap-1 pt-1 px-2">
-                          {[35, 65, 90, 45, 80, 100, 70, 40, 85, 55, 95, 30].map((height, i) => (
-                            <div
-                              key={i}
-                              style={{ height: `${height}%` }}
-                              className={`w-full rounded-xs transition-all ${
-                                i % 2 === 0
-                                  ? 'bg-[var(--accent-amber)] opacity-90'
-                                  : 'bg-[var(--foreground)] opacity-70'
-                              }`}
-                            />
-                          ))}
+
+                        {/* Interactive Equalizer Bars */}
+                        <div className="flex items-end justify-between h-9 gap-1 pt-1 px-1 bg-[var(--surface-alt)]/50 rounded-xs">
+                          {FREQ_BARS.map((bar, i) => {
+                            const isActive = activeFrequency === bar.hz
+                            const dynamicH = isActive ? 100 : bar.defaultH
+                            return (
+                              <button
+                                key={bar.hz}
+                                onMouseEnter={() => setActiveFrequency(bar.hz)}
+                                onClick={() => setActiveFrequency(bar.hz)}
+                                aria-label={`Frecuencia ${bar.hz}`}
+                                style={{ height: `${dynamicH}%` }}
+                                className={`w-full rounded-xs transition-all duration-150 cursor-pointer ${
+                                  isActive
+                                    ? 'bg-[var(--accent-amber)] shadow-[0_0_10px_var(--accent-amber)] scale-y-105'
+                                    : 'bg-[var(--foreground)] opacity-60 hover:opacity-100 hover:bg-[var(--accent-amber)]'
+                                }`}
+                              />
+                            )
+                          })}
+                        </div>
+                        <div className="flex items-center justify-between text-[8px] font-mono text-[var(--muted)] px-1">
+                          <span>20 Hz (Sub)</span>
+                          <span>1 kHz (Mid)</span>
+                          <span>20 kHz (Air)</span>
+                        </div>
+                      </div>
+                    ) : project.id === 'ayerecipes' ? (
+                      /* AyeRecipes S3 Direct Upload Mockup */
+                      <div className="space-y-2 font-mono text-[10px]">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
+                          <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
+                            <Camera className="w-3 h-3 text-[var(--accent-amber)]" />
+                            Presigned S3 Pipeline
+                          </span>
+                          <span className="text-emerald-500 text-[9px]">10-min Secure PUT</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5 text-[8.5px]">
+                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-semibold">Tier-1 NSCache</span>
+                            <span className="text-[var(--muted)]">Zero RAM Leak</span>
+                          </div>
+                          <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
+                            <span className="text-[var(--foreground)] block font-semibold">FastAPI Async</span>
+                            <span className="text-[var(--muted)]">4 Max Concurrent</span>
+                          </div>
                         </div>
                       </div>
                     ) : (
                       /* Standard Clean Browser / App Architecture View */
-                      <div className="space-y-2">
+                      <div className="space-y-2 font-mono">
                         <div className="flex items-center justify-between pb-2 border-b border-[var(--border)]">
                           <div className="flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
                             <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
                             <span className="w-2 h-2 rounded-full bg-[var(--border-strong)]" />
-                            <span className="ml-2 text-[10px] font-mono text-[var(--muted)]">
+                            <span className="ml-2 text-[10px] text-[var(--muted)]">
                               {project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.ayeapps.com`}
                             </span>
                           </div>
-                          <span className="text-[10px] font-mono text-[var(--accent-amber)] font-bold">
+                          <span className="text-[9px] text-[var(--accent-amber)] font-bold">
                             PRODUCTION READY
                           </span>
                         </div>
-                        <div className="py-1 px-1 text-[11px] font-mono text-[var(--foreground)] opacity-90 flex items-center justify-between">
+                        <div className="py-1 px-1 text-[11px] text-[var(--foreground)] opacity-90 flex items-center justify-between">
                           <span>{project.role[lang]}</span>
                           <span className="text-[var(--muted)] text-[10px]">{project.year}</span>
                         </div>
