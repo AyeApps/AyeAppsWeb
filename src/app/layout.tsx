@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Plus_Jakarta_Sans } from 'next/font/google'
+import { Geist, Geist_Mono, Plus_Jakarta_Sans, Cormorant_Garamond, Montserrat } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 
@@ -17,6 +17,19 @@ const jakarta = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
+})
+
+const cormorant = Cormorant_Garamond({
+  variable: '--font-cormorant',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+})
+
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
 })
 
 export const metadata: Metadata = {
@@ -60,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} antialiased selection:bg-[var(--accent-amber)] selection:text-black`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${cormorant.variable} ${montserrat.variable} antialiased selection:bg-[var(--accent-amber)] selection:text-black`}>
         {children}
       </body>
     </html>
