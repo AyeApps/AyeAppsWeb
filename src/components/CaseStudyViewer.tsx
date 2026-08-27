@@ -16,6 +16,7 @@ import {
   Zap,
   Globe,
   Sliders,
+  Calendar,
   Code2
 } from 'lucide-react'
 import { GithubIcon } from './Icons'
@@ -224,34 +225,68 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
       </section>
 
       {/* ─── Key Metrics Grid (Adaptive to Mode & Brand Colors) ─── */}
-      <section className="py-16 px-4 sm:px-6 bg-[var(--surface-raised)] border-b border-[var(--border)]">
+      <section className="py-20 px-4 sm:px-6 bg-[var(--surface-raised)] border-b border-[var(--border)]">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
+            <div className="text-center max-w-xl mx-auto mb-12">
+              <p className={`geo-badge text-xs font-medium tracking-[0.18em] uppercase justify-center mb-3 ${
+                isFatima && !techMode ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
+              }`}>
+                {techMode ? '$ sys.metrics' : (isEs ? 'Resultados Clave' : 'Key Metrics')}
+              </p>
+              <h2 className={`text-2xl sm:text-4xl text-[var(--foreground)] ${getHeadingFontClass()}`}>
+                {techMode
+                  ? (isEs ? 'Telemetría de Rendimiento' : 'Performance Telemetry')
+                  : (isEs ? 'Impacto Real en la Operación' : 'Tangible Operational Impact')}
+              </h2>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {study.metrics.map((m, idx) => (
-                <div
-                  key={idx}
-                  className={`bracket-corners card-lift p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-center text-center space-y-2.5 h-full shadow-2xs group ${
-                    isFatima && !techMode ? 'hover:border-[#c9a96e]/60 border-[var(--border)]' : 'border-[var(--border)]'
-                  }`}
-                >
-                  <span className={`text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors ${
-                    isFatima && !techMode ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
-                  }`}>
-                    {m.value}
-                  </span>
-                  <span className={`text-[11px] uppercase tracking-wider font-bold block ${
-                    techMode
-                      ? 'font-mono text-[var(--accent-amber)]'
-                      : (isFatima ? 'font-montserrat text-[#c9a96e]' : 'font-business text-[var(--accent-amber)]')
-                  }`}>
-                    {techMode ? m.labelTech[lang] : m.labelBusiness[lang]}
-                  </span>
-                  <span className={`text-xs text-[var(--muted)] leading-relaxed max-w-[220px] ${techMode ? 'font-mono text-[11px]' : ''}`}>
-                    {techMode ? m.detailTech[lang] : m.detailBusiness[lang]}
-                  </span>
-                </div>
-              ))}
+              {study.metrics.map((m, idx) => {
+                const icons = [Zap, Sliders, Calendar, Globe]
+                const IconComponent = icons[idx % icons.length]
+
+                return (
+                  <div
+                    key={idx}
+                    className={`bracket-corners card-lift p-6 sm:p-7 rounded-xs border bg-[var(--surface)] flex flex-col items-center justify-between text-center space-y-4 h-full shadow-2xs group ${
+                      isFatima && !techMode ? 'hover:border-[#c9a96e]/60 border-[var(--border)]' : 'border-[var(--border)]'
+                    }`}
+                  >
+                    <div className="flex flex-col items-center space-y-3">
+                      {/* Metric Icon */}
+                      <div className={`w-9 h-9 rounded-xs flex items-center justify-center border transition-colors ${
+                        isFatima && !techMode
+                          ? 'bg-[#c9a96e]/10 border-[#c9a96e]/30 text-[#c9a96e]'
+                          : 'bg-[var(--accent-amber-subtle)] border-[var(--accent-amber-border)] text-[var(--accent-amber)]'
+                      }`}>
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+
+                      {/* Stat Value */}
+                      <span className={`text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors ${
+                        isFatima && !techMode ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
+                      }`}>
+                        {m.value}
+                      </span>
+
+                      {/* Title Header */}
+                      <h3 className={`text-sm sm:text-base font-bold text-[var(--foreground)] ${
+                        techMode
+                          ? 'font-mono'
+                          : (isFatima ? 'font-montserrat' : 'font-business')
+                      }`}>
+                        {techMode ? m.labelTech[lang] : m.labelBusiness[lang]}
+                      </h3>
+                    </div>
+
+                    {/* Subtitle Detail */}
+                    <p className={`text-xs text-[var(--muted)] leading-relaxed ${techMode ? 'font-mono text-[11px]' : ''}`}>
+                      {techMode ? m.detailTech[lang] : m.detailBusiness[lang]}
+                    </p>
+                  </div>
+                )
+              })}
             </div>
           </ScrollReveal>
         </div>

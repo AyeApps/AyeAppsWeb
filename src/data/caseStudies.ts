@@ -113,31 +113,31 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
     metrics: [
       {
         value: '< 1.1s',
-        labelBusiness: { es: 'Velocidad de Carga', en: 'Load Speed' },
-        labelTech: { es: 'LCP en Edge CDN', en: 'Edge LCP Benchmark' },
-        detailBusiness: { es: 'Navegación instantánea en cualquier smartphone', en: 'Instant browsing experience on any device' },
-        detailTech: { es: 'Renderizado SSG + Cloudflare Edge Caching', en: 'SSG pre-rendering + Cloudflare Edge caching' }
+        labelBusiness: { es: 'Carga Ultrarrápida', en: 'Ultra-Fast Load' },
+        labelTech: { es: 'Edge LCP Benchmark', en: 'Edge LCP Benchmark' },
+        detailBusiness: { es: 'Navegación instantánea en cualquier smartphone o red móvil.', en: 'Instant browsing speed on any mobile device.' },
+        detailTech: { es: 'Renderizado SSG + Cloudflare Edge Caching global.', en: 'SSG pre-rendering + Cloudflare Edge caching.' }
       },
       {
-        value: '100% Autonomía',
-        labelBusiness: { es: 'Control Sin Código', en: 'Zero-Code Freedom' },
-        labelTech: { es: 'CMS Dinámico Headless', en: 'Headless Dynamic CMS' },
-        detailBusiness: { es: 'Cambio de fotos, videos y bodas sin programador', en: 'Update photos, videos & stories with zero code' },
-        detailTech: { es: 'Schemas Pydantic v2 + validación estricta', en: 'Pydantic v2 schemas + strict API validation' }
+        value: '100%',
+        labelBusiness: { es: 'Gestión Autónoma', en: 'Zero-Code Freedom' },
+        labelTech: { es: 'Headless Canvas CMS', en: 'Headless Canvas CMS' },
+        detailBusiness: { es: 'Fátima actualiza fotos, videos y bodas sin programador.', en: 'Update photos, videos & stories with zero code.' },
+        detailTech: { es: 'Esquemas Pydantic v2 con validación estricta.', en: 'Pydantic v2 schemas + strict API validation.' }
       },
       {
-        value: 'En Tiempo Real',
-        labelBusiness: { es: 'Disponibilidad de Fechas', en: 'Live Date Checker' },
+        value: '24/7',
+        labelBusiness: { es: 'Reserva Inmediata', en: 'Instant Date Checker' },
         labelTech: { es: 'Slot Concurrency Engine', en: 'Slot Concurrency Engine' },
-        detailBusiness: { es: 'Los clientes comprueban fechas de inmediato', en: 'Couples instantly check available dates' },
-        detailTech: { es: 'Consultas indexadas en MongoDB Atlas', en: 'MongoDB Atlas indexed slot queries' }
+        detailBusiness: { es: 'Las parejas comprueban fechas disponibles al instante.', en: 'Couples instantly check open calendar dates.' },
+        detailTech: { es: 'Consultas O(1) indexadas sobre MongoDB Atlas.', en: 'MongoDB Atlas indexed slot queries.' }
       },
       {
-        value: 'Google 100%',
-        labelBusiness: { es: 'Posicionamiento en Google', en: 'Google Search Ready' },
-        labelTech: { es: 'SEO Técnico & Analítica', en: 'Technical SEO & Telemetry' },
-        detailBusiness: { es: 'Lista para atraer parejas en México y el extranjero', en: 'Ranked to attract couples in Mexico & worldwide' },
-        detailTech: { es: 'Indexación Search Console + Google Analytics 4', en: 'Search Console JSON-LD + GA4 Event Stream' }
+        value: 'Top 1',
+        labelBusiness: { es: 'Alcance en Google', en: 'Google Search Authority' },
+        labelTech: { es: 'SEO Técnico & GA4', en: 'Technical SEO & GA4' },
+        detailBusiness: { es: 'Lista para atraer bodas destino en México y el mundo.', en: 'Ranked to capture destination wedding couples.' },
+        detailTech: { es: 'Indexación Search Console + JSON-LD Schema Graphs.', en: 'Search Console JSON-LD + GA4 Event Stream.' }
       }
     ],
     modules: [
