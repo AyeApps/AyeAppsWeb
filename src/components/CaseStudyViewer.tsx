@@ -101,8 +101,8 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
             </p>
 
             {/* Meta Grid & Action Link */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-6 border-y border-[var(--border)] mb-8">
-              <div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-xs border border-[var(--border-strong)] bg-[var(--surface-raised)] mb-10 shadow-2xs">
+              <div className="text-center sm:text-left">
                 <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--muted)] block mb-1">
                   {isEs ? 'Cliente / Origen' : 'Client / Origin'}
                 </span>
@@ -111,7 +111,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 </span>
               </div>
 
-              <div>
+              <div className="text-center sm:text-left">
                 <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--muted)] block mb-1">
                   {isEs ? 'Línea de Tiempo' : 'Timeline'}
                 </span>
@@ -120,7 +120,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 </span>
               </div>
 
-              <div>
+              <div className="text-center sm:text-left">
                 <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--muted)] block mb-1">
                   {isEs ? 'Año de Lanzamiento' : 'Release Year'}
                 </span>
@@ -129,7 +129,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                 </span>
               </div>
 
-              <div>
+              <div className="text-center sm:text-left">
                 <span className="text-[10px] uppercase font-mono tracking-wider text-[var(--muted)] block mb-1">
                   {isEs ? 'Rol AyeApps' : 'AyeApps Role'}
                 </span>
@@ -172,16 +172,19 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
       <section className="py-16 px-4 sm:px-6 bg-[var(--surface-raised)] border-b border-[var(--border)]">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {study.metrics.map((m, idx) => (
-                <div key={idx} className="space-y-1">
-                  <span className="text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight">
+                <div
+                  key={idx}
+                  className="bracket-corners card-lift p-6 sm:p-7 rounded-xs border border-[var(--border)] bg-[var(--surface)] flex flex-col items-center justify-center text-center space-y-2.5 h-full shadow-2xs group"
+                >
+                  <span className="text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight group-hover:text-[var(--accent-amber)] transition-colors">
                     {m.value}
                   </span>
-                  <span className="text-xs uppercase tracking-wider font-semibold text-[var(--accent-amber)] block">
+                  <span className="text-[11px] uppercase tracking-wider font-bold font-mono text-[var(--accent-amber)] block">
                     {techMode ? m.labelTech[lang] : m.labelBusiness[lang]}
                   </span>
-                  <span className="text-xs text-[var(--muted)] block">
+                  <span className="text-xs text-[var(--muted)] leading-relaxed max-w-[220px]">
                     {techMode ? m.detailTech[lang] : m.detailBusiness[lang]}
                   </span>
                 </div>
