@@ -46,94 +46,94 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
     slug: 'fatima-resendiz',
     title: 'Fatima Resendiz Platform',
     clientName: 'Fátima Reséndiz',
-    projectType: { es: 'Plataforma Web Bilingüe, CRM & Portal de Clientes', en: 'Bilingual Web Platform, CRM & Client Portal' },
+    projectType: { es: 'Plataforma Web Bilingüe, CMS Canvas & App Móvil', en: 'Bilingual Web Platform, Canvas CMS & Mobile App' },
     year: '2026',
-    timeline: { es: '6 semanas de ingeniería', en: '6 weeks engineering' },
+    timeline: { es: '6 meses (Conceptualización, MVP, Search Indexing & Lanzamiento)', en: '6 months (Discovery, MVP, Search Indexing & Launch)' },
     role: { es: 'Arquitectura de Software, UI/UX & Desarrollo Full Stack', en: 'Software Architecture, UI/UX & Full Stack Dev' },
     liveUrl: 'https://fatimaresendiz.com',
     heroTagline: {
-      es: 'Un sistema operativo digital completo para una fotógrafa de bodas: captación internacional, entrega de galerías y automatización de clientes.',
-      en: 'A complete digital operating system for a wedding photographer: international acquisition, gallery delivery, and client automation.',
+      es: 'Un sistema operativo integral en la nube que automatizó la captación, reservas y entrega de galerías, permitiendo a Fátima enfocarse en su arte fotográfico.',
+      en: 'A complete cloud operating system automating client intake, real-time booking, and gallery delivery—freeing Fátima to focus on her photographic craft.',
     },
     overview: {
-      es: 'fatimaresendiz.com no es solo una página web estética; es una plataforma comercial y operativa integral diseñada para operar con latencia mínima, captar clientes bilingües en México y el extranjero, y automatizar el ciclo de vida completo de cada sesión fotográfica.',
-      en: 'fatimaresendiz.com is not merely an aesthetic portfolio; it is a full-scale commercial and operational platform designed for ultra-low latency, international bilingual client acquisition, and automated end-to-end booking workflows.',
+      es: 'Fatima Resendiz Web es una plataforma integral construida totalmente en la nube con tecnologías de punta y velocidad casi instantánea. Transforma una operación que antes se llevaba de forma manual a través de mensajes de Instagram y WhatsApp en una experiencia de marca de alto prestigio con panel de administración autónomo.',
+      en: 'Fatima Resendiz Web is an end-to-end cloud platform engineered with bleeding-edge technologies and near-instant load speeds. It transitions what was previously a manual Instagram/WhatsApp messaging workflow into a high-prestige brand experience powered by an autonomous admin control panel.',
     },
     challenge: {
-      es: 'Fátima operaba con múltiples herramientas desconectadas: formularios genéricos con pérdida de prospectos, entregas manuales de galerías que saturaban su tiempo, y una web monolítica sin optimización móvil ni SEO en inglés para el mercado de bodas destino.',
-      en: 'Fátima managed her business across fragmented tools: generic inquiry forms with high lead drop-off, manual gallery deliveries eating into creative time, and a monolithic site lacking mobile speed or English SEO for the destination wedding market.',
+      es: 'Fátima llevaba todo su negocio de forma manual: recibía prospectos por Instagram, los pasaba a su WhatsApp personal y registraba las fechas una por una en Google Calendar. Además de fotografiar y editar sesiones (lo cual debía ser su principal enfoque y pasión), tenía que negociar, dar seguimiento a prospectos y gestionar entregas manualmente.',
+      en: 'Fátima ran her entire client pipeline by hand: fielding inquiries on Instagram, redirecting them to personal WhatsApp, and manually entering dates into Google Calendar. On top of shooting and editing sessions (which should be her primary creative focus), she was burdened with manual scheduling, quoting, and client tracking.',
     },
     solution: {
-      es: 'Diseñamos y construimos un monorepo a medida con Next.js 15 App Router en el frontend para renderizado estático e híbrido (ISR), respaldado por un backend asíncrono en Python/FastAPI con MongoDB Atlas. Integramos Cloudflare Edge para CDN global, Brevo para marketing transaccional y la API de Pic-Time para acceso privado de galerías con rotación de tokens JWT.',
-      en: 'We architected and built a custom monorepo using Next.js 15 App Router on the frontend for hybrid static/incremental generation (ISR), backed by an asynchronous Python/FastAPI backend with MongoDB Atlas. We integrated Cloudflare Edge for global CDN, Brevo for transactional email automation, and Pic-Time API for token-authenticated private gallery portals.',
+      es: 'Diseñamos y construimos una plataforma completa en la nube con Next.js 15 y FastAPI. El sistema cuenta con un Canvas editorial interactivo editable sin tocar código, verificación instantánea de disponibilidad para bodas y sesiones de temporada, y un panel de administración privado desde el cual Fátima gestiona imágenes, videos, prospectos y contenidos desde su smartphone o laptop.',
+      en: 'We architected and built a custom cloud ecosystem using Next.js 15 and FastAPI. The system features a zero-code interactive Canvas editor, real-time date availability checks for weddings and seasonal mini-sessions, and an autonomous private admin panel enabling Fátima to manage assets, leads, and seasonal campaigns directly from her smartphone or laptop.',
     },
     metrics: [
       {
         value: '< 1.1s',
-        label: { es: 'Tiempo de Carga Global', en: 'Global Load Time' },
-        detail: { es: 'LCP optimizado en Cloudflare Edge CDN', en: 'LCP optimized on Cloudflare Edge CDN' }
+        label: { es: 'Velocidad de Carga', en: 'Edge Load Speed' },
+        detail: { es: 'Rendimiento casi instantáneo en Cloudflare CDN', en: 'Near-instant response on Cloudflare CDN' }
       },
       {
-        value: '99/100',
-        label: { es: 'Rendimiento Lighthouse', en: 'Lighthouse Score' },
-        detail: { es: '100% SEO técnico y accesibilidad AAA', en: '100% technical SEO and AAA accessibility' }
+        value: '100% Sin Código',
+        label: { es: 'Autonomía de Contenido', en: 'Zero-Code CMS' },
+        detail: { es: 'Canvas, bodas y temporadas editables en vivo', en: 'Live editable Canvas, weddings & seasons' }
       },
       {
-        value: '2 Idiomas',
-        label: { es: 'Soporte Bilingüe Nativo', en: 'Native Bilingual i18n' },
-        detail: { es: 'Rutas sincronizadas ES/EN sin recarga', en: 'Synchronized ES/EN routes with zero flash' }
+        value: 'Disponibilidad Real',
+        label: { es: 'Verificación Instantánea', en: 'Instant Booking' },
+        detail: { es: 'Comprobación de fechas sin fricción manual', en: 'Automated calendar slots validation' }
       },
       {
-        value: '100%',
-        label: { es: 'Automatización de Leads', en: 'Lead Automation' },
-        detail: { es: 'Notificación instantánea + email a prospecto', en: 'Instant notification + client confirmation' }
+        value: 'Google Indexed',
+        label: { es: 'Indexación & Analítica', en: 'Search & Analytics' },
+        detail: { es: 'Optimización SEO y Google Analytics integrado', en: 'Technical SEO and Google Analytics suite' }
       }
     ],
     modules: [
       {
         index: '01',
-        title: { es: 'Web Pública Bilingüe & Canvas UI', en: 'Bilingual Public Web & Canvas UI' },
+        title: { es: 'Home con Canvas Totalmente Editable Sin Código', en: 'Zero-Code Interactive Canvas Home' },
         desc: {
-          es: 'Sitio editorial de alta fidelidad con tipografía de precisión, galerías adaptables a pantalla completa y selector instantáneo de idioma ES/EN.',
-          en: 'High-fidelity editorial site with precision typography, full-screen adaptive galleries, and zero-latency ES/EN language switching.'
+          es: 'Galería editorial interactiva donde Fátima puede cambiar fotos, videos, dimensiones y orientación a su gusto sin requerir intervención técnica.',
+          en: 'Interactive editorial gallery canvas where Fátima can freely swap photos, videos, aspect ratios, and layouts without touching code.'
         },
-        specs: ['Next.js 15 App Router', 'Tailwind CSS', 'Geist UI', 'Framer Motion Physics']
+        specs: ['Next.js 15 App Router', 'Tailwind CSS', 'Geist UI', 'Dynamic Aspect Ratio Engine']
       },
       {
         index: '02',
-        title: { es: 'Portal Privado de Clientes & Pic-Time', en: 'Private Client Portal & Pic-Time' },
+        title: { es: 'Panel de Administración Privado (La Magia del Sistema)', en: 'Private Admin Control Center' },
         desc: {
-          es: 'Acceso seguro con token JWT para parejas y familias, con descarga directa de fotos en alta resolución y sincronización con Pic-Time.',
-          en: 'Secure JWT token access for couples and families, offering high-res direct downloads and cloud gallery sync via Pic-Time.'
+          es: 'Panel seguro y responsivo desde el cual Fátima controla cualquier aspecto de su web: publicar sesiones de temporada, añadir nuevas bodas y gestionar todos sus prospectos.',
+          en: 'Secure, mobile-ready admin dashboard allowing Fátima to configure every web element: seasonal sessions, new wedding stories, and lead pipeline tracking.'
         },
-        specs: ['JWT Authentication', 'Pic-Time API Integration', 'Token Rotation', 'Client Dashboard']
+        specs: ['FastAPI Backend', 'MongoDB Beanie ODM', 'JWT Session Management', 'Mobile-Friendly Admin UI']
       },
       {
         index: '03',
-        title: { es: 'Pipeline CRM de Cotizaciones & Leads', en: 'Inquiry & Lead CRM Pipeline' },
+        title: { es: 'Módulo de Contacto & Disponibilidad al Instante', en: 'Real-Time Availability & Booking Module' },
         desc: {
-          es: 'Panel administrativo para clasificar prospectos (Nuevo → Contactado → Apartado → Entregado), calcular cotizaciones y consultar analíticas.',
-          en: 'Admin panel to track lead stages (New → Contacted → Booked → Delivered), generate custom quotes, and review conversion metrics.'
+          es: 'Permite a los clientes consultar fechas disponibles al instante tanto para coberturas de bodas como para sesiones especiales de temporada.',
+          en: 'Enables prospective couples and families to check real-time date availability for wedding coverage and seasonal mini-sessions.'
         },
-        specs: ['FastAPI Backend', 'MongoDB Beanie ODM', 'Stage Pipeline Kanban', 'Exportable Analytics']
+        specs: ['Real-Time Slot Engine', 'Seasonal Calendar Rules', 'Lead Data Sanitization']
       },
       {
         index: '04',
-        title: { es: 'Automatizaciones de Email con Brevo', en: 'Email Automation with Brevo' },
+        title: { es: 'Sección About & Portafolio de Bodas', en: 'About Storytelling & Wedding Portfolio' },
         desc: {
-          es: 'Plantillas transaccionales personalizadas que envían confirmación al cliente y alertan al equipo con métricas del evento en tiempo real.',
-          en: 'Custom transactional email templates triggering client confirmations and instant photographer alerts with event specs.'
+          es: 'Espacio editorial diseñado para transmitir la visión artística y filosofía de Fátima, con portafolio estructurado y categorizado.',
+          en: 'Editorial showcase communicating Fátima’s artistic vision, coupled with structured, high-resolution wedding galleries.'
         },
-        specs: ['Brevo REST API', 'Dynamic Webhooks', 'Event Payload Serialization']
+        specs: ['Editorial Typography', 'Responsive High-Res Grid', 'Storytelling Hierarchy']
       },
       {
         index: '05',
-        title: { es: 'Seguridad & Protección en el Borde', en: 'Edge Security & Bot Shield' },
+        title: { es: 'Indexación en Google Search & Analítica', en: 'Google Search Indexing & Analytics' },
         desc: {
-          es: 'Protección contra spam y ataques de fuerza bruta mediante Cloudflare Turnstile invisible y rate-limiting en el gateway de FastAPI.',
-          en: 'Zero-friction bot prevention via invisible Cloudflare Turnstile and strict IP rate limiting on the FastAPI gateway.'
+          es: 'Configuración técnica profunda en Google Search Console y Google Analytics para posicionamiento orgánico en el mercado de bodas destino.',
+          en: 'Comprehensive Google Search Console indexing and Google Analytics integration for organic capture in destination wedding searches.'
         },
-        specs: ['Cloudflare Turnstile', 'Rate Limiting O(1)', 'HTTPS Strict Headers']
+        specs: ['Google Search Console', 'Google Analytics 4', 'Schema.org Metadata', 'Sitemap XML Automation']
       }
     ],
     architectureLayers: [
@@ -142,33 +142,33 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
         title: { es: 'Next.js 15 + Tailwind CSS + Geist Typography', en: 'Next.js 15 + Tailwind CSS + Geist Typography' },
         techs: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Turbopack'],
         description: {
-          es: 'Arquitectura de componentes de servidor (RSC) para compilación estática instantánea y transiciones fluidas sin parpadeos.',
-          en: 'React Server Components architecture for instant static rendering and zero-layout-shift client transitions.'
+          es: 'Arquitectura de Server Components y Static Site Generation para máxima velocidad y navegación fluida sin recargas.',
+          en: 'React Server Components and Static Site Generation architecture ensuring lightning-fast load times.'
         }
       },
       {
         layer: 'API & Microservice Gateway',
-        title: { es: 'FastAPI (Python) + Pydantic v2 Async API', en: 'FastAPI (Python) + Pydantic v2 Async API' },
-        techs: ['Python 3.12', 'FastAPI', 'Pydantic v2', 'Beanie ODM', 'Docker Compose'],
+        title: { es: 'FastAPI (Python) + MongoDB Atlas (Beanie ODM)', en: 'FastAPI (Python) + MongoDB Atlas (Beanie ODM)' },
+        techs: ['Python 3.12', 'FastAPI', 'Pydantic v2', 'Beanie ODM', 'Docker'],
         description: {
-          es: 'Endpoints asíncronos con validación de esquemas estricta, enrutamiento tipado y manejo de webhooks.',
-          en: 'Asynchronous endpoints with strict schema contracts, typed routing, and transactional webhook handling.'
+          es: 'Backend asíncrono que alimenta el panel de administración, gestiona el estado de prospectos y valida las reglas de disponibilidad.',
+          en: 'Asynchronous backend powering the admin CMS, managing lead lifecycles, and validating calendar slot constraints.'
         }
       },
       {
-        layer: 'Data & Cloud Storage',
-        title: { es: 'MongoDB Atlas + Cloudinary CDN + Pic-Time', en: 'MongoDB Atlas + Cloudinary CDN + Pic-Time' },
-        techs: ['MongoDB Atlas', 'Cloudinary Asset CDN', 'Pic-Time API', 'AWS S3'],
+        layer: 'Cloud Edge & Observability',
+        title: { es: 'Cloudflare Edge CDN + Google Analytics 4', en: 'Cloudflare Edge CDN + Google Analytics 4' },
+        techs: ['Cloudflare Edge', 'Google Analytics 4', 'Google Search Console', 'Cloudflare Turnstile'],
         description: {
-          es: 'Estructura de datos NoSQL con índices O(1) para consultas ultrarrápidas y almacenamiento de fotos de alta fidelidad.',
-          en: 'NoSQL data structures indexed for O(1) query lookups and high-fidelity cloud photography assets.'
+          es: 'Distribución global con protección contra spam y telemetría de tráfico en tiempo real.',
+          en: 'Global edge distribution paired with bot protection and real-time visitor telemetry.'
         }
       }
     ],
     testimonial: {
       quote: {
-        es: 'AyeApps transformó por completo la presencia digital de mi negocio. El sistema que desarrollaron no solo es visualmente impresionante, sino que automatizó todo el flujo de clientes y entregas de galerías sin fallas.',
-        en: 'AyeApps completely elevated the digital experience of my business. The custom platform they engineered is not only visually stunning, but seamlessly automated my entire client pipeline and gallery delivery without friction.'
+        es: 'El sistema transformó mi día a día por completo. Ahora no tengo que preocuparme por registrar manualmente cada mensaje de WhatsApp o Instagram; mis clientes comprueban disponibilidad de inmediato y yo puedo dedicarme a lo que realmente amo: mis fotos.',
+        en: 'The system completely transformed my day-to-day operations. I no longer have to manually track every Instagram DM or WhatsApp message; my clients check availability instantly and I can focus on what I love most: my photography.'
       },
       author: 'Fátima Reséndiz',
       role: { es: 'Fotógrafa Profesional de Bodas · Querétaro, México', en: 'Professional Wedding Photographer · Querétaro, Mexico' }
