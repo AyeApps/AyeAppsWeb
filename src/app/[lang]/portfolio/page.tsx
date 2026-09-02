@@ -8,6 +8,9 @@ import ScrollReveal from '@/components/ScrollReveal'
 import InteractiveDots from '@/components/InteractiveDots'
 import { ArrowLeft, ArrowRight, Layers } from 'lucide-react'
 
+import JsonLd from '@/components/JsonLd'
+import { PROJECTS } from '@/data/projects'
+
 interface PageProps {
   params: Promise<{ lang: string }>
 }
@@ -16,13 +19,38 @@ export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params
   const isEs = lang === 'es'
 
+  const title = isEs
+    ? 'Ecosistema de Productos & Plataformas — AyeApps'
+    : 'Ecosystem of Products & Platforms — AyeApps'
+  const description = isEs
+    ? 'Catálogo de plataformas y productos de software construidos por AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader y AyeFinance.'
+    : 'Complete catalog of production platforms and engineered software by AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader, and AyeFinance.'
+
   return {
-    title: isEs
-      ? 'Ecosistema de Productos & Plataformas — AyeApps'
-      : 'Ecosystem of Products & Platforms — AyeApps',
-    description: isEs
-      ? 'Catálogo de plataformas y productos de software construidos por AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader y AyeFinance.'
-      : 'Complete catalog of production platforms and engineered software by AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader, and AyeFinance.',
+    title,
+    description,
+    alternates: {
+      canonical: `https://ayeapps.com/${lang}/portfolio`,
+      languages: {
+        es: 'https://ayeapps.com/es/portfolio',
+        en: 'https://ayeapps.com/en/portfolio',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://ayeapps.com/${lang}/portfolio`,
+      siteName: 'AyeApps',
+      locale: isEs ? 'es_MX' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@alberto24dev',
+      site: '@ayeapps',
+    },
   }
 }
 
@@ -36,9 +64,49 @@ export default async function PortfolioPage({ params }: PageProps) {
 
   const dict = await getDictionary(lang)
   const pp = dict.portfolio_page
+  const isEs = lang === 'es'
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: lang === 'es' ? 'Inicio' : 'Home',
+        item: `https://ayeapps.com/${lang}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: lang === 'es' ? 'Portafolio' : 'Portfolio',
+        item: `https://ayeapps.com/${lang}/portfolio`,
+      },
+    ],
+  }
+
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: isEs ? 'Ecosistema de Productos & Plataformas AyeApps' : 'AyeApps Ecosystem & Product Catalog',
+    url: `https://ayeapps.com/${lang}/portfolio`,
+    description: pp.sub,
+    hasPart: PROJECTS.map((proj) => ({
+      '@type': 'SoftwareApplication',
+      name: proj.title,
+      description: proj.description[lang as 'es' | 'en'],
+      applicationCategory: proj.category === 'mobile' ? 'MobileApplication' : 'WebApplication',
+      operatingSystem: proj.category === 'mobile' ? 'iOS, Android' : 'Web, Cloud',
+      url: ['fatima-resendiz', 'aye-video-downloader'].includes(proj.slug)
+        ? `https://ayeapps.com/${lang}/portfolio/${proj.slug}`
+        : `https://ayeapps.com/${lang}/portfolio`,
+    })),
+  }
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={collectionSchema} />
       <Navbar dict={dict} lang={lang} />
       <main id="main">
         {/* ─── Page Hero Header (Full-Screen + Interactive Canvas) ─── */}

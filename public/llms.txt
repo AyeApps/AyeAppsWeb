@@ -1,0 +1,23 @@
+# AyeApps — Sistemas de Software & Plataformas Cloud
+
+> Suite de ingeniería de software de alta precisión, infraestructura en la nube y aplicaciones multiplataforma.
+
+## Ecosistema de Productos & Plataformas
+- [Fatima Resendiz Web & iOS](https://fatimaresendiz.com): Ecosistema fotográfico profesional que integra sitio público en Next.js, app nativa de iOS y panel de administración privado con control total de precios, paquetes, citas y galerías Pic-Time en tiempo real.
+- [AyeTasks](https://github.com/ayeapps/AyeTasks): Sistema de productividad multiplataforma (iOS, Android, Web) con árboles jerárquicos de hasta 25 niveles y backend asíncrono en FastAPI + MongoDB.
+- [Aye Video Downloader](https://github.com/ayeapps/AyeVideoDownloader): Plataforma web de transcodificación y extracción multimedia en 4K HDR y MP3 a 320 kbps sin anuncios, con motor en FastAPI y FFmpeg.
+- [AyeFinance](https://github.com/ayeapps/AyeFinance): Motor de flujo de caja, gestión multicuentas y proyecciones automatizadas de liquidez a 30 días con Expo y FastAPI.
+
+## Servicios de Ingeniería de Software
+- Ecosistemas Todo-en-Uno: Plataformas Web de alto rendimiento (Next.js), Portales Privados de Autoservicio y Apps Móviles (iOS/Android con React Native y Swift).
+- Software Administrativo & CRM a Medida: Paneles de control centralizados con control estricto de roles, gestión de prospectos e integración con IA para resúmenes operativos.
+- Automatizaciones, Pagos & Conexión con Terceros: Pasarelas Stripe, sincronización con webhooks, Brevo y pipelines asistidos por IA para lectura de documentos.
+- Arquitectura Cloud & Resiliencia 24/7: Microservicios asíncronos en FastAPI, contenedores Docker, bases de datos MongoDB/PostgreSQL y distribución global en Cloudflare Edge.
+
+## Arquitectura Técnica
+- Backend Core: Python 3.12+, FastAPI (Strict Async), Beanie ODM (MongoDB), Docker Compose.
+- Frontend Web: Next.js 16 (App Router), React 19, TypeScript 5, Tailwind CSS v4, Geist UI.
+- Móvil: React Native + Expo SDK 57 (Continuous Native Generation) y SwiftUI 6 nativo en iOS y macOS.
+- Seguridad: JWT (HS256), validación rigurosa con Pydantic y TypeScript, rate limiting y aislamiento por usuario.
+- Ubicación: Querétaro, Qro. México.
+- Contacto Directo: alberto@contact.ayeapps.com | WhatsApp: +52 (442) 352-2387 | https://ayeapps.com

@@ -10,6 +10,7 @@ import InteractiveDots from '@/components/InteractiveDots'
 import { ArrowRight, Sparkles, Smartphone, Monitor, ArrowUpRight, Terminal, Layers } from 'lucide-react'
 import { PROJECTS } from '@/data/projects'
 import { GithubIcon } from '@/components/Icons'
+import JsonLd from '@/components/JsonLd'
 
 interface PageProps {
   params: Promise<{ lang: string }>
@@ -19,19 +20,37 @@ export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params
   const isEs = lang === 'es'
 
+  const title = isEs
+    ? 'AyeApps — Sistemas de Software Completos & Plataformas Cloud'
+    : 'AyeApps — End-to-End Software Systems & Cloud Platforms'
+  const description = isEs
+    ? 'Desarrollo de sistemas de software completos en Querétaro, México. Plataformas web de alta velocidad, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.'
+    : 'Engineering end-to-end software systems in Querétaro, Mexico. High-speed web platforms, native iOS apps, and cloud backend architectures built with Next.js, Swift, and FastAPI.'
+
   return {
-    title: isEs
-      ? 'AyeApps — Sistemas de Software Completos & Plataformas Cloud'
-      : 'AyeApps — End-to-End Software Systems & Cloud Platforms',
-    description: isEs
-      ? 'Desarrollo de sistemas de software completos en Querétaro, México. Plataformas web de alta velocidad, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.'
-      : 'Engineering end-to-end software systems in Querétaro, Mexico. High-speed web platforms, native iOS apps, and cloud backend architectures built with Next.js, Swift, and FastAPI.',
+    title,
+    description,
     alternates: {
-      canonical: `https://home.ayeapps.com/${lang}`,
+      canonical: `https://ayeapps.com/${lang}`,
       languages: {
-        'es': 'https://home.ayeapps.com/es',
-        'en': 'https://home.ayeapps.com/en',
+        'es': 'https://ayeapps.com/es',
+        'en': 'https://ayeapps.com/en',
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://ayeapps.com/${lang}`,
+      siteName: 'AyeApps',
+      locale: isEs ? 'es_MX' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@alberto24dev',
+      site: '@ayeapps',
     },
   }
 }
@@ -47,11 +66,25 @@ export default async function HomePage({ params }: PageProps) {
   const dict = await getDictionary(lang)
   const isEs = lang === 'es'
 
+  // Structured Data Schema for WebSite
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `https://ayeapps.com/${lang}#website`,
+    url: `https://ayeapps.com/${lang}`,
+    name: 'AyeApps',
+    inLanguage: [lang === 'es' ? 'es-MX' : 'en-US'],
+    publisher: {
+      '@id': 'https://ayeapps.com/#organization',
+    },
+  }
+
   // Featured flagship projects for the home overview
   const featuredProjects = PROJECTS.filter((p) => p.featured).slice(0, 2)
 
   return (
     <>
+      <JsonLd data={websiteSchema} />
       <Navbar dict={dict} lang={lang} />
       <main id="main">
         {/* ─── Hero Section ───────────────────────────── */}

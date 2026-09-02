@@ -8,6 +8,8 @@ import ScrollReveal from '@/components/ScrollReveal'
 import InteractiveDots from '@/components/InteractiveDots'
 import { ArrowLeft, ShieldCheck, Zap, Code2, ArrowRight, Layers } from 'lucide-react'
 
+import JsonLd from '@/components/JsonLd'
+
 interface PageProps {
   params: Promise<{ lang: string }>
 }
@@ -16,13 +18,38 @@ export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params
   const isEs = lang === 'es'
 
+  const title = isEs
+    ? 'Tech Stack & Arquitectura Cloud — AyeApps'
+    : 'Tech Stack & Cloud Architecture — AyeApps'
+  const description = isEs
+    ? 'Herramientas, frameworks y doctrinas de desarrollo que utilizamos: Swift, Next.js, FastAPI, Docker, MongoDB y Cloudflare.'
+    : 'Tools, frameworks and engineering doctrines we use: Swift, Next.js, FastAPI, Docker, MongoDB, and Cloudflare.'
+
   return {
-    title: isEs
-      ? 'Tech Stack & Arquitectura — AyeApps'
-      : 'Tech Stack & Architecture — AyeApps',
-    description: isEs
-      ? 'Herramientas, frameworks y doctrinas de desarrollo que utilizamos: Swift, Next.js, FastAPI, Docker, MongoDB y Cloudflare.'
-      : 'Tools, frameworks and engineering doctrines we use: Swift, Next.js, FastAPI, Docker, MongoDB, and Cloudflare.',
+    title,
+    description,
+    alternates: {
+      canonical: `https://ayeapps.com/${lang}/stack`,
+      languages: {
+        es: 'https://ayeapps.com/es/stack',
+        en: 'https://ayeapps.com/en/stack',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://ayeapps.com/${lang}/stack`,
+      siteName: 'AyeApps',
+      locale: isEs ? 'es_MX' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@alberto24dev',
+      site: '@ayeapps',
+    },
   }
 }
 
@@ -37,8 +64,43 @@ export default async function StackPage({ params }: PageProps) {
   const dict = await getDictionary(lang)
   const stp = dict.stack_page
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: lang === 'es' ? 'Inicio' : 'Home',
+        item: `https://ayeapps.com/${lang}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: lang === 'es' ? 'Stack & Arquitectura' : 'Tech Stack',
+        item: `https://ayeapps.com/${lang}/stack`,
+      },
+    ],
+  }
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: stp.title,
+    description: stp.sub,
+    author: {
+      '@id': 'https://ayeapps.com/#organization',
+    },
+    publisher: {
+      '@id': 'https://ayeapps.com/#organization',
+    },
+    url: `https://ayeapps.com/${lang}/stack`,
+  }
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={articleSchema} />
       <Navbar dict={dict} lang={lang} />
       <main id="main">
         {/* ─── Page Hero Header (Full-Screen + Interactive Canvas) ─── */}

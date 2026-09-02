@@ -9,6 +9,8 @@ import ScrollReveal from '@/components/ScrollReveal'
 import InteractiveDots from '@/components/InteractiveDots'
 import { ArrowLeft, ArrowRight, Terminal } from 'lucide-react'
 
+import JsonLd from '@/components/JsonLd'
+
 interface PageProps {
   params: Promise<{ lang: string }>
 }
@@ -17,13 +19,38 @@ export async function generateMetadata({ params }: PageProps) {
   const { lang } = await params
   const isEs = lang === 'es'
 
+  const title = isEs
+    ? 'Servicios de Ingeniería de Software & Cloud — AyeApps'
+    : 'Software Engineering & Cloud Services — AyeApps'
+  const description = isEs
+    ? 'Desarrollo web a medida con Next.js, apps nativas iOS con Swift, arquitectura backend con FastAPI, integraciones con IA y automatización de procesos para negocios.'
+    : 'Custom web development with Next.js, native iOS apps with Swift, backend architecture with FastAPI, AI integrations, and workflow automation for businesses.'
+
   return {
-    title: isEs
-      ? 'Servicios de Ingeniería de Software & Cloud — AyeApps'
-      : 'Software Engineering & Cloud Services — AyeApps',
-    description: isEs
-      ? 'Desarrollo web a medida con Next.js, apps nativas iOS con Swift, arquitectura backend con FastAPI, integraciones con IA y automatización de procesos para negocios.'
-      : 'Custom web development with Next.js, native iOS apps with Swift, backend architecture with FastAPI, AI integrations, and workflow automation for businesses.',
+    title,
+    description,
+    alternates: {
+      canonical: `https://ayeapps.com/${lang}/services`,
+      languages: {
+        es: 'https://ayeapps.com/es/services',
+        en: 'https://ayeapps.com/en/services',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://ayeapps.com/${lang}/services`,
+      siteName: 'AyeApps',
+      locale: isEs ? 'es_MX' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@alberto24dev',
+      site: '@ayeapps',
+    },
   }
 }
 
@@ -38,8 +65,55 @@ export default async function ServicesPage({ params }: PageProps) {
   const dict = await getDictionary(lang)
   const sp = dict.services_page
 
+  // BreadcrumbList & Services JSON-LD Schemas
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: lang === 'es' ? 'Inicio' : 'Home',
+        item: `https://ayeapps.com/${lang}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: lang === 'es' ? 'Servicios' : 'Services',
+        item: `https://ayeapps.com/${lang}/services`,
+      },
+    ],
+  }
+
+  const servicesSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Software Engineering & Cloud Development',
+    provider: {
+      '@id': 'https://ayeapps.com/#organization',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Mexico',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: lang === 'es' ? 'Especialidades de Software AyeApps' : 'AyeApps Software Capabilities',
+      itemListElement: dict.services.items.map((item) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: item.title,
+          description: item.description,
+        },
+      })),
+    },
+  }
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={servicesSchema} />
       <Navbar dict={dict} lang={lang} />
       <main id="main">
         {/* ─── Page Hero Header (Full-Screen + Interactive Canvas) ─── */}

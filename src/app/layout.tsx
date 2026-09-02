@@ -33,20 +33,67 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
-  description: 'Ingeniería y desarrollo de sistemas de software completos en Querétaro, México. Plataformas web, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.',
-  keywords: ['AyeApps', 'desarrollo de sistemas Querétaro', 'apps iOS Swift', 'Next.js', 'FastAPI', 'sistemas cloud', 'ingeniería de software'],
-  authors: [{ name: 'Alberto Montero — AyeApps' }],
-  icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+  metadataBase: new URL('https://ayeapps.com'),
+  title: {
+    default: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
+    template: '%s — AyeApps',
   },
+  description: 'Ingeniería y desarrollo de sistemas de software completos en Querétaro, México. Plataformas web, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.',
+  keywords: [
+    'AyeApps',
+    'desarrollo de sistemas Querétaro',
+    'software a medida',
+    'apps iOS Swift',
+    'Next.js 16',
+    'FastAPI Python',
+    'sistemas cloud',
+    'ingeniería de software',
+    'CRM a medida',
+    'integración con IA',
+  ],
+  authors: [{ name: 'Alberto Montero — AyeApps', url: 'https://ayeapps.com' }],
+  creator: 'Alberto Montero',
+  publisher: 'AyeApps',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
+  manifest: '/manifest.webmanifest',
   openGraph: {
     type: 'website',
-    url: 'https://home.ayeapps.com',
+    url: 'https://ayeapps.com',
     title: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
     description: 'Sistemas de software completos, rápidos y en la nube. Next.js, Swift, FastAPI & Cloud.',
     siteName: 'AyeApps',
+    locale: 'es_MX',
+    alternateLocale: ['en_US'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
+    description: 'Sistemas de software completos, rápidos y en la nube. Next.js, Swift, FastAPI & Cloud.',
+    creator: '@alberto24dev',
+    site: '@ayeapps',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
