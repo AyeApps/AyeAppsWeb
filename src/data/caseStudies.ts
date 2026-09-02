@@ -8,7 +8,7 @@ export interface CaseStudyModule {
 }
 
 export interface CaseStudyMetric {
-  value: string
+  value: string | { es: string; en: string }
   labelBusiness: { es: string; en: string }
   labelTech: { es: string; en: string }
   detailBusiness: { es: string; en: string }
@@ -18,7 +18,7 @@ export interface CaseStudyMetric {
 export interface CaseStudyData {
   slug: string
   title: string
-  clientName: string
+  clientName: string | { es: string; en: string }
   projectTypeBusiness: { es: string; en: string }
   projectTypeTech: { es: string; en: string }
   year: string
@@ -37,6 +37,8 @@ export interface CaseStudyData {
   solutionBusiness: { es: string; en: string }
   solutionTech: { es: string; en: string }
   metrics: CaseStudyMetric[]
+  metricsHeadingBusiness?: { badge: { es: string; en: string }; title: { es: string; en: string } }
+  metricsHeadingTech?: { badge: { es: string; en: string }; title: { es: string; en: string } }
   modules: CaseStudyModule[]
   architectureLayers: {
     layer: string
@@ -301,111 +303,134 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
   'aye-video-downloader': {
     slug: 'aye-video-downloader',
     title: 'Aye Video Downloader',
-    clientName: 'AyeApps Proprietary Product',
+    clientName: {
+      es: 'Producto Propietario · AyeApps',
+      en: 'In-House Product · AyeApps'
+    },
     projectTypeBusiness: {
-      es: 'Herramienta de Extracción Multimedia en Alta Resolución',
-      en: 'High-Fidelity Media Extraction & Processing Utility'
+      es: 'Plataforma Web de Extracción Multimedia',
+      en: 'Web Media Extraction Platform'
     },
     projectTypeTech: {
-      es: 'Aplicación Nativa macOS (SwiftUI), Transcodificador FFmpeg & Cloud Worker',
-      en: 'Native macOS Application (SwiftUI), FFmpeg Transcoder & Cloud Worker'
+      es: 'Plataforma Web, Cloud Worker en FastAPI & FFmpeg',
+      en: 'Web Platform, FastAPI Cloud Worker & FFmpeg'
     },
     year: '2026',
     timeline: {
-      es: 'Desarrollo Activo v2.0',
-      en: 'Active Engineering v2.0'
+      es: 'Plataforma Web Activa · Apps de Escritorio y Android en Camino',
+      en: 'Production Web Live · Desktop & Android Apps in Progress'
     },
     roleBusiness: {
-      es: 'Diseño de Producto, Interfaz Nativa & Experiencia de Usuario',
-      en: 'Product Design, Native Interface & User Experience'
+      es: 'Arquitectura de Software, Desarrollo Full Stack & UX',
+      en: 'Software Architecture, Full-Stack Engineering & UX'
     },
     roleTech: {
-      es: 'Arquitectura de Sistemas, Audio/Video DSP & Desarrollo Nativo Swift',
-      en: 'Systems Architecture, Audio/Video DSP & Native Swift Dev'
+      es: 'Arquitectura Cloud, Pipelines FFmpeg & Desarrollo Web',
+      en: 'Cloud Architecture, FFmpeg Pipelines & Web Engineering'
     },
-    githubUrl: 'https://github.com/alberto24dev/AyeVideoDownloader',
+    githubUrl: 'https://github.com/ayeapps/AyeVideoDownloader',
     heroTaglineBusiness: {
-      es: 'Una aplicación limpia, rápida y sin anuncios para descargar videos en 4K y música en máxima calidad con 1 solo clic.',
-      en: 'A clean, blazingly fast, ad-free application to download 4K videos and crystal-clear audio with a single click.'
+      es: 'Una plataforma web limpia, rápida y sin anuncios para descargar videos en 4K HDR, música en alta fidelidad y descargas múltiples en cola.',
+      en: 'A clean, blazingly fast, ad-free web platform for 4K HDR video downloads, high-fidelity audio extraction, and queued batch processing.'
     },
     heroTaglineTech: {
-      es: 'Motor de extracción y transcodificación multimedia con arquitectura dual de procesamiento local y workers en la nube.',
-      en: 'High-throughput media extraction and transcoding engine featuring dual on-device and asynchronous cloud worker architecture.'
+      es: 'Arquitectura web moderna con transcodificación en la nube mediante Cloud Workers en FastAPI y FFmpeg. Clientes nativos en reingeniería.',
+      en: 'Modern web architecture featuring cloud transcoding via FastAPI and FFmpeg workers. Native client apps under active redesign.'
     },
     overviewBusiness: {
-      es: 'Aye Video Downloader nace para solucionar la molesta experiencia de las páginas web llenas de publicidad y virus. Es una herramienta nativa para Mac que permite guardar videos de YouTube, Instagram y otras plataformas en calidad 4K UHD o extraer canciones en MP3 con máxima fidelidad.',
-      en: 'Aye Video Downloader was created to eliminate the frustration of ad-infested, malware-ridden converter websites. It is a sleek native Mac app allowing users to save YouTube, Instagram, and web videos in pristine 4K UHD or extract 320 kbps MP3 audio instantly.'
+      es: 'Aye Video Downloader nace para solucionar la molesta experiencia de las páginas web llenas de publicidad y virus. Actualmente opera principalmente como una plataforma web rápida y accesible desde cualquier navegador, permitiendo guardar videos de YouTube, Instagram y otras fuentes en calidad 4K UHD o extraer canciones en MP3 con máxima fidelidad, mientras las aplicaciones nativas para macOS y dispositivos móviles se encuentran en proceso de reingeniería (Coming Soon).',
+      en: 'Aye Video Downloader was created to eliminate the frustration of ad-infested, malware-ridden converter websites. Currently operating primarily as a fast, browser-accessible web platform, it allows users to download videos in 4K UHD or extract 320 kbps MP3 audio with total privacy, while native apps for macOS and mobile platforms are undergoing active re-engineering (Coming Soon).',
     },
     overviewTech: {
-      es: 'Herramienta de ingeniería construida en Swift 6 y SwiftUI para macOS que orquesta procesos de bajo nivel con yt-dlp y FFmpeg. Soporta ejecución local directa o delegación asíncrona a un cluster de workers en FastAPI.',
-      en: 'Engineered utility built with Swift 6 and SwiftUI for macOS orchestrating low-level yt-dlp and FFmpeg subprocesses. Supports direct on-device execution or asynchronous dispatch to a FastAPI worker cluster.'
+      es: 'Arquitectura web respaldada por un cluster de workers en la nube con Python y FastAPI, integrando yt-dlp y FFmpeg para transcodificación y multiplexación asíncrona de alto rendimiento. Los clientes nativos en Swift/SwiftUI para Mac y React Native para móvil están siendo rediseñados.',
+      en: 'Web architecture backed by a Python/FastAPI cloud worker cluster, orchestrating yt-dlp and FFmpeg for high-throughput asynchronous transcoding. Native clients in Swift/SwiftUI for Mac and React Native for mobile are currently being rebuilt.',
     },
     challengeBusiness: {
-      es: 'Bajar un video o audio de internet hoy en día suele implicar navegar páginas llenas de anuncios sospechosos, botones engañosos de descarga y programas lentos que sobrecalientan la computadora.',
-      en: 'Downloading a video or audio file from the web often forces users into dangerous websites with deceptive ads, fake download buttons, and bloated apps that overheat the computer.'
+      es: 'Un día tuve la necesidad de descargar un video de una plataforma en línea, lo que me llevó a ingresar a una página web que encontré en internet. Ahí empezó la travesía: después de esquivar anuncios por doquier, logré pegar el enlace en la caja de texto y presionar el botón de descarga, el cual de inmediato me mostró una cantidad que debería ser ilegal de anuncios y redirecciones. En ese momento pensé: si existen tantas plataformas que hacen lo mismo y de forma tan molesta, no debería ser tan difícil crear la mía propia. Así me puse manos a la obra.',
+      en: 'One day, I needed to download a video from an online platform, which led me to a website I found through a search engine. That was the beginning of an ordeal: after dodging intrusive pop-ups and deceptive buttons at every turn, I finally pasted the link and clicked download—only to be hit with what felt like an illegal flood of ads. At that moment, I thought: if there are so many platforms doing this so poorly, it shouldn’t be that complicated to build my own. So I got to work.',
     },
     challengeTech: {
-      es: 'La mayoría de herramientas web son wrappers de Electron pesados que saturan la memoria RAM o no multiplexan adecuadamente flujos de audio y video separados en resoluciones 4K.',
-      en: 'Most downloadable utilities are bloated Electron wrappers that consume gigabytes of RAM and fail to properly multiplex high-bitrate separated audio/video streams in 4K resolutions.'
+      es: 'La gran mayoría de descargadores web dependen de monetización invasiva con scripts de rastreo y redirecciones forzadas, mientras que las herramientas de escritorio convencionales son empaquetados pesados de Electron que consumen gigabytes de RAM y no multiplexan adecuadamente flujos separados de audio y video en resoluciones 4K.',
+      en: 'Most web downloaders rely on aggressive tracking scripts and forced redirects, while conventional desktop tools are bloated Electron wrappers that consume excessive RAM and fail to properly multiplex high-bitrate separated 4K audio and video streams.',
     },
     solutionBusiness: {
-      es: 'Diseñamos una aplicación minimalista y ligera para Mac con estética de Atelier. Solo pegas el enlace, seleccionas la calidad (4K, 1080p o Audio MP3) y obtienes tu archivo limpio en segundos, sin anuncios y con total privacidad.',
-      en: 'We designed a minimalist, lightweight native Mac application. Just paste the link, choose your desired quality (4K, 1080p, or MP3 Audio), and get your clean file in seconds—ad-free and completely private.'
+      es: 'El resultado fue Aye Video Downloader: concebida como una plataforma web rápida, limpia y 100% libre de anuncios, accesible de inmediato desde cualquier navegador. Solo pegas el enlace y el sistema procesa el contenido en la nube, permitiéndote descargar videos en resoluciones nítidas hasta 4K UHD o extraer audio en MP3 a máxima fidelidad (320 kbps) en segundos, con total respeto por la privacidad. Asimismo, las aplicaciones nativas dedicadas para macOS y dispositivos móviles se encuentran actualmente en reingeniería y estarán disponibles próximamente (Coming Soon).',
+      en: 'The result was Aye Video Downloader: engineered primarily as a fast, clean, and 100% ad-free web platform accessible instantly from any browser. Simply paste the link, and the cloud engine processes the media—allowing you to download crisp video up to 4K UHD or extract pristine 320 kbps MP3 audio in seconds, with complete user privacy. Dedicated native apps for macOS and mobile devices are currently being re-engineered and will launch soon (Coming Soon).',
     },
     solutionTech: {
-      es: 'Creamos un cliente nativo en SwiftUI con Swift Concurrency y arquitectura dual: motor local con tuberías de procesos FFmpeg, o dispatch asíncrono a Cloud Workers en FastAPI para no consumir CPU local.',
-      en: 'We built a native SwiftUI client utilizing Swift Concurrency and dual-mode execution: an on-device engine with direct FFmpeg subprocess pipes, or asynchronous cloud dispatch via FastAPI workers.'
+      es: 'Implementamos una plataforma web optimizada respaldada por un motor de Cloud Workers asíncronos en FastAPI y Docker con pipelines de yt-dlp y FFmpeg para procesar y ensamblar streams de alta resolución en la nube sin recargar el dispositivo del usuario. Las versiones nativas de escritorio (macOS SwiftUI) y móvil están siendo rediseñadas para una integración profunda con el sistema operativo (Coming Soon).',
+      en: 'We engineered an optimized web platform backed by asynchronous FastAPI and Docker cloud workers orchestrating yt-dlp and FFmpeg pipelines for high-resolution cloud transcoding without draining device resources. Native desktop (macOS SwiftUI) and mobile editions are being redesigned for deep OS-level integration (Coming Soon).',
+    },
+    metricsHeadingBusiness: {
+      badge: { es: 'Capacidades del Sistema', en: 'Core Capabilities' },
+      title: { es: 'Máxima Calidad Audiovisual en Cada Descarga', en: 'Maximum Audiovisual Fidelity on Every Download' }
+    },
+    metricsHeadingTech: {
+      badge: { es: 'Telemetría del Motor Cloud', en: 'Cloud Engine Telemetry' },
+      title: { es: 'Métricas de Procesamiento y Streaming', en: 'Processing & Streaming Telemetry' }
     },
     metrics: [
       {
-        value: '4K UHD',
-        labelBusiness: { es: 'Calidad Máxima', en: 'Pristine Quality' },
-        labelTech: { es: 'Muxing de Streams', en: 'FFmpeg Muxing' },
-        detailBusiness: { es: 'Videos nítidos sin pérdida de resolución', en: 'Crisp video files with zero compression loss' },
-        detailTech: { es: 'Multiplexación AV1 / VP9 + Opus/AAC', en: 'Lossless AV1 / VP9 + Opus/AAC assembly' }
+        value: '4K HDR',
+        labelBusiness: { es: 'Resolución Ultra HD & HDR', en: 'Ultra HD & HDR Resolution' },
+        labelTech: { es: 'Multiplexación AV1 / VP9 HDR', en: 'AV1 / VP9 HDR Muxing' },
+        detailBusiness: {
+          es: 'Descarga videos en 4K, 1080p y alto rango dinámico (HDR) conservando la gama cromática y tasa de bits original.',
+          en: 'Downloads 4K, 1080p, and High Dynamic Range (HDR) videos preserving original color gamut and bitrate.'
+        },
+        detailTech: { es: 'Ensamblado sin pérdida de streams con perfiles de color HDR10', en: 'Lossless separated stream assembly with HDR10 color profiles' }
       },
       {
         value: '320 kbps',
-        labelBusiness: { es: 'Audio de Alta Fidelidad', en: 'Crystal-Clear Audio' },
-        labelTech: { es: 'Extracción de Bitrate', en: 'Bitrate Extraction' },
-        detailBusiness: { es: 'Música limpia lista para escuchar', en: 'Pristine audio files ready for playback' },
-        detailTech: { es: 'Conversión directa MP3/AAC 320k', en: 'Direct 320k MP3/AAC transcode' }
+        labelBusiness: { es: 'Audio de Alta Fidelidad', en: 'High-Fidelity Audio' },
+        labelTech: { es: 'Bitrate de Audio', en: 'Audio Bitrate' },
+        detailBusiness: {
+          es: 'Conversión de música y podcasts en MP3 con el mayor bitrate disponible.',
+          en: 'Extracts music and podcasts to MP3 at the highest available bitrate.'
+        },
+        detailTech: { es: 'Conversión directa a 320 kbps con FFmpeg', en: 'Direct 320 kbps transcode via FFmpeg' }
       },
       {
-        value: '0 Anuncios',
-        labelBusiness: { es: '100% Privado y Seguro', en: '100% Private & Ad-Free' },
-        labelTech: { es: 'Ejecución Aislada', en: 'Isolated Sandboxing' },
-        detailBusiness: { es: 'Sin publicidad engañosa ni software basura', en: 'Zero bloatware, popups, or tracking' },
-        detailTech: { es: 'Procesos locales seguros y directos', en: 'Secure subprocess pipe isolation' }
+        value: { es: 'Sin Anuncios', en: 'No Ads' },
+        labelBusiness: { es: 'Privacidad y Cero Publicidad', en: 'Privacy & Zero Ads' },
+        labelTech: { es: 'Sin Dependencias AdTech', en: 'Zero AdTech Bloat' },
+        detailBusiness: {
+          es: 'Sin ventanas emergentes, botones falsos de descarga ni rastreadores invasivos.',
+          en: 'No pop-up windows, fake download buttons, or invasive trackers.'
+        },
+        detailTech: { es: 'Cero scripts de terceros ni telemetría invasiva', en: 'Zero third-party trackers or telemetry' }
       },
       {
-        value: '< 50ms',
-        labelBusiness: { es: 'Respuesta Instantánea', en: 'Instant Response' },
-        labelTech: { es: 'Latencia UI SwiftUI', en: 'SwiftUI Frame Budget' },
-        detailBusiness: { es: 'App ultra ligera construida para Mac', en: 'Ultra-lightweight native Mac software' },
-        detailTech: { es: 'Swift 6 Async/Await a 60fps constantes', en: 'Swift 6 Async/Await at 60fps' }
+        value: { es: 'Descarga Múltiple', en: 'Batch Download' },
+        labelBusiness: { es: 'Gestión de Enlaces en Cola', en: 'Queued Batch Processing' },
+        labelTech: { es: 'Cola de Tareas Asíncrona', en: 'Async Task Queue' },
+        detailBusiness: {
+          es: 'Agrega varios videos o canciones a la vez y procésalos de forma organizada sin saturar tu red.',
+          en: 'Queue multiple videos or tracks at once and process them systematically without network congestion.'
+        },
+        detailTech: { es: 'Orquestación de background workers y gestión de concurrencia', en: 'Background worker orchestration and concurrency management' }
       }
     ],
     modules: [
       {
         index: '01',
         title: {
-          es: 'Cliente Nativo macOS (SwiftUI & AppKit)',
-          en: 'Native macOS Client (SwiftUI & AppKit)'
+          es: 'Plataforma Web Universal',
+          en: 'Universal Web Platform'
         },
         descBusiness: {
-          es: 'Una aplicación elegante que se integra perfectamente con macOS. Permite pegar enlaces con 1 clic, elegir calidad y ver el progreso en tiempo real.',
-          en: 'An elegant application tailored for macOS. Lets you paste links with one click, select output quality, and monitor download progress in real time.'
+          es: 'Una interfaz web limpia, directa y accesible al instante desde cualquier navegador moderno sin necesidad de instalar programas. Solo pegas el enlace, seleccionas la calidad deseada y tu archivo se procesa de inmediato.',
+          en: 'A clean, streamlined web interface accessible instantly from any modern browser with zero installation required. Simply paste the link, choose your preferred quality, and your file is processed immediately.'
         },
         descTech: {
-          es: 'Interfaz declarativa en SwiftUI 6 con patrones MVVM, suscripciones Combine para telemetría de tasa de transferencia y manejo nativo de ventanas AppKit.',
-          en: 'Declarative SwiftUI 6 interface following strict MVVM patterns, Combine publishers for throughput telemetry, and AppKit window management.'
+          es: 'Arquitectura web optimizada con React Server Components, validación de enlaces en el borde y consumo de APIs asíncronas para una experiencia rápida y sin fricción.',
+          en: 'Optimized web architecture featuring React Server Components, Edge URL validation, and asynchronous APIs for a friction-free, low-latency user journey.'
         },
         businessBenefit: {
-          es: 'Experiencia rápida y natural sin consumir recursos innecesarios.',
-          en: 'Lightning-fast native experience with minimal system footprint.'
+          es: 'Acceso universal inmediato desde cualquier dispositivo sin descargas previas.',
+          en: 'Instant universal access across any device directly from the web browser.'
         },
-        specs: ['Swift 6', 'SwiftUI', 'AppKit Integration', 'Swift Concurrency']
+        specs: ['Plataforma Web', 'Next.js App Router', 'Cloudflare Edge', 'Zero Install']
       },
       {
         index: '02',
@@ -425,60 +450,80 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
           es: 'Archivos listos para reproducir o editar sin conversiones extra.',
           en: 'Ready-to-play files without needing extra conversion tools.'
         },
-        specs: ['yt-dlp Core', 'FFmpeg Transcoding', 'Subprocess Pipe Streaming']
+        specs: ['yt-dlp Core', 'FFmpeg Transcoding', 'Lossless Muxing']
       },
       {
         index: '03',
         title: {
-          es: 'Modo Dual: Procesamiento en Mac o en la Nube',
-          en: 'Dual Architecture: Local Engine or Cloud Worker'
+          es: 'Procesamiento Asíncrono en la Nube',
+          en: 'Asynchronous Cloud Worker Processing'
         },
         descBusiness: {
-          es: 'Puedes procesar descargas directamente en tu computadora o enviarlas a un servidor en la nube para no gastar el internet ni la batería de tu Mac.',
-          en: 'You can process downloads directly on your Mac or delegate heavy extraction jobs to a remote cloud worker to save local bandwidth and battery.'
+          es: 'Todo el trabajo pesado de descarga, compresión y ensamblado de streams se procesa en servidores cloud dedicados, evitando el consumo de batería y datos en tu equipo.',
+          en: 'All heavy lifting—video stream extraction, audio multiplexing, and transcoding—runs on dedicated cloud workers, preserving your device battery and bandwidth.'
         },
         descTech: {
-          es: 'Backend en Python con FastAPI y colas asíncronas para delegar descargas pesadas a servidores remotos con almacenamiento temporal.',
-          en: 'Python FastAPI backend with async task queues for offloading large batch downloads to remote cloud servers.'
+          es: 'Backend asíncrono en Python con FastAPI y colas de tareas en contenedores Docker para transcodificar streams concurrentes a alta velocidad.',
+          en: 'Asynchronous Python backend with FastAPI and Docker task workers to transcode concurrent media streams at scale.'
         },
         businessBenefit: {
-          es: 'Flexibilidad para procesar archivos gigantes sin ralentizar la Mac.',
-          en: 'Flexibility to process huge files without slowing down your Mac.'
+          es: 'Descargas ultrarrápidas sin sobrecalentar ni ralentizar tu equipo.',
+          en: 'Ultra-fast downloads without draining or heating up your device.'
         },
-        specs: ['Python 3.12', 'FastAPI', 'AsyncIO Task Queue', 'Docker Container']
+        specs: ['Python 3.12', 'FastAPI Workers', 'Docker Compose', 'AsyncIO Task Queue']
       },
       {
         index: '04',
         title: {
-          es: 'Telemetría de Velocidad en Tiempo Real',
-          en: 'Live Transfer Speed & Progress Telemetry'
+          es: 'Telemetría y Estado en Tiempo Real',
+          en: 'Live Progress & Status Telemetry'
         },
         descBusiness: {
-          es: 'Muestra con exactitud a qué velocidad se está descargando el archivo (MB/s) y cuánto tiempo falta para que termine.',
-          en: 'Accurately displays real-time download throughput (MB/s) and estimated time remaining (ETA).'
+          es: 'Muestra con exactitud el progreso de extracción, la tasa de transferencia en megabytes por segundo (MB/s) y la finalización del archivo en tiempo real.',
+          en: 'Accurately displays real-time extraction progress, transfer throughput in megabytes per second (MB/s), and instant file readiness.'
         },
         descTech: {
-          es: 'Cálculo de velocidad de descarga (MB/s), tiempo estimado de finalización (ETA) y porcentaje de transcodificación con barras animadas.',
-          en: 'Live transfer speed calculation (MB/s), estimated completion time (ETA), and transcoding progress bars.'
+          es: 'Cálculo de velocidad de procesamiento, porcentaje de multiplexación y streaming de eventos asíncronos para telemetría continua de la descarga.',
+          en: 'Real-time transcoding progress calculation, throughput streaming, and async event dispatch for end-to-end download telemetry.'
         },
         businessBenefit: {
           es: 'Visibilidad total del estado de tus archivos en todo momento.',
           en: 'Complete transparency into the exact status of your downloads.'
         },
-        specs: ['Regex stdout parser', 'Published Combine stream', 'Live HUD metrics']
+        specs: ['Real-Time Progress', 'Async Event Stream', 'Live Status Feedback']
+      },
+      {
+        index: '05',
+        title: {
+          es: 'Ecosistema Móvil: Android (Próximamente)',
+          en: 'Mobile Ecosystem: Android (Coming Soon)'
+        },
+        descBusiness: {
+          es: 'Debido a las estrictas políticas y restricciones de la App Store de Apple para herramientas de descarga de medios en iOS, una futura versión móvil se contempla exclusivamente para el ecosistema Android, donde es viable operar con libertad y sin bloqueos de plataforma. Se encuentra en evaluación técnica para su próximo lanzamiento.',
+          en: 'Due to strict Apple App Store policy restrictions against media downloading utilities on iOS, an upcoming mobile edition is planned exclusively for the Android ecosystem, where open architecture permits seamless operation. Currently under technical feasibility and roadmap planning.'
+        },
+        descTech: {
+          es: 'Evaluación de cliente ligero para Android con servicios de descarga en segundo plano, soporte para Scoped Storage nativo y activación directa desde el menú Compartir del sistema operativo.',
+          en: 'Technical evaluation of an Android client with background download services, native Scoped Storage APIs, and direct Share Sheet integration from mobile browsers.'
+        },
+        businessBenefit: {
+          es: 'Claridad y viabilidad técnica en móviles sin restricciones de tienda en iOS.',
+          en: 'Engineering clarity and realistic mobile viability without iOS store roadblocks.'
+        },
+        specs: ['Android Focused', 'Restricciones iOS / Apple', 'Background Service', 'Próximamente']
       }
     ],
     architectureLayers: [
       {
-        layer: 'Native Desktop Layer',
+        layer: 'Web Frontend Layer',
         title: {
-          es: 'SwiftUI Client + AppKit Native Windowing',
-          en: 'SwiftUI Client + AppKit Native Windowing'
+          es: 'Next.js App Router & Edge Runtime',
+          en: 'Next.js App Router & Edge Runtime'
         },
-        techs: ['Swift 6', 'SwiftUI', 'macOS AppKit', 'Combine'],
+        techs: ['Next.js 16', 'React Server Components', 'TypeScript', 'Tailwind CSS'],
         description: {
-          es: 'Cliente ligero con consumo mínimo de memoria RAM y rendimiento garantizado a 60fps.',
-          en: 'Lightweight desktop client with minimal RAM footprint and guaranteed 60fps rendering.'
+          es: 'Plataforma web reactiva y ligera optimizada para cargas inmediatas, validación de enlaces en el borde y consumo de APIs de streaming.',
+          en: 'Reactive, ultra-lightweight web platform optimized for instant loads, Edge URL validation, and streaming API consumption.'
         }
       },
       {

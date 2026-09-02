@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, Terminal } from 'lucide-react'
+import InteractiveDots from './InteractiveDots'
 
 type StatItem = { value: string; label: string }
 type Dict = {
@@ -18,23 +19,15 @@ export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string 
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative min-h-[92dvh] flex flex-col justify-center overflow-hidden px-4 sm:px-6 pt-28 pb-16 dot-pattern"
+      className="relative min-h-screen min-h-[100dvh] flex flex-col justify-center overflow-hidden px-4 sm:px-6 pt-20 pb-10 sm:pt-24 sm:pb-12 bg-[var(--surface)]"
     >
-      {/* Concentric Circles & Geometric Bauhaus Motif (Background) */}
-      <div aria-hidden="true" className="absolute right-[-10%] top-1/2 -translate-y-1/2 pointer-events-none opacity-40 dark:opacity-30">
-        <div className="circles-orbit relative w-[680px] h-[680px]">
-          <div className="absolute inset-0 rounded-full border border-[var(--border-strong)]" />
-          <div className="absolute inset-16 rounded-full border border-[var(--accent-amber-border)]" />
-          <div className="absolute inset-32 rounded-full border border-[var(--border-strong)]" />
-          <div className="absolute inset-48 rounded-full border border-dashed border-[var(--border-strong)]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[var(--accent-amber)] opacity-60 blur-xs" />
-        </div>
-      </div>
+      {/* Interactive Dot Grid Background with Amber Sweep & Cursor Illumination */}
+      <InteractiveDots />
 
       {/* Cyber-Amber Horizontal Accent Line */}
       <div
         aria-hidden="true"
-        className="absolute left-0 top-[38%] w-[20vw] h-[1.5px] pointer-events-none overflow-hidden"
+        className="absolute left-0 top-[38%] w-[28vw] h-[1.5px] pointer-events-none overflow-hidden"
       >
         <div className="hero-line-draw w-full h-full bg-[var(--accent-amber)]" />
       </div>
@@ -43,7 +36,7 @@ export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
         {/* Geo Badge with Pulse */}
         <div
-          className="hero-enter geo-badge mb-8 w-fit"
+          className="hero-enter geo-badge mb-6 sm:mb-8 w-fit"
           style={{ animationDelay: '0ms' }}
         >
           <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.18em] rounded-xs border border-[var(--border-strong)] bg-[var(--surface-raised)] text-[var(--foreground)]">
@@ -77,7 +70,7 @@ export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string 
 
         {/* Subtitle */}
         <p
-          className="hero-enter text-[var(--muted)] text-base sm:text-lg max-w-[580px] mb-10 leading-relaxed"
+          className="hero-enter text-[var(--muted)] text-base sm:text-lg max-w-[580px] mb-6 sm:mb-8 leading-relaxed"
           style={{ animationDelay: '340ms' }}
         >
           {dict.hero.sub}
@@ -85,7 +78,7 @@ export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string 
 
         {/* Action Buttons with Multi-Page Routing */}
         <div
-          className="hero-enter flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16"
+          className="hero-enter flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8 sm:mb-12"
           style={{ animationDelay: '460ms' }}
         >
           <Link
@@ -114,7 +107,7 @@ export default function Hero({ dict, lang = 'es' }: { dict: Dict; lang?: string 
 
         {/* Stats Grid Bar */}
         <div
-          className="hero-enter grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-[var(--border)]"
+          className="hero-enter grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-[var(--border)]"
           style={{ animationDelay: '580ms' }}
         >
           {dict.hero.stats.map((stat, i) => (

@@ -169,7 +169,7 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                   <span className={`text-sm sm:text-base font-bold text-[var(--foreground)] transition-colors ${
                     isGoldAccented ? 'group-hover:text-[#c9a96e] font-montserrat' : 'group-hover:text-[var(--accent-amber)]'
                   }`}>
-                    {study.clientName}
+                    {typeof study.clientName === 'string' ? study.clientName : study.clientName[lang as 'es' | 'en']}
                   </span>
                 </div>
                 <div className="w-4 h-0.5 bg-transparent" />
@@ -274,12 +274,14 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
               <p className={`${geoBadgeClass} text-xs font-medium tracking-[0.18em] uppercase justify-center mb-3 ${
                 isGoldAccented ? 'text-[#c9a96e]' : 'text-[var(--muted)]'
               }`}>
-                {techMode ? 'CLOUD PERFORMANCE METRICS' : (isEs ? 'Resultados Clave' : 'Key Metrics')}
+                {techMode
+                  ? study.metricsHeadingTech?.badge[lang as 'es' | 'en'] || 'CLOUD PERFORMANCE METRICS'
+                  : study.metricsHeadingBusiness?.badge[lang as 'es' | 'en'] || (isEs ? 'Resultados Clave' : 'Key Metrics')}
               </p>
               <h2 className={`text-2xl sm:text-4xl text-[var(--foreground)] ${getHeadingFontClass()}`}>
                 {techMode
-                  ? (isEs ? 'Telemetría de Rendimiento' : 'Performance Telemetry')
-                  : (isEs ? 'Impacto Real en la Operación' : 'Tangible Operational Impact')}
+                  ? study.metricsHeadingTech?.title[lang as 'es' | 'en'] || (isEs ? 'Telemetría de Rendimiento' : 'Performance Telemetry')
+                  : study.metricsHeadingBusiness?.title[lang as 'es' | 'en'] || (isEs ? 'Impacto Real en la Operación' : 'Tangible Operational Impact')}
               </h2>
             </div>
 
@@ -305,10 +307,16 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                         <IconComponent className="w-4 h-4" />
                       </div>
 
-                      <span className={`text-3xl sm:text-4xl font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors ${
+                      <span className={`${
+                        (typeof m.value === 'string' ? m.value : m.value[lang as 'es' | 'en'] || '').length > 13
+                          ? 'text-xl sm:text-2xl'
+                          : (typeof m.value === 'string' ? m.value : m.value[lang as 'es' | 'en'] || '').length > 9
+                            ? 'text-2xl sm:text-3xl'
+                            : 'text-3xl sm:text-4xl'
+                      } font-bold font-mono text-[var(--foreground)] tracking-tight transition-colors text-center leading-tight ${
                         isGoldAccented ? 'group-hover:text-[#c9a96e]' : 'group-hover:text-[var(--accent-amber)]'
                       }`}>
-                        {m.value}
+                        {typeof m.value === 'string' ? m.value : m.value[lang as 'es' | 'en']}
                       </span>
                     </div>
 
@@ -393,10 +401,6 @@ export default function CaseStudyViewer({ study, lang }: CaseStudyViewerProps) {
                     {isEs ? 'Lo Que Hace Posible la Plataforma' : 'Core Platform Capabilities'}
                   </h2>
                 </div>
-
-                <span className="text-xs font-mono text-[var(--muted)]">
-                  {techMode ? (isEs ? '⚡️ Vista técnica activa' : '⚡️ Technical view active') : (isEs ? '🌟 Vista ejecutiva activa' : '🌟 Executive view active')}
-                </span>
               </div>
             </ScrollReveal>
 

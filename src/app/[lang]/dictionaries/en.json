@@ -8,30 +8,30 @@
     "cta": "Let's Talk"
   },
   "hero": {
-    "badge": "Software Atelier · Querétaro, Mexico",
-    "headline1": "Software Engineering.",
-    "headline2": "Precision & Character.",
-    "sub": "We architect and build bespoke web platforms, native iOS applications, and scalable cloud solutions. No generic templates. Pure boutique craft and impeccable code.",
+    "badge": "Software Engineering & Cloud Systems · Querétaro, Mexico",
+    "headline1": "End-to-End Systems.",
+    "headline2": "Scalable & Cloud-Native.",
+    "sub": "We don't just build standalone websites: we architect and engineer complete, integrated software systems. We seamlessly connect your web platform with native iOS apps, AI integrations, and cloud backends syncing in real time. Fast, secure, and built with Next.js, Swift, and Python to help your business scale effortlessly.",
     "cta_primary": "Explore Ecosystem",
     "cta_secondary": "View Services",
     "featured_title": "Featured Work",
-    "view_all_projects": "View all projects & products",
+    "view_all_projects": "View all projects & systems",
     "stats": [
-      { "value": "100%", "label": "Custom Code" },
-      { "value": "< 1.2s", "label": "Edge Load Time" },
-      { "value": "0", "label": "Generic Templates" },
+      { "value": "100%", "label": "Integrated Ecosystem" },
+      { "value": "< 1.2s", "label": "Global Edge Load Time" },
+      { "value": "99.9%", "label": "Cloud Uptime" },
       { "value": "1-on-1", "label": "Direct Engineering" }
     ]
   },
   "portfolio_page": {
-    "badge": "Engineering Showcase",
-    "title": "Ecosystem of Products & Projects",
-    "sub": "Real production platforms for businesses and demanding proprietary software products demonstrating end-to-end technical mastery."
+    "badge": "Production Engineering",
+    "title": "Ecosystem of Products & Platforms",
+    "sub": "Complete production systems for enterprise clients and proprietary software suites. We integrate high-performance web platforms, mobile applications, and real-time cloud microservices."
   },
   "portfolio": {
     "badge": "01 / Projects & Ecosystem",
     "title": "Production platforms and engineered software products.",
-    "sub": "We combine custom client systems with demanding proprietary software products.",
+    "sub": "We combine bespoke enterprise software with our own ecosystem of scalable, high-performance applications.",
     "filter_all": "All",
     "filter_client": "Clients & Platforms",
     "filter_product": "AyeApps Products",
@@ -42,108 +42,138 @@
     "view_live": "Visit platform"
   },
   "services_page": {
-    "badge": "Technical Capabilities",
-    "title": "Engineering & Atelier Services",
-    "sub": "Full-lifecycle guidance from architectural blueprints and UI/UX design to robust implementation, testing, and global edge deployment.",
-    "process_badge": "Methodology",
-    "process_title": "Our Process: From concept to production",
-    "process_steps": [
+    "badge": "Software Engineering & Cloud",
+    "title": "Software Development & Cloud Architecture",
+    "sub": "We design and build complete software systems tailored to your business: from high-performance web platforms and mobile apps to custom management panels (CRM), AI-assisted automations, and cloud microservices, all synchronized in real time and built to scale.",
+    "process_badge": "Cycle Methodology",
+    "process_title": "Flowchart Pipeline: From Concept to Production",
+    "process_sub": "A structured, transparent, and iterative engineering process ensuring your system is validated before deployment and stress-tested before public release.",
+    "decision_gate": {
+      "badge": "Decision Gateway",
+      "question": "Client MVP Approval?",
+      "reject_label": "Rejected",
+      "reject_action": "Feedback & Adjustments (Loops to Phase 01)",
+      "approve_label": "Approved",
+      "approve_action": "Advances to Cloud Deploy (Phase 03)"
+    },
+    "phases": [
       {
         "step": "01",
+        "tag": "Initial Discovery",
         "title": "Discovery & Scoping",
-        "desc": "We analyze core requirements, model domain entities, and select the optimal stack without premature over-engineering."
+        "desc": "Deep-dive sessions to understand your business operations and define exact requirements. We model domain data, user workflows, and system architecture without over-engineering."
       },
       {
         "step": "02",
-        "title": "Architecture & UI/UX",
-        "desc": "We prototype high-fidelity interfaces and design database schemas, API contracts, and security models before writing code."
+        "tag": "Functional Prototype",
+        "title": "MVP Build & Delivery",
+        "desc": "We design interfaces and build an interactive, fully functional MVP so you can test user flows, interface feel, and viability before full-scale buildout."
       },
       {
         "step": "03",
-        "title": "Engineering & Testing",
-        "desc": "Transparent sprint-based execution with strict TypeScript, unit tests, and continuous performance benchmarks."
+        "tag": "Cloud Infrastructure",
+        "title": "Full Suite Cloud Deployment",
+        "desc": "We provision and deploy the entire system in the cloud: databases, async FastAPI backend, containerized Docker microservices, and edge-distributed frontend."
       },
       {
         "step": "04",
-        "title": "Edge Deploy & Handover",
-        "desc": "Global cloud deployment (Cloudflare, AWS, Docker) with automated SSL, observability, and direct developer support."
+        "tag": "Pre-Production Staging",
+        "title": "Live Staging Server Testing",
+        "desc": "Rigorous testing on a production-identical staging server before opening to the public: stress tests, mobile app real-time sync, payment pipelines, and security audits."
+      },
+      {
+        "step": "05",
+        "tag": "Handover & Go-Live",
+        "title": "Official Launch & Production SEO",
+        "desc": "Public rollout, deep technical SEO indexing for Google, automated SSL, rapid bug resolution, client handover, and ongoing 24/7 cloud maintenance."
       }
     ]
   },
   "services": {
     "badge": "02 / Capabilities",
-    "title": "A specialized technical atelier for high-standard software.",
-    "sub": "We stay involved from concept to production: interface design, system architecture, database modeling, and edge deployment.",
+    "title": "End-to-end systems engineered for real-world operations.",
+    "sub": "Comprehensive software solutions: public web platforms, private client portals, custom CRMs, and mobile apps.",
     "items": [
       {
         "index": "01",
-        "title": "Custom Web Platforms & Apps",
-        "description": "High-converting corporate sites, tailored client portals, and interactive dashboards engineered with Next.js and Tailwind CSS. Extreme speed, flawless technical SEO, and distinct aesthetics.",
-        "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO"]
+        "title": "All-in-One Digital Ecosystems (Web, Portal & Mobile App)",
+        "description": "We engineer complete systems where every component is seamlessly connected: public website to attract clients, private self-service portal, and mobile apps to operate your business from anywhere in real time.",
+        "tags": ["Next.js", "React Native", "Expo", "iOS / Android", "Complete Systems"]
       },
       {
         "index": "02",
-        "title": "Native iOS & Mobile Applications",
-        "description": "Native Swift/SwiftUI engineering utilizing Apple hardware capabilities (cameras, sensors, DSP acceleration, haptics), alongside cross-platform Expo solutions.",
-        "tags": ["Swift", "SwiftUI", "iOS", "React Native", "Expo"]
+        "title": "Custom Operations Software & Tailored CRM",
+        "description": "We replace chaotic Excel spreadsheets and scattered WhatsApp messages with a unified cloud control panel. Live lead pipelines, real-time quotes, inventory tracking, strict role-based access control, and integrated AI for automated summaries and operational analysis.",
+        "tags": ["Dashboards", "Custom CRM", "AI Integration", "PostgreSQL", "Role-Based Access"]
       },
       {
         "index": "03",
-        "title": "Backend Architecture, APIs & Cloud",
-        "description": "High-throughput asynchronous microservices with Python/FastAPI, scalable MongoDB & PostgreSQL data models, containerized with Docker and deployed globally.",
-        "tags": ["Python", "FastAPI", "MongoDB", "PostgreSQL", "Docker", "AWS"]
+        "title": "Automation, Payment Infrastructure & APIs",
+        "description": "Connecting your platform to the world so your business runs on autopilot: automated billing and subscriptions with Stripe, instant transactional alerts, webhook sync, and AI-assisted workflows for smart document parsing and automated responses.",
+        "tags": ["Stripe", "Webhooks", "AI Workflows", "REST APIs", "Automation"]
       },
       {
         "index": "04",
-        "title": "Automation, CRM & Email Marketing",
-        "description": "Payment gateway integrations (Stripe), real-time customer pipelines, transactional messaging (Brevo/SendGrid), and robust JWT authentication with token rotation.",
-        "tags": ["Stripe", "Brevo", "JWT Auth", "Cloudflare Turnstile"]
+        "title": "Cloud Architecture, Resilience & 24/7 Uptime",
+        "description": "Containerized infrastructure using Docker and deployed globally on Cloudflare and cloud servers. We guarantee 99.9% uptime, instant page loads, continuous automated backups, and proactive maintenance so your software never goes down.",
+        "tags": ["Docker", "Cloudflare Edge", "Async FastAPI", "24/7 Monitoring", "Cloud Security"]
       }
     ]
   },
   "stack_page": {
-    "badge": "Technical Foundations",
+    "badge": "Architecture & Stack",
     "title": "Technology, Architecture & Tooling",
-    "sub": "A transparent look at the technologies and engineering doctrines we use to build reliable, high-performance, and maintainable software.",
+    "sub": "A rigorous breakdown of the technologies, frameworks, and engineering doctrines we use to build fast, resilient, and scalable software systems.",
     "principles_badge": "Engineering Doctrine",
-    "principles_title": "Core principles governing our code",
+    "principles_title": "Core Principles Governing Our Code",
+    "principles_sub": "We never cut architectural corners. Every line of code is held to strict standards of maintainability, operational predictability, and long-term performance.",
     "principles": [
       {
-        "title": "End-to-End Strict Typing",
-        "desc": "TypeScript on the frontend and Pydantic/Python on the backend to catch contract regressions before deployment."
+        "title": "Strict Data Contracts & End-to-End Typing",
+        "desc": "Rigorous type enforcement across every tier: TypeScript on web and mobile interfaces, paired with Pydantic and Python on the backend. Inbound payloads are validated before processing, eliminating runtime regressions before reaching production."
       },
       {
-        "title": "Performance & Zero Latency",
-        "desc": "Static Site Generation (SSG), global Edge CDN caching, and database queries indexed for O(1) and O(n) execution."
+        "title": "Native Performance & Zero-Latency Edge",
+        "desc": "Performance is not an afterthought; it is our architectural foundation. We combine static generation, Server Components, and Edge CDN routing to ensure sub-1.2s load times and responsive microservices worldwide."
       },
       {
-        "title": "Zero Bloated Templates",
-        "desc": "Every pixel, component, and animation is built with purpose, distinct personality, and lean dependencies."
+        "title": "Containerized Isolation & 24/7 Cloud Continuity",
+        "desc": "Full containerization with Docker and modular, decoupled microservices. We engineer systems with fault-tolerant circuit breakers, continuous backups, and deterministic environments ensuring 99.9% production availability."
       }
     ]
   },
   "stack": {
-    "badge": "03 / Tech & Methodology",
-    "title": "Modern tools, time-tested foundations.",
-    "sub": "We deliberately hand-pick each layer of the technical stack for longevity, performance, and maintainability."
+    "badge": "Architectural Layers",
+    "title": "Modern tools engineered on solid fundamentals.",
+    "sub": "We deliberately hand-pick each technology for proven production resilience, high compute efficiency, and long-term maintainability."
   },
   "testimonials": {
-    "badge": "04 / Testimonials",
-    "quote": "Alberto completely elevated the digital experience of my business. The custom platform he engineered is not only visually stunning, but seamlessly automated my entire client pipeline and gallery delivery without friction.",
+    "badge": "03 / Testimonials",
+    "quote": "Alberto completely elevated the digital and operational capability of my business. The custom system he engineered is not only visually stunning, but seamlessly automated my entire client pipeline and gallery delivery without friction.",
     "author": "Fátima Reséndiz",
     "role": "Professional Photographer",
-    "company": "fatimaresendiz.com"
+    "company": "fatimaresendiz.com",
+    "items": [
+      {
+        "quote": "Alberto completely elevated the digital and operational capability of my business. The custom system he engineered is not only visually stunning, but seamlessly automated my entire client pipeline and gallery delivery without friction.",
+        "author": "Fátima Reséndiz",
+        "role": "Professional Photographer",
+        "company": "fatimaresendiz.com",
+        "highlight": "Web Platform, iOS App & CRM",
+        "verified": "Live Production"
+      }
+    ]
   },
   "contact": {
-    "badge": "05 / Contact & Connect",
-    "title": "Have a project or ambitious vision?",
-    "sub": "We are polishing the interactive estimator module. In the meantime, connect with us directly to start mapping out your software architecture.",
-    "under_construction_title": "Estimator Module Under Construction",
-    "under_construction_badge": "Architecture in Progress",
-    "under_construction_text": "We are preparing our automated messaging infrastructure. You can reach out directly through any of our channels:",
+    "badge": "05 / Direct Contact",
+    "title": "Ready to build or scale your business with custom software?",
+    "sub": "Tell us about your vision and technical requirements. Talk directly with engineers to map out your architecture, web-to-mobile integrations, and roadmap.",
+    "under_construction_title": "Direct Engineering Advisory",
+    "under_construction_badge": "Immediate Access",
+    "under_construction_text": "To provide a thorough architectural assessment from day one, you connect directly with our engineering team without sales intermediaries:",
     "channels": {
       "email_label": "Direct Email",
-      "email_val": "contact@alberto24dev.me",
+      "email_val": "alberto@contact.ayeapps.com",
       "whatsapp_label": "Direct WhatsApp",
       "whatsapp_val": "+52 (442) 352-2387",
       "whatsapp_btn": "Send Message",
@@ -152,8 +182,8 @@
     }
   },
   "footer": {
-    "tagline": "Boutique software engineering & custom mobile/web apps.",
+    "tagline": "Engineering end-to-end software systems, web platforms, and custom mobile applications.",
     "rights": "All rights reserved.",
-    "built_with": "Built with Next.js, Geist & Cloudflare Edge."
+    "built_with": "Built with ❤️ by alberto"
   }
 }

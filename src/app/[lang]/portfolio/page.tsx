@@ -5,7 +5,8 @@ import Navbar from '@/components/Navbar'
 import ProjectsShowcase from '@/components/ProjectsShowcase'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
-import { ArrowLeft } from 'lucide-react'
+import InteractiveDots from '@/components/InteractiveDots'
+import { ArrowLeft, ArrowRight, Layers } from 'lucide-react'
 
 interface PageProps {
   params: Promise<{ lang: string }>
@@ -17,11 +18,11 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: isEs
-      ? 'Ecosistema & Proyectos — AyeApps'
-      : 'Ecosystem & Projects — AyeApps',
+      ? 'Ecosistema de Productos & Plataformas — AyeApps'
+      : 'Ecosystem of Products & Platforms — AyeApps',
     description: isEs
-      ? 'Catálogo completo de plataformas y productos de software construidos por AyeApps: Fatima Resendiz, AyeTasks, AyeRecipes, AyeStock, AyeMusicVisualizer y más.'
-      : 'Complete catalog of production platforms and engineered software by AyeApps: Fatima Resendiz, AyeTasks, AyeRecipes, AyeStock, AyeMusicVisualizer and more.',
+      ? 'Catálogo de plataformas y productos de software construidos por AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader y AyeFinance.'
+      : 'Complete catalog of production platforms and engineered software by AyeApps: Fatima Resendiz, AyeTasks, Aye Video Downloader, and AyeFinance.',
   }
 }
 
@@ -40,31 +41,119 @@ export default async function PortfolioPage({ params }: PageProps) {
     <>
       <Navbar dict={dict} lang={lang} />
       <main id="main">
-        {/* ─── Page Hero Header ───────────────────────── */}
-        <section className="pt-32 pb-16 px-4 sm:px-6 bg-[var(--surface)] dot-pattern border-b border-[var(--border)]">
-          <div className="max-w-6xl mx-auto">
+        {/* ─── Page Hero Header (Full-Screen + Interactive Canvas) ─── */}
+        <section
+          aria-labelledby="portfolio-hero-heading"
+          className="relative min-h-screen min-h-[100dvh] flex flex-col justify-center overflow-hidden px-4 sm:px-6 pt-24 pb-12 bg-[var(--surface)] border-b border-[var(--border)]"
+        >
+          {/* Interactive Dot Grid Background with Amber Sweep & Cursor Illumination */}
+          <InteractiveDots />
+
+          {/* Cyber-Amber Accent Line */}
+          <div
+            aria-hidden="true"
+            className="absolute left-0 top-[38%] w-[24vw] h-[1.5px] pointer-events-none overflow-hidden"
+          >
+            <div className="hero-line-draw w-full h-full bg-[var(--accent-amber)]" />
+          </div>
+
+          <div className="relative z-10 max-w-6xl mx-auto w-full">
             <ScrollReveal>
               <Link
                 href={`/${lang}`}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors mb-8 group"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.14em] text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors mb-6 group w-fit"
               >
-                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span>{lang === 'es' ? 'Volver al Inicio' : 'Back to Home'}</span>
               </Link>
 
-              <div className="max-w-3xl">
-                <p className="geo-badge text-xs font-medium tracking-[0.18em] uppercase text-[var(--muted)] mb-4">
-                  {pp.badge}
-                </p>
+              <div className="max-w-4xl">
+                {/* Geo Badge with Pulse */}
+                <div className="geo-badge mb-6 w-fit">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 text-[11px] font-mono uppercase tracking-[0.18em] rounded-xs border border-[var(--border-strong)] bg-[var(--surface-raised)] text-[var(--foreground)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)] animate-ping" />
+                    {pp.badge}
+                  </span>
+                </div>
+
+                {/* Main Display Headline */}
                 <h1
-                  className="text-3xl sm:text-5xl md:text-6xl font-bold text-[var(--foreground)] tracking-tight mb-6"
+                  id="portfolio-hero-heading"
+                  className="text-[clamp(2.5rem,6.5vw,5.5rem)] font-bold tracking-[-0.03em] leading-[1.04] text-[var(--foreground)] mb-6"
                   style={{ textWrap: 'balance' } as React.CSSProperties}
                 >
                   {pp.title}
                 </h1>
-                <p className="text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-2xl">
+
+                {/* Subtitle */}
+                <p className="text-base sm:text-lg md:text-xl text-[var(--muted)] leading-relaxed max-w-3xl mb-8 sm:mb-10">
                   {pp.sub}
                 </p>
+
+                {/* Action Navigation Buttons */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10 sm:mb-12">
+                  <a
+                    href="#portfolio"
+                    className="btn-press inline-flex items-center justify-center gap-3
+                      bg-[var(--foreground)] hover:bg-[var(--accent-amber)]
+                      text-[var(--foreground-inv)] hover:text-black font-semibold
+                      px-8 py-4 text-xs uppercase tracking-[0.14em] shadow-sm rounded-xs transition-colors"
+                  >
+                    <span>{lang === 'es' ? 'Explorar Sistemas' : 'Explore Systems'}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+
+                  <Link
+                    href={`/${lang}/services`}
+                    className="btn-press inline-flex items-center justify-center gap-2
+                      border border-[var(--border-strong)] hover:border-[var(--accent-amber-border)]
+                      bg-[var(--surface-raised)] hover:bg-[var(--surface-alt)]
+                      text-[var(--foreground)] font-medium
+                      px-7 py-4 text-xs uppercase tracking-[0.14em] rounded-xs transition-colors"
+                  >
+                    <Layers className="w-4 h-4 text-[var(--accent-amber)]" />
+                    <span>{lang === 'es' ? 'Servicios & Metodología' : 'Services & Process'}</span>
+                  </Link>
+                </div>
+
+                {/* Proof Points Grid Bar */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-[var(--border)]">
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[var(--foreground)] tracking-tight">
+                      100%
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-medium text-[var(--muted)]">
+                      {lang === 'es' ? 'Producción Real' : 'Live Production'}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[var(--foreground)] tracking-tight">
+                      Web + App
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-medium text-[var(--muted)]">
+                      {lang === 'es' ? 'Ecosistemas Conectados' : 'Connected Ecosystems'}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[var(--foreground)] tracking-tight">
+                      FastAPI + Swift
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-medium text-[var(--muted)]">
+                      {lang === 'es' ? 'Arquitectura Nativa' : 'Native Architecture'}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col space-y-1">
+                    <span className="text-2xl sm:text-3xl font-bold font-mono text-[var(--foreground)] tracking-tight">
+                      Edge Global
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.14em] font-medium text-[var(--muted)]">
+                      {lang === 'es' ? 'Cero Latencia' : 'Zero Latency'}
+                    </span>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>

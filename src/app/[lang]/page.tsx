@@ -6,6 +6,7 @@ import Hero from '@/components/Hero'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
+import InteractiveDots from '@/components/InteractiveDots'
 import { ArrowRight, Sparkles, Smartphone, Monitor, ArrowUpRight, Terminal, Layers } from 'lucide-react'
 import { PROJECTS } from '@/data/projects'
 import { GithubIcon } from '@/components/Icons'
@@ -20,11 +21,11 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: isEs
-      ? 'AyeApps — Atelier de Software & Apps a Medida en Querétaro'
-      : 'AyeApps — Software Engineering Atelier & Custom Apps',
+      ? 'AyeApps — Sistemas de Software Completos & Plataformas Cloud'
+      : 'AyeApps — End-to-End Software Systems & Cloud Platforms',
     description: isEs
-      ? 'Desarrollo de software boutique en Querétaro, México. Plataformas web de alta velocidad, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.'
-      : 'Boutique software engineering in Querétaro, Mexico. High-speed web platforms, native iOS apps, and cloud backend architectures built with Next.js, Swift and FastAPI.',
+      ? 'Desarrollo de sistemas de software completos en Querétaro, México. Plataformas web de alta velocidad, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.'
+      : 'Engineering end-to-end software systems in Querétaro, Mexico. High-speed web platforms, native iOS apps, and cloud backend architectures built with Next.js, Swift, and FastAPI.',
     alternates: {
       canonical: `https://home.ayeapps.com/${lang}`,
       languages: {
@@ -131,16 +132,17 @@ export default async function HomePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* ─── Services Overview Banner ───────────────── */}
-        <section className="py-24 px-4 sm:px-6 bg-[var(--surface)]">
+        {/* ─── 02 / Especialidades Section ────────────── */}
+        <section className="py-24 px-4 sm:px-6 bg-[var(--surface)] border-b border-[var(--border)]">
           <div className="max-w-6xl mx-auto">
+            {/* Header */}
             <ScrollReveal>
-              <div className="bracket-corners p-8 sm:p-12 border border-[var(--border)] bg-[var(--surface-alt)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div className="space-y-3 max-w-xl">
-                  <p className="geo-badge text-xs font-medium tracking-[0.18em] uppercase text-[var(--muted)]">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div className="max-w-2xl">
+                  <p className="geo-badge text-xs font-medium tracking-[0.18em] uppercase text-[var(--muted)] mb-3">
                     02 / Especialidades
                   </p>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-3">
                     {dict.services.title}
                   </h2>
                   <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
@@ -150,13 +152,82 @@ export default async function HomePage({ params }: PageProps) {
 
                 <Link
                   href={`/${lang}/services`}
-                  className="btn-press inline-flex items-center gap-2 px-6 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold bg-[var(--foreground)] text-[var(--foreground-inv)] hover:bg-[var(--accent-amber)] hover:text-black transition-colors rounded-xs shrink-0"
+                  className="btn-press inline-flex items-center gap-2 px-6 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold bg-[var(--foreground)] text-[var(--foreground-inv)] hover:bg-[var(--accent-amber)] hover:text-black transition-colors rounded-xs shrink-0 w-fit"
                 >
                   {isEs ? 'Explorar Servicios' : 'Explore Services'}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </ScrollReveal>
+
+            {/* Featured Flagship Specialty: 01 · Ecosistemas Todo-en-Uno */}
+            {dict.services.items[0] && (
+              <ScrollReveal delay={100}>
+                <div className="bracket-corners card-lift p-8 sm:p-10 rounded-xs border-2 border-[var(--accent-amber)] bg-[var(--surface-raised)] relative overflow-hidden group shadow-[0_4px_30px_rgba(0,0,0,0.12)]">
+                  {/* Ambient Cyber-Amber Glow */}
+                  <div 
+                    aria-hidden="true" 
+                    className="absolute top-0 right-0 w-80 h-80 bg-[var(--accent-amber-subtle)] rounded-full blur-3xl pointer-events-none -mr-20 -mt-20 opacity-40 group-hover:opacity-60 transition-opacity"
+                  />
+
+                  <div className="relative z-10">
+                    {/* Top Bar: Index + Category Tag */}
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-3xl sm:text-4xl font-bold text-[var(--accent-amber)]">
+                          {dict.services.items[0].index}
+                        </span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-amber)]" />
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.14em] rounded-xs bg-[var(--accent-amber)] text-black font-semibold">
+                          <Sparkles className="w-3 h-3" />
+                          {isEs ? 'Especialidad Destacada' : 'Flagship Specialty'}
+                        </span>
+                      </div>
+
+                      <Link
+                        href={`/${lang}/services#methodology`}
+                        className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-[var(--muted)] hover:text-[var(--accent-amber)] transition-colors group/link"
+                      >
+                        <span>{isEs ? 'Ver los 5 pasos del proceso' : 'View the 5-step process'}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform text-[var(--accent-amber)]" />
+                      </Link>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] tracking-tight mb-4 group-hover:text-[var(--accent-amber)] transition-colors">
+                      {dict.services.items[0].title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-3xl mb-8">
+                      {dict.services.items[0].description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[var(--border)]">
+                      <div className="flex flex-wrap gap-2">
+                        {dict.services.items[0].tags.map((tag: string) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 text-xs font-mono rounded-xs border border-[var(--border-strong)] bg-[var(--surface)] text-[var(--foreground)] group-hover:border-[var(--accent-amber)] transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/${lang}/services#methodology`}
+                        className="inline-flex sm:hidden items-center gap-1.5 text-xs font-mono text-[var(--accent-amber)] font-medium"
+                      >
+                        <span>{isEs ? 'Ver los 5 pasos del proceso' : 'View the 5-step process'}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            )}
           </div>
         </section>
 
@@ -164,8 +235,9 @@ export default async function HomePage({ params }: PageProps) {
         <Testimonials dict={dict} />
 
         {/* ─── Quick Contact Banner ───────────────────── */}
-        <section className="py-24 px-4 sm:px-6 bg-[var(--surface)] dot-pattern border-t border-[var(--border)]">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="relative overflow-hidden py-24 px-4 sm:px-6 bg-[var(--surface)] border-t border-[var(--border)]">
+          <InteractiveDots />
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <p className="geo-badge text-xs font-medium tracking-[0.18em] uppercase text-[var(--muted)] mb-3 justify-center">
                 04 / Conexión
@@ -176,7 +248,7 @@ export default async function HomePage({ params }: PageProps) {
               <p className="text-xs sm:text-sm text-[var(--muted)] max-w-md mx-auto mb-8">
                 {isEs
                   ? 'Ponte en contacto directo con nosotros para evaluar requerimientos y arquitectura.'
-                  : 'Get in direct touch with our engineering atelier to scope your project architecture.'}
+                  : 'Get in direct touch with our engineering team to scope your system architecture.'}
               </p>
               <Link
                 href={`/${lang}/contact`}

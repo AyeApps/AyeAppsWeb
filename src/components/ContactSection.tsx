@@ -158,7 +158,7 @@ export default function ContactSection({ dict, lang = 'es' }: { dict: Dict; lang
 
               <div className="flex items-center gap-2">
                 <a
-                  href="https://github.com/alberto24dev"
+                  href="https://github.com/ayeapps"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"

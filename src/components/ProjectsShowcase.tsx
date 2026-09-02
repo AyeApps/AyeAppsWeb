@@ -17,7 +17,11 @@ import {
   Download,
   Server,
   Laptop,
-  Sparkles
+  Sparkles,
+  Wallet,
+  TrendingUp,
+  ArrowRight,
+  ArrowUpRight
 } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
@@ -50,7 +54,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
   const [crmStep, setCrmStep] = useState<number>(2) // 0: Lead, 1: Contacted, 2: Booked, 3: Delivered
 
   // Interactive state for AyeVideoDownloader demo
-  const [downloaderMode, setDownloaderMode] = useState<'local' | 'cloud'>('local')
+  const [downloaderMode, setDownloaderMode] = useState<'local' | 'cloud'>('cloud')
   const [downloaderQuality, setDownloaderQuality] = useState<'4K' | '1080p' | 'MP3'>('4K')
 
   const p = dict.portfolio
@@ -125,10 +129,10 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                 <button
                   key={tab.id}
                   onClick={() => setFilter(tab.id as any)}
-                  className={`btn-press px-4 py-2 text-xs font-mono tracking-wide rounded-xs border transition-all ${
+                  className={`btn-press px-4 py-2 text-xs font-mono tracking-wide rounded-xs border transition-all cursor-pointer ${
                     active
                       ? 'border-[var(--accent-amber)] bg-[var(--accent-amber-subtle)] text-[var(--foreground)] font-bold shadow-xs'
-                      : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--foreground)] hover:border-[var(--border-strong)]'
+                      : 'border-black/15 bg-white text-neutral-700 hover:text-black dark:border-white/15 dark:bg-black dark:text-neutral-300 dark:hover:text-white'
                   }`}
                 >
                   {tab.label}
@@ -179,22 +183,23 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                   {/* Interactive Visual Representation Mockups */}
                   <div className="mb-6 p-4 rounded-xs border border-[var(--border)] bg-[var(--surface-raised)] overflow-hidden shadow-xs">
                     {project.id === 'fatima-resendiz' ? (
-                      /* Interactive Fatima Resendiz CRM Platform Mockup */
+                      /* Interactive Fatima Resendiz CRM Platform & Full Admin Panel Mockup */
                       <div className="space-y-3">
                         <div className="flex items-center justify-between pb-2 border-b border-[var(--border)] text-[10px] font-mono">
                           <div className="flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                             <span className="text-[var(--foreground)] font-semibold">fatimaresendiz.com</span>
                           </div>
-                          <span className="text-[var(--accent-amber)] uppercase font-bold tracking-wider text-[9px]">
-                            {lang === 'es' ? 'CRM INTERACTIVO' : 'LIVE CRM PIPELINE'}
+                          <span className="text-[var(--accent-amber)] uppercase font-bold tracking-wider text-[9px] flex items-center gap-1">
+                            <Sparkles className="w-2.5 h-2.5" />
+                            {lang === 'es' ? 'PANEL DE ADMIN · CONTROL TOTAL' : 'ADMIN PANEL · FULL CONTROL'}
                           </span>
                         </div>
 
                         {/* Interactive Pipeline Stage Stepper */}
                         <div className="space-y-1">
                           <div className="flex items-center justify-between text-[9px] font-mono text-[var(--muted)] pb-1">
-                            <span>{lang === 'es' ? 'Flujo de Lead:' : 'Lead Lifecycle:'}</span>
+                            <span>{lang === 'es' ? 'Flujo de Lead en CRM:' : 'Lead Lifecycle in CRM:'}</span>
                             <span className="text-[var(--accent-amber)] font-bold">{CRM_STAGES[crmStep].name}</span>
                           </div>
                           <div className="grid grid-cols-4 gap-1">
@@ -202,7 +207,7 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                               <button
                                 key={stg.name}
                                 onClick={() => setCrmStep(sIdx)}
-                                className={`py-1 text-[8.5px] font-mono rounded-xs border transition-all text-center ${
+                                className={`py-1 text-[8.5px] font-mono rounded-xs border transition-all text-center cursor-pointer ${
                                   sIdx === crmStep
                                     ? 'bg-[var(--accent-amber)] text-black font-bold border-[var(--accent-amber)]'
                                     : sIdx < crmStep
@@ -216,19 +221,19 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                           </div>
                         </div>
 
-                        {/* Connected services chips */}
+                        {/* Connected services & Admin modules */}
                         <div className="grid grid-cols-3 gap-1.5 pt-1 text-center font-mono text-[8.5px]">
+                          <div className="p-1.5 rounded-xs border border-[var(--accent-amber-border)] bg-[var(--accent-amber-subtle)]/40">
+                            <span className="text-[var(--accent-amber)] block font-bold">Panel de Admin</span>
+                            <span className="text-[var(--foreground)] text-[8px] font-medium">{lang === 'es' ? 'Modifica Todo en Vivo' : 'Live Content Control'}</span>
+                          </div>
                           <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
                             <span className="text-[var(--foreground)] block font-semibold">Pic-Time</span>
                             <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Galerías Privadas' : 'Private Galleries'}</span>
                           </div>
                           <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-semibold">FastAPI</span>
-                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Motor Asíncrono' : 'Async Engine'}</span>
-                          </div>
-                          <div className="p-1.5 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-semibold">Brevo</span>
-                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'Emails Automáticos' : 'Auto Email'}</span>
+                            <span className="text-[var(--foreground)] block font-semibold">FastAPI + Brevo</span>
+                            <span className="text-[var(--muted)] text-[8px]">{lang === 'es' ? 'CRM & Correos Auto' : 'CRM & Auto Email'}</span>
                           </div>
                         </div>
                       </div>
@@ -284,29 +289,18 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                         </div>
                       </div>
                     ) : project.id === 'aye-video-downloader' ? (
-                      /* Interactive AyeVideoDownloader Dual Engine Mockup */
+                      /* Interactive AyeVideoDownloader Web Platform Mockup */
                       <div className="space-y-2.5 font-mono text-[10px]">
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
                             <Download className="w-3.5 h-3.5 text-[var(--accent-amber)] animate-pulse" />
-                            AyeVideoDownloader Engine
+                            AyeVideoDownloader
                           </span>
-                          <span className="text-[var(--accent-amber)] text-[9px]">yt-dlp + FFmpeg</span>
+                          <span className="text-[var(--accent-amber)] text-[9px]">Web Platform · FastAPI + FFmpeg</span>
                         </div>
 
-                        {/* Dual Mode Switcher */}
+                        {/* Mode Switcher: Web Platform vs Native Apps Coming Soon */}
                         <div className="grid grid-cols-2 gap-1.5 p-1 rounded-xs bg-[var(--surface-alt)] border border-[var(--border)]">
-                          <button
-                            onClick={() => setDownloaderMode('local')}
-                            className={`flex items-center justify-center gap-1.5 py-1 text-[9px] rounded-xs transition-all cursor-pointer ${
-                              downloaderMode === 'local'
-                                ? 'bg-[var(--surface)] text-[var(--foreground)] font-bold border border-[var(--accent-amber-border)] shadow-xs'
-                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
-                            }`}
-                          >
-                            <Laptop className="w-3 h-3 text-emerald-500" />
-                            {lang === 'es' ? 'Modo Local (macOS)' : 'Local Engine (macOS)'}
-                          </button>
                           <button
                             onClick={() => setDownloaderMode('cloud')}
                             className={`flex items-center justify-center gap-1.5 py-1 text-[9px] rounded-xs transition-all cursor-pointer ${
@@ -315,8 +309,19 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                                 : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                             }`}
                           >
-                            <Server className="w-3 h-3 text-[var(--accent-amber)]" />
-                            {lang === 'es' ? 'Cloud Worker (FastAPI)' : 'Cloud Worker (FastAPI)'}
+                            <Server className="w-3 h-3 text-emerald-500" />
+                            {lang === 'es' ? 'Plataforma Web (Activa)' : 'Web Platform (Live)'}
+                          </button>
+                          <button
+                            onClick={() => setDownloaderMode('local')}
+                            className={`flex items-center justify-center gap-1.5 py-1 text-[9px] rounded-xs transition-all cursor-pointer ${
+                              downloaderMode === 'local'
+                                ? 'bg-[var(--surface)] text-[var(--foreground)] font-bold border border-[var(--accent-amber-border)] shadow-xs'
+                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
+                            }`}
+                          >
+                            <Laptop className="w-3 h-3 text-[var(--accent-amber)]" />
+                            {lang === 'es' ? 'App Mac & Móvil (Coming Soon)' : 'Mac & Mobile (Coming Soon)'}
                           </button>
                         </div>
 
@@ -337,33 +342,46 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                               </button>
                             ))}
                           </div>
-                          <div className="text-[8.5px] text-emerald-500 font-semibold flex items-center gap-1">
+                          <div className="text-[8.5px] font-semibold flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                            {downloaderMode === 'local'
-                              ? (lang === 'es' ? '28.4 MB/s · FFmpeg Local' : '28.4 MB/s · FFmpeg Direct')
-                              : (lang === 'es' ? 'Cola Asíncrona · 100% Nube' : 'Async Queue · 100% Cloud')}
+                            {downloaderMode === 'cloud' ? (
+                              <span className="text-emerald-500">
+                                {lang === 'es' ? 'Motor Cloud · 100% Sin Anuncios' : 'Cloud Engine · 100% Ad-Free'}
+                              </span>
+                            ) : (
+                              <span className="text-[var(--accent-amber)]">
+                                {lang === 'es' ? 'En Reingeniería · Coming Soon' : 'In Re-engineering · Coming Soon'}
+                              </span>
+                            )}
                           </div>
                         </div>
                       </div>
-                    ) : project.id === 'ayerecipes' ? (
-                      /* AyeRecipes S3 Direct Upload Mockup */
+                    ) : project.id === 'ayefinance' ? (
+                      /* AyeFinance Multi-Account Ledger & Cash Flow Mockup */
                       <div className="space-y-2 font-mono text-[10px]">
                         <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border)]">
                           <span className="text-[var(--foreground)] font-bold flex items-center gap-1.5">
-                            <Camera className="w-3 h-3 text-[var(--accent-amber)]" />
-                            {lang === 'es' ? 'Pipeline Prefirmado S3' : 'Presigned S3 Pipeline'}
+                            <Wallet className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+                            AyeFinance Cash Flow
                           </span>
-                          <span className="text-emerald-500 text-[9px]">{lang === 'es' ? 'PUT Seguro (10 min)' : '10-min Secure PUT'}</span>
+                          <span className="text-emerald-500 text-[9px] flex items-center gap-1">
+                            <TrendingUp className="w-2.5 h-2.5" />
+                            {lang === 'es' ? 'Proyección 30 Días' : '30-Day Forecast'}
+                          </span>
                         </div>
                         <div className="grid grid-cols-2 gap-1.5 text-[8.5px]">
                           <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-semibold">Tier-1 NSCache</span>
-                            <span className="text-[var(--muted)]">{lang === 'es' ? 'Sin Fugas de Memoria' : 'Zero RAM Leak'}</span>
+                            <span className="text-[var(--muted)] block text-[8px] uppercase">{lang === 'es' ? 'Nómina · BBVA' : 'Checking · BBVA'}</span>
+                            <span className="text-[var(--foreground)] font-bold">$42,850.00 MXN</span>
                           </div>
                           <div className="p-2 rounded-xs border border-[var(--border)] bg-[var(--surface-alt)]">
-                            <span className="text-[var(--foreground)] block font-semibold">FastAPI Async</span>
-                            <span className="text-[var(--muted)]">{lang === 'es' ? '4 Concurrencias Máx' : '4 Max Concurrent'}</span>
+                            <span className="text-[var(--muted)] block text-[8px] uppercase">{lang === 'es' ? 'Ahorro · Nu (15%)' : 'Savings · Nu (15%)'}</span>
+                            <span className="text-[var(--accent-amber)] font-bold">$128,400.00 MXN</span>
                           </div>
+                        </div>
+                        <div className="flex items-center justify-between pt-1 text-[8px] text-[var(--muted)] border-t border-[var(--border)]/60">
+                          <span>{lang === 'es' ? 'FastAPI + Beanie ODM' : 'FastAPI + Beanie ODM'}</span>
+                          <span className="text-emerald-500 font-semibold">{lang === 'es' ? 'Flujo Neto: +$34,200' : 'Net Flow: +$34,200'}</span>
                         </div>
                       </div>
                     ) : (
@@ -414,40 +432,97 @@ export default function ProjectsShowcase({ dict, lang }: { dict: Dict; lang: 'es
                     ))}
                   </div>
 
-                  {/* Actions Links */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[var(--border)]">
-                    {['fatima-resendiz', 'aye-video-downloader'].includes(project.slug) && (
-                      <Link
-                        href={`/${lang}/portfolio/${project.slug}`}
-                        className="btn-press inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xs bg-[var(--surface-raised)] border border-[var(--accent-amber-border)] text-[var(--foreground)] hover:bg-[var(--accent-amber)] hover:text-black transition-colors"
-                      >
-                        <Sparkles className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                        <span>{p.view_case}</span>
-                      </Link>
-                    )}
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-press inline-flex items-center gap-1.5 text-xs font-medium text-[var(--foreground)] hover:text-[var(--accent-amber)] transition-colors"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                        {p.view_live}
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-press inline-flex items-center gap-1.5 text-xs font-medium text-[var(--foreground)] hover:text-[var(--accent-amber)] transition-colors"
-                      >
-                        <GithubIcon className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
-                        {p.view_github}
-                      </a>
-                    )}
-                  </div>
+                  {/* Actions Links with Impeccable Visual Hierarchy */}
+                  {(() => {
+                    const hasCaseStudy = ['fatima-resendiz', 'aye-video-downloader'].includes(project.slug)
+                    const hasRepo = Boolean(project.githubUrl)
+                    const hasLive = Boolean(project.liveUrl)
+
+                    if (hasCaseStudy) {
+                      return (
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-5 border-t border-[var(--border)]">
+                          {/* Vibrant Eye-Catching Orange Button */}
+                          <Link
+                            href={`/${lang}/portfolio/${project.slug}`}
+                            className="btn-press inline-flex items-center justify-center gap-2 px-5 py-3 text-xs uppercase tracking-[0.14em] font-bold bg-[var(--accent-amber)] hover:bg-[#ffb020] text-black rounded-xs shadow-xs hover:shadow-sm transition-all flex-1"
+                          >
+                            <Sparkles className="w-3.5 h-3.5 fill-black/20" />
+                            <span>{p.view_case}</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+
+                          {/* Companion Secondary Button (Repo or Live) */}
+                          {hasRepo && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-press inline-flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono uppercase tracking-[0.12em] font-semibold border border-[var(--border-strong)] hover:border-[var(--foreground)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] text-[var(--foreground)] rounded-xs transition-colors"
+                            >
+                              <GithubIcon className="w-3.5 h-3.5 text-[var(--muted)]" />
+                              <span>{p.view_github}</span>
+                            </a>
+                          )}
+
+                          {hasLive && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-press inline-flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono uppercase tracking-[0.12em] font-semibold border border-[var(--border-strong)] hover:border-[var(--foreground)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] text-[var(--foreground)] rounded-xs transition-colors"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+                              <span>{p.view_live}</span>
+                            </a>
+                          )}
+                        </div>
+                      )
+                    }
+
+                    if (hasRepo) {
+                      return (
+                        <div className="flex items-center justify-center pt-5 border-t border-[var(--border)]">
+                          {/* Centered button with subtle presence */}
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-press inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-mono uppercase tracking-[0.12em] text-[var(--muted)] hover:text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--border-strong)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] rounded-xs transition-all mx-auto group/btn"
+                          >
+                            <GithubIcon className="w-3.5 h-3.5 text-[var(--muted)] group-hover/btn:text-[var(--accent-amber)] transition-colors" />
+                            <span>{p.view_github}</span>
+                            <ArrowUpRight className="w-3 h-3 text-[var(--muted)] group-hover/btn:text-[var(--accent-amber)] transition-colors" />
+                          </a>
+                        </div>
+                      )
+                    }
+
+                    if (hasLive) {
+                      return (
+                        <div className="flex items-center justify-center pt-5 border-t border-[var(--border)]">
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-press inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-mono uppercase tracking-[0.12em] text-[var(--muted)] hover:text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--border-strong)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] rounded-xs transition-all mx-auto"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-[var(--accent-amber)]" />
+                            <span>{p.view_live}</span>
+                          </a>
+                        </div>
+                      )
+                    }
+
+                    // Proprietary enterprise without public links
+                    return (
+                      <div className="flex items-center justify-center pt-5 border-t border-[var(--border)]">
+                        <span className="inline-flex items-center justify-center gap-2 px-4 py-2 text-[11px] font-mono text-[var(--muted)] border border-[var(--border)]/70 bg-[var(--surface-alt)]/60 rounded-xs mx-auto">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                          <span>{lang === 'es' ? 'Código Empresarial Privado' : 'Private Enterprise Codebase'}</span>
+                        </span>
+                      </div>
+                    )
+                  })()}
                 </div>
               </div>
             </ScrollReveal>

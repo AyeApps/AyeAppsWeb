@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: PageProps) {
       ? 'Contacto & Canales Directos — AyeApps'
       : 'Contact & Direct Channels — AyeApps',
     description: isEs
-      ? 'Ponte en contacto directo con el atelier de software de AyeApps por WhatsApp, Email o Redes Sociales.'
-      : 'Direct contact with AyeApps software engineering atelier via WhatsApp, Email, or Social Networks.',
+      ? 'Ponte en contacto directo con el equipo de ingeniería de software de AyeApps por WhatsApp, Email o Redes Sociales.'
+      : 'Direct contact with the AyeApps software engineering team via WhatsApp, Email, or Social Networks.',
   }
 }
 

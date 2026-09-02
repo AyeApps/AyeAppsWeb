@@ -33,9 +33,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'AyeApps — Atelier de Software & Aplicaciones a Medida',
-  description: 'Boutique de ingeniería y desarrollo de software en Querétaro, México. Páginas web, web apps, apps nativas iOS y arquitecturas backend con Next.js, Swift y FastAPI.',
-  keywords: ['AyeApps', 'desarrollo web Querétaro', 'apps iOS Swift', 'Next.js', 'FastAPI', 'software a medida', 'ingeniería de software'],
+  title: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
+  description: 'Ingeniería y desarrollo de sistemas de software completos en Querétaro, México. Plataformas web, apps nativas iOS y arquitecturas cloud con Next.js, Swift y FastAPI.',
+  keywords: ['AyeApps', 'desarrollo de sistemas Querétaro', 'apps iOS Swift', 'Next.js', 'FastAPI', 'sistemas cloud', 'ingeniería de software'],
   authors: [{ name: 'Alberto Montero — AyeApps' }],
   icons: {
     icon: '/favicon.svg',
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://home.ayeapps.com',
-    title: 'AyeApps — Atelier de Software & Aplicaciones a Medida',
-    description: 'Ingeniería de software con precisión y carácter. Next.js, Swift, FastAPI & Cloud.',
+    title: 'AyeApps — Sistemas de Software Completos & Plataformas Cloud',
+    description: 'Sistemas de software completos, rápidos y en la nube. Next.js, Swift, FastAPI & Cloud.',
     siteName: 'AyeApps',
   },
 }

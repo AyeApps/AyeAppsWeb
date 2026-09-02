@@ -13,30 +13,42 @@ const STACK_CATEGORIES = [
   {
     icon: Smartphone,
     title: 'Mobile & Apple Ecosystem',
-    description: 'Apps nativas con rendimiento de 60fps y aprovechamiento del hardware.',
+    description: {
+      es: 'Aplicaciones nativas e híbridas de alto rendimiento con fluidez a 60/120 fps y aprovechamiento integral del hardware móvil.',
+      en: 'High-performance native and cross-platform mobile apps engineered for fluid 60/120 fps interactions and direct hardware utilization.',
+    },
     techs: ['Swift', 'SwiftUI', 'MVVM', 'AVFoundation', 'Accelerate vDSP', 'React Native / Expo'],
   },
   {
     icon: Layout,
     title: 'Frontend & Web Platforms',
-    description: 'Arquitectura App Router, Server Components y diseño editorial.',
+    description: {
+      es: 'Plataformas web de alta velocidad con React Server Components (RSC), arquitectura modular y tipado estricto de punta a punta.',
+      en: 'Blazingly fast web platforms powered by React Server Components (RSC), modular architecture, and end-to-end strict type safety.',
+    },
     techs: ['Next.js', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Geist UI'],
   },
   {
     icon: Server,
     title: 'Backend & Cloud Infrastructure',
-    description: 'Microservicios asíncronos y bases de datos escalables contenerizadas.',
+    description: {
+      es: 'Microservicios asíncronos de baja latencia, bases de datos optimizadas para alta concurrencia y contenedores Docker predecibles.',
+      en: 'Low-latency asynchronous microservices, high-concurrency optimized databases, and deterministic Docker container environments.',
+    },
     techs: ['Python', 'FastAPI', 'MongoDB Atlas', 'PostgreSQL', 'Docker Compose', 'AWS S3'],
   },
   {
     icon: ShieldCheck,
     title: 'Security, Payments & Edge',
-    description: 'Protección en el borde, pagos seguros y automatización de marketing.',
+    description: {
+      es: 'Distribución global con protección perimetral, pasarelas de pago seguras y flujos de eventos automatizados con APIs y webhooks.',
+      en: 'Global Edge routing with perimeter security, authenticated payment gateways, and automated webhook event pipelines.',
+    },
     techs: ['Cloudflare Pages / Workers', 'Cloudflare Turnstile', 'Stripe', 'Brevo API', 'JWT Security'],
   },
 ]
 
-export default function TechStack({ dict }: { dict: Dict }) {
+export default function TechStack({ dict, lang = 'es' }: { dict: Dict; lang?: string }) {
   const st = dict.stack
 
   return (
@@ -82,7 +94,9 @@ export default function TechStack({ dict }: { dict: Dict }) {
                       {cat.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[var(--muted)] mb-6 leading-relaxed">
-                      {cat.description}
+                      {typeof cat.description === 'string'
+                        ? cat.description
+                        : cat.description[lang as 'es' | 'en'] || cat.description.es}
                     </p>
                   </div>
 
