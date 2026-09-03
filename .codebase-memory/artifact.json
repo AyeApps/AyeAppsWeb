@@ -1,11 +1,11 @@
 {
     "schema_version": 1,
-    "commit": "ed6421691bfe8e6335f90053802fcc44b723e879",
-    "indexed_at": "2026-09-02T21:50:58Z",
-    "project": "Users-alberto24dev-Documents-Projects-Code-Aye-AyeAppsWeb",
+    "commit": "5ab0ebff9e5a9cadd6f2e976dc99760606b0c504",
+    "indexed_at": "2026-09-03T16:02:29Z",
+    "project": "Users-alberto24dev-tech-code-aye-ayeappsweb",
     "nodes": 389,
-    "edges": 558,
-    "original_size": 2424832,
-    "compressed_size": 296418,
-    "compression_level": 3
+    "edges": 599,
+    "original_size": 1835008,
+    "compressed_size": 266788,
+    "compression_level": 9
 }
