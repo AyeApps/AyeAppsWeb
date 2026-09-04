@@ -126,6 +126,20 @@ export default function RootLayout({
             __html: `(function(){try{var p=window.location.pathname;if(p==='/'||p===''){var s=localStorage.getItem('preferred_lang');if(s==='en'||s==='es'){window.location.replace('/'+s);return}var l=(navigator.language||navigator.userLanguage||'es').toLowerCase();if(l.startsWith('es')){window.location.replace('/es')}else{window.location.replace('/en')}}}catch(e){}})()`,
           }}
         />
+
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PJVGDYQM61"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PJVGDYQM61');
+          `}
+        </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${cormorant.variable} ${montserrat.variable} antialiased selection:bg-[var(--accent-amber)] selection:text-black`}>
         {children}
