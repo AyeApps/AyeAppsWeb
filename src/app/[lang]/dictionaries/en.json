@@ -183,6 +183,32 @@
   },
   "footer": {
     "tagline": "Engineering end-to-end software systems, web platforms, and custom mobile applications.",
+    "ecosystem_badge": "AyeApps Ecosystem",
+    "ecosystem_title": "Cloud & Application Suite",
+    "nav_title": "Navigation",
+    "status_badge": "Production Platforms",
+    "apps": {
+      "video": {
+        "name": "AyeVideoDownloader",
+        "desc": "4K Multimedia & MP3 Downloader",
+        "tag": "4K · MP3"
+      },
+      "tasks": {
+        "name": "AyeTasks",
+        "desc": "Project & Time Management",
+        "tag": "Productivity"
+      },
+      "finance": {
+        "name": "AyeFinance",
+        "desc": "Cash Flow & Financial Intelligence",
+        "tag": "Fintech"
+      },
+      "auth": {
+        "name": "AyeAuth",
+        "desc": "Unified Identity & Security",
+        "tag": "SSO · JWT"
+      }
+    },
     "rights": "All rights reserved.",
     "built_with": "Built with ❤️ by alberto"
   }

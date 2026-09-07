@@ -8,6 +8,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/_next/static/media/'],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/_next/static/media/'],
       },
     ],
     sitemap: 'https://ayeapps.com/sitemap.xml',

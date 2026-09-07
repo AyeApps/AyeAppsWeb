@@ -328,6 +328,7 @@ export const CASE_STUDIES: Record<string, CaseStudyData> = {
       es: 'Arquitectura Cloud, Pipelines FFmpeg & Desarrollo Web',
       en: 'Cloud Architecture, FFmpeg Pipelines & Web Engineering'
     },
+    liveUrl: 'https://video.ayeapps.com',
     githubUrl: 'https://github.com/ayeapps/AyeVideoDownloader',
     heroTaglineBusiness: {
       es: 'Una plataforma web limpia, rápida y sin anuncios para descargar videos en 4K HDR, música en alta fidelidad y descargas múltiples en cola.',

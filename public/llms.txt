@@ -3,10 +3,11 @@
 > Suite de ingeniería de software de alta precisión, infraestructura en la nube y aplicaciones multiplataforma.
 
 ## Ecosistema de Productos & Plataformas
+- [AyeTasks](https://tasks.ayeapps.com): Sistema de productividad multiplataforma (iOS, Android, Web) con árboles jerárquicos de hasta 25 niveles y backend asíncrono en FastAPI + MongoDB.
+- [AyeVideoDownloader](https://video.ayeapps.com): Plataforma web de transcodificación y extracción multimedia en 4K HDR y MP3 a 320 kbps sin anuncios, con motor en FastAPI y FFmpeg.
+- [AyeFinance](https://finance.ayeapps.com): Motor de flujo de caja, gestión multicuentas y proyecciones automatizadas de liquidez a 30 días con Expo y FastAPI.
+- [AyeAuth](https://accounts.ayeapps.com): Servicio unificado de identidad, SSO y seguridad para todo el ecosistema AyeApps.
 - [Fatima Resendiz Web & iOS](https://fatimaresendiz.com): Ecosistema fotográfico profesional que integra sitio público en Next.js, app nativa de iOS y panel de administración privado con control total de precios, paquetes, citas y galerías Pic-Time en tiempo real.
-- [AyeTasks](https://github.com/ayeapps/AyeTasks): Sistema de productividad multiplataforma (iOS, Android, Web) con árboles jerárquicos de hasta 25 niveles y backend asíncrono en FastAPI + MongoDB.
-- [Aye Video Downloader](https://github.com/ayeapps/AyeVideoDownloader): Plataforma web de transcodificación y extracción multimedia en 4K HDR y MP3 a 320 kbps sin anuncios, con motor en FastAPI y FFmpeg.
-- [AyeFinance](https://github.com/ayeapps/AyeFinance): Motor de flujo de caja, gestión multicuentas y proyecciones automatizadas de liquidez a 30 días con Expo y FastAPI.
 
 ## Servicios de Ingeniería de Software
 - Ecosistemas Todo-en-Uno: Plataformas Web de alto rendimiento (Next.js), Portales Privados de Autoservicio y Apps Móviles (iOS/Android con React Native y Swift).

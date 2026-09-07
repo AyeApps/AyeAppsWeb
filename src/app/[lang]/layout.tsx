@@ -41,17 +41,113 @@ export default async function LangLayout({
       addressRegion: 'QRO',
       addressCountry: 'MX',
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: 'alberto@contact.ayeapps.com',
-      telephone: '+52-442-352-2387',
-      contactType: 'customer support',
-      availableLanguage: ['Spanish', 'English'],
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        email: 'alberto@contact.ayeapps.com',
+        telephone: '+52-442-352-2387',
+        contactType: 'customer support',
+        areaServed: ['MX', 'US', 'ES', 'Global'],
+        availableLanguage: ['Spanish', 'English'],
+      },
+      {
+        '@type': 'ContactPoint',
+        email: 'alberto@contact.ayeapps.com',
+        telephone: '+52-442-352-2387',
+        contactType: 'technical support',
+        areaServed: ['MX', 'US', 'ES', 'Global'],
+        availableLanguage: ['Spanish', 'English'],
+      },
+    ],
     sameAs: [
       'https://github.com/ayeapps',
       'https://linkedin.com/in/alberto24dev',
       'https://www.instagram.com/aye_apps_dev/',
+      'https://x.com/ayeapps',
+    ],
+    hasPart: [
+      {
+        '@type': 'WebApplication',
+        '@id': 'https://video.ayeapps.com/#app',
+        name: 'AyeVideoDownloader',
+        url: 'https://video.ayeapps.com',
+        applicationCategory: 'MultimediaApplication',
+        operatingSystem: 'All',
+        description:
+          lang === 'es'
+            ? 'Descargador Multimedia 4K UHD y conversor de audio MP3 de alta fidelidad sin pérdida.'
+            : 'Lossless 4K UHD multimedia downloader and high-fidelity MP3 conversion engine.',
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': 'https://tasks.ayeapps.com/#app',
+        name: 'AyeTasks',
+        url: 'https://tasks.ayeapps.com',
+        applicationCategory: 'ProductivityApplication',
+        operatingSystem: 'All',
+        description:
+          lang === 'es'
+            ? 'Gestor jerárquico de proyectos y tareas con agendamiento polimórfico y sincronización cloud en tiempo real.'
+            : 'Hierarchical project and task manager with polymorphic scheduling and real-time cloud sync.',
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': 'https://finance.ayeapps.com/#app',
+        name: 'AyeFinance',
+        url: 'https://finance.ayeapps.com',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        description:
+          lang === 'es'
+            ? 'Plataforma de inteligencia financiera, control de flujo de caja y balances multicuentas en tiempo real.'
+            : 'Financial intelligence platform, real-time cash flow control, and multi-account balance management.',
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': 'https://accounts.ayeapps.com/#app',
+        name: 'AyeAuth',
+        url: 'https://accounts.ayeapps.com',
+        applicationCategory: 'SecurityApplication',
+        operatingSystem: 'All',
+        description:
+          lang === 'es'
+            ? 'Servicio centralizado de identidad, autenticación unificada SSO y gestión de accesos para la suite AyeApps.'
+            : 'Centralized identity provider, unified SSO, and permission management for the AyeApps suite.',
+      },
+    ],
+    owns: [
+      {
+        '@type': 'OwnershipInfo',
+        typeOfGood: {
+          '@type': 'WebApplication',
+          name: 'AyeVideoDownloader',
+          url: 'https://video.ayeapps.com',
+        },
+      },
+      {
+        '@type': 'OwnershipInfo',
+        typeOfGood: {
+          '@type': 'WebApplication',
+          name: 'AyeTasks',
+          url: 'https://tasks.ayeapps.com',
+        },
+      },
+      {
+        '@type': 'OwnershipInfo',
+        typeOfGood: {
+          '@type': 'WebApplication',
+          name: 'AyeFinance',
+          url: 'https://finance.ayeapps.com',
+        },
+      },
+      {
+        '@type': 'OwnershipInfo',
+        typeOfGood: {
+          '@type': 'WebApplication',
+          name: 'AyeAuth',
+          url: 'https://accounts.ayeapps.com',
+        },
+      },
     ],
   }
 

@@ -183,6 +183,32 @@
   },
   "footer": {
     "tagline": "Desarrollo de sistemas de software completos, plataformas web y aplicaciones móviles a medida.",
+    "ecosystem_badge": "Ecosistema AyeApps",
+    "ecosystem_title": "Suite de Aplicaciones & Cloud",
+    "nav_title": "Navegación",
+    "status_badge": "Plataformas en Producción",
+    "apps": {
+      "video": {
+        "name": "AyeVideoDownloader",
+        "desc": "Descargador Multimedia 4K & MP3",
+        "tag": "4K · MP3"
+      },
+      "tasks": {
+        "name": "AyeTasks",
+        "desc": "Gestor de Proyectos & Tiempo",
+        "tag": "Productividad"
+      },
+      "finance": {
+        "name": "AyeFinance",
+        "desc": "Flujo de Caja & Finanzas",
+        "tag": "Fintech"
+      },
+      "auth": {
+        "name": "AyeAuth",
+        "desc": "Identidad & Seguridad",
+        "tag": "SSO · JWT"
+      }
+    },
     "rights": "Todos los derechos reservados.",
     "built_with": "Construido con ❤️ por alberto"
   }
